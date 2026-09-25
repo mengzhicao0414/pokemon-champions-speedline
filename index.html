@@ -84,6 +84,11 @@ h1 { font-size:28px; line-height:1.08; letter-spacing:-.03em; margin:0 0 8px; }
 .name-row { display:flex; align-items:flex-start; justify-content:space-between; gap:8px; }
 h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
 .meta { color:var(--muted); font-size:11px; margin-top:4px; }
+.type-row { display:flex; flex-wrap:wrap; gap:4px; margin-top:6px; }
+.type-badge {
+  display:inline-block; border-radius:6px; padding:3px 7px;
+  color:white; font-size:10px; line-height:1.25; font-weight:800;
+}
 .mine {
   display:inline-flex; flex:0 0 auto; align-items:center; justify-content:center;
   color:var(--team-ink); background:#ffe679; border-radius:999px; padding:5px 8px;
@@ -141,7 +146,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
     </div>
     <div class="key">
       你的队伍：大嘴鸥 / 西狮海壬 / 多龙巴鲁托 / 奇麒麟 / 具甲武者 / 喷火龙。<br>
-      这次我直接扩成了前70，所以多龙巴鲁托已经直接在常规区里；有 Mega 形态的宝可梦，在常规卡片上直接标注速度变化；点击紫色标签可跳到对应的 Mega 卡片。Mega 区也按进化后速度排列。
+      这次我直接扩成了前70，所以多龙巴鲁托已经直接在常规区里；每张卡片都标有宝可梦属性（Mega 形态按进化后的属性）；有 Mega 形态的宝可梦，在常规卡片上直接标注速度变化；点击紫色标签可跳到对应的 Mega 卡片。Mega 区也按进化后速度排列。
     </div>
   </section>
 
@@ -175,6 +180,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>多龙巴鲁托</h2>
+            <div class="type-row" aria-label="属性：龙、幽灵"><span class="type-badge" style="background:#5a65bb">龙</span><span class="type-badge" style="background:#665696">幽灵</span></div>
             <div class="meta">双打使用率排名 #55</div>
           </div>
           <span class="mine">我的队伍</span>
@@ -193,6 +199,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>化石翼龙</h2>
+            <div class="type-row" aria-label="属性：岩石、飞行"><span class="type-badge" style="background:#9b7c42">岩石</span><span class="type-badge" style="background:#667abc">飞行</span></div>
             <div class="meta">双打使用率排名 #41</div>
             <div class="mega-changes"><a class="mega-change" href="#mega-1" aria-label="Mega化石翼龙速度变化：130 → 150（+20）">Mega速度：130 → 150（+20）</a></div>
           </div>
@@ -212,6 +219,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>烈箭鹰</h2>
+            <div class="type-row" aria-label="属性：火、飞行"><span class="type-badge" style="background:#e87835">火</span><span class="type-badge" style="background:#667abc">飞行</span></div>
             <div class="meta">双打使用率排名 #52</div>
           </div>
           
@@ -230,6 +238,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>魔幻假面喵</h2>
+            <div class="type-row" aria-label="属性：草、恶"><span class="type-badge" style="background:#37935e">草</span><span class="type-badge" style="background:#5a5261">恶</span></div>
             <div class="meta">双打使用率排名 #68</div>
           </div>
           
@@ -248,6 +257,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>千面避役</h2>
+            <div class="type-row" aria-label="属性：水"><span class="type-badge" style="background:#448aca">水</span></div>
             <div class="meta">双打使用率排名 #63</div>
           </div>
           
@@ -266,6 +276,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>大狃拉</h2>
+            <div class="type-row" aria-label="属性：格斗、毒"><span class="type-badge" style="background:#ba5646">格斗</span><span class="type-badge" style="background:#9251a4">毒</span></div>
             <div class="meta">双打使用率排名 #2</div>
           </div>
           
@@ -284,6 +295,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>胡地</h2>
+            <div class="type-row" aria-label="属性：超能力"><span class="type-badge" style="background:#c75583">超能力</span></div>
             <div class="meta">双打使用率排名 #70</div>
             <div class="mega-changes"><a class="mega-change" href="#mega-2" aria-label="Mega胡地速度变化：120 → 150（+30）">Mega速度：120 → 150（+30）</a></div>
           </div>
@@ -303,6 +315,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>风妖精</h2>
+            <div class="type-row" aria-label="属性：草、妖精"><span class="type-badge" style="background:#37935e">草</span><span class="type-badge" style="background:#b9559d">妖精</span></div>
             <div class="meta">双打使用率排名 #21</div>
           </div>
           
@@ -321,6 +334,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>一家鼠</h2>
+            <div class="type-row" aria-label="属性：一般"><span class="type-badge" style="background:#88857e">一般</span></div>
             <div class="meta">双打使用率排名 #51</div>
           </div>
           
@@ -339,6 +353,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>索罗亚克（洗翠）</h2>
+            <div class="type-row" aria-label="属性：一般、幽灵"><span class="type-badge" style="background:#88857e">一般</span><span class="type-badge" style="background:#665696">幽灵</span></div>
             <div class="meta">双打使用率排名 #65</div>
           </div>
           
@@ -357,6 +372,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>耿鬼</h2>
+            <div class="type-row" aria-label="属性：幽灵、毒"><span class="type-badge" style="background:#665696">幽灵</span><span class="type-badge" style="background:#9251a4">毒</span></div>
             <div class="meta">双打使用率排名 #37</div>
             <div class="mega-changes"><a class="mega-change" href="#mega-3" aria-label="Mega耿鬼速度变化：110 → 130（+20）">Mega速度：110 → 130（+20）</a></div>
           </div>
@@ -376,6 +392,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>雪妖女</h2>
+            <div class="type-row" aria-label="属性：冰、幽灵"><span class="type-badge" style="background:#2b929b">冰</span><span class="type-badge" style="background:#665696">幽灵</span></div>
             <div class="meta">双打使用率排名 #35</div>
           </div>
           
@@ -394,6 +411,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>雷丘</h2>
+            <div class="type-row" aria-label="属性：电"><span class="type-badge" style="background:#ae8500">电</span></div>
             <div class="meta">双打使用率排名 #17</div>
           </div>
           
@@ -412,6 +430,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>九尾（阿罗拉）</h2>
+            <div class="type-row" aria-label="属性：冰、妖精"><span class="type-badge" style="background:#2b929b">冰</span><span class="type-badge" style="background:#b9559d">妖精</span></div>
             <div class="meta">双打使用率排名 #38</div>
           </div>
           
@@ -430,6 +449,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>巴布土拨</h2>
+            <div class="type-row" aria-label="属性：电、格斗"><span class="type-badge" style="background:#ae8500">电</span><span class="type-badge" style="background:#ba5646">格斗</span></div>
             <div class="meta">双打使用率排名 #42</div>
           </div>
           
@@ -448,6 +468,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>妖火红狐</h2>
+            <div class="type-row" aria-label="属性：火、超能力"><span class="type-badge" style="background:#e87835">火</span><span class="type-badge" style="background:#c75583">超能力</span></div>
             <div class="meta">双打使用率排名 #48</div>
           </div>
           
@@ -466,6 +487,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>烈咬陆鲨</h2>
+            <div class="type-row" aria-label="属性：龙、地面"><span class="type-badge" style="background:#5a65bb">龙</span><span class="type-badge" style="background:#a67833">地面</span></div>
             <div class="meta">双打使用率排名 #9</div>
           </div>
           
@@ -484,6 +506,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>喷火龙</h2>
+            <div class="type-row" aria-label="属性：火、飞行"><span class="type-badge" style="background:#e87835">火</span><span class="type-badge" style="background:#667abc">飞行</span></div>
             <div class="meta">双打使用率排名 #15</div>
             <div class="mega-changes"><a class="mega-change" href="#mega-9" aria-label="Mega喷火龙X速度变化：100 → 100（+0）">Mega 喷火龙X速度：100 → 100（+0）</a><a class="mega-change" href="#mega-10" aria-label="Mega喷火龙Y速度变化：100 → 100（+0）">Mega 喷火龙Y速度：100 → 100（+0）</a></div>
           </div>
@@ -503,6 +526,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>姆克鹰</h2>
+            <div class="type-row" aria-label="属性：一般、飞行"><span class="type-badge" style="background:#88857e">一般</span><span class="type-badge" style="background:#667abc">飞行</span></div>
             <div class="meta">双打使用率排名 #23</div>
           </div>
           
@@ -521,6 +545,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>暴飞龙</h2>
+            <div class="type-row" aria-label="属性：龙、飞行"><span class="type-badge" style="background:#5a65bb">龙</span><span class="type-badge" style="background:#667abc">飞行</span></div>
             <div class="meta">双打使用率排名 #3</div>
             <div class="mega-changes"><a class="mega-change" href="#mega-4" aria-label="Mega暴飞龙速度变化：100 → 120（+20）">Mega速度：100 → 120（+20）</a></div>
           </div>
@@ -540,6 +565,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>火神蛾</h2>
+            <div class="type-row" aria-label="属性：虫、火"><span class="type-badge" style="background:#788c24">虫</span><span class="type-badge" style="background:#e87835">火</span></div>
             <div class="meta">双打使用率排名 #30</div>
           </div>
           
@@ -558,6 +584,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>三首恶龙</h2>
+            <div class="type-row" aria-label="属性：恶、龙"><span class="type-badge" style="background:#5a5261">恶</span><span class="type-badge" style="background:#5a65bb">龙</span></div>
             <div class="meta">双打使用率排名 #57</div>
           </div>
           
@@ -576,6 +603,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>火暴兽（洗翠）</h2>
+            <div class="type-row" aria-label="属性：火、幽灵"><span class="type-badge" style="background:#e87835">火</span><span class="type-badge" style="background:#665696">幽灵</span></div>
             <div class="meta">双打使用率排名 #60</div>
           </div>
           
@@ -594,6 +622,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>爱管侍（♂）</h2>
+            <div class="type-row" aria-label="属性：超能力、一般"><span class="type-badge" style="background:#c75583">超能力</span><span class="type-badge" style="background:#88857e">一般</span></div>
             <div class="meta">双打使用率排名 #27</div>
           </div>
           
@@ -612,6 +641,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>花叶蒂（永恒之花）</h2>
+            <div class="type-row" aria-label="属性：妖精"><span class="type-badge" style="background:#b9559d">妖精</span></div>
             <div class="meta">双打使用率排名 #28</div>
           </div>
           
@@ -630,6 +660,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>弃世猴</h2>
+            <div class="type-row" aria-label="属性：格斗、幽灵"><span class="type-badge" style="background:#ba5646">格斗</span><span class="type-badge" style="background:#665696">幽灵</span></div>
             <div class="meta">双打使用率排名 #49</div>
           </div>
           
@@ -648,6 +679,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>路卡利欧</h2>
+            <div class="type-row" aria-label="属性：格斗、钢"><span class="type-badge" style="background:#ba5646">格斗</span><span class="type-badge" style="background:#647d91">钢</span></div>
             <div class="meta">双打使用率排名 #32</div>
             <div class="mega-changes"><a class="mega-change" href="#mega-6" aria-label="Mega路卡利欧速度变化：90 → 112（+22）">Mega速度：90 → 112（+22）</a></div>
           </div>
@@ -667,6 +699,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>风速狗（洗翠）</h2>
+            <div class="type-row" aria-label="属性：火、岩石"><span class="type-badge" style="background:#e87835">火</span><span class="type-badge" style="background:#9b7c42">岩石</span></div>
             <div class="meta">双打使用率排名 #18</div>
           </div>
           
@@ -685,6 +718,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>彩粉蝶（Fancy）</h2>
+            <div class="type-row" aria-label="属性：虫、飞行"><span class="type-badge" style="background:#788c24">虫</span><span class="type-badge" style="background:#667abc">飞行</span></div>
             <div class="meta">双打使用率排名 #64</div>
           </div>
           
@@ -703,6 +737,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>龙头地鼠</h2>
+            <div class="type-row" aria-label="属性：地面、钢"><span class="type-badge" style="background:#a67833">地面</span><span class="type-badge" style="background:#647d91">钢</span></div>
             <div class="meta">双打使用率排名 #29</div>
           </div>
           
@@ -721,6 +756,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>戟脊龙</h2>
+            <div class="type-row" aria-label="属性：龙、冰"><span class="type-badge" style="background:#5a65bb">龙</span><span class="type-badge" style="background:#2b929b">冰</span></div>
             <div class="meta">双打使用率排名 #36</div>
           </div>
           
@@ -739,6 +775,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>晶光花</h2>
+            <div class="type-row" aria-label="属性：岩石、毒"><span class="type-badge" style="background:#9b7c42">岩石</span><span class="type-badge" style="background:#9251a4">毒</span></div>
             <div class="meta">双打使用率排名 #40</div>
           </div>
           
@@ -757,6 +794,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>洛托姆（清洗）</h2>
+            <div class="type-row" aria-label="属性：电、水"><span class="type-badge" style="background:#ae8500">电</span><span class="type-badge" style="background:#448aca">水</span></div>
             <div class="meta">双打使用率排名 #67</div>
           </div>
           
@@ -775,6 +813,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>劈斧螳螂</h2>
+            <div class="type-row" aria-label="属性：虫、岩石"><span class="type-badge" style="background:#788c24">虫</span><span class="type-badge" style="background:#9b7c42">岩石</span></div>
             <div class="meta">双打使用率排名 #69</div>
           </div>
           
@@ -793,6 +832,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>杖尾鳞甲龙</h2>
+            <div class="type-row" aria-label="属性：龙、格斗"><span class="type-badge" style="background:#5a65bb">龙</span><span class="type-badge" style="background:#ba5646">格斗</span></div>
             <div class="meta">双打使用率排名 #53</div>
           </div>
           
@@ -811,6 +851,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>爱管侍（♀）</h2>
+            <div class="type-row" aria-label="属性：超能力、一般"><span class="type-badge" style="background:#c75583">超能力</span><span class="type-badge" style="background:#88857e">一般</span></div>
             <div class="meta">双打使用率排名 #5</div>
           </div>
           
@@ -829,6 +870,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>苍炎刃鬼</h2>
+            <div class="type-row" aria-label="属性：火、幽灵"><span class="type-badge" style="background:#e87835">火</span><span class="type-badge" style="background:#665696">幽灵</span></div>
             <div class="meta">双打使用率排名 #54</div>
           </div>
           
@@ -847,6 +889,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>轰擂金刚猩</h2>
+            <div class="type-row" aria-label="属性：草"><span class="type-badge" style="background:#37935e">草</span></div>
             <div class="meta">双打使用率排名 #1</div>
           </div>
           
@@ -865,6 +908,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>铝钢桥龙</h2>
+            <div class="type-row" aria-label="属性：钢、龙"><span class="type-badge" style="background:#647d91">钢</span><span class="type-badge" style="background:#5a65bb">龙</span></div>
             <div class="meta">双打使用率排名 #12</div>
           </div>
           
@@ -883,6 +927,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>赛富豪</h2>
+            <div class="type-row" aria-label="属性：钢、幽灵"><span class="type-badge" style="background:#647d91">钢</span><span class="type-badge" style="background:#665696">幽灵</span></div>
             <div class="meta">双打使用率排名 #10</div>
           </div>
           
@@ -901,6 +946,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>美纳斯</h2>
+            <div class="type-row" aria-label="属性：水"><span class="type-badge" style="background:#448aca">水</span></div>
             <div class="meta">双打使用率排名 #13</div>
           </div>
           
@@ -919,6 +965,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>妙蛙花</h2>
+            <div class="type-row" aria-label="属性：草、毒"><span class="type-badge" style="background:#37935e">草</span><span class="type-badge" style="background:#9251a4">毒</span></div>
             <div class="meta">双打使用率排名 #43</div>
             <div class="mega-changes"><a class="mega-change" href="#mega-13" aria-label="Mega妙蛙花速度变化：80 → 80（+0）">Mega速度：80 → 80（+0）</a></div>
           </div>
@@ -938,6 +985,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>快龙</h2>
+            <div class="type-row" aria-label="属性：龙、飞行"><span class="type-badge" style="background:#5a65bb">龙</span><span class="type-badge" style="background:#667abc">飞行</span></div>
             <div class="meta">双打使用率排名 #39</div>
           </div>
           
@@ -956,6 +1004,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>沙奈朵</h2>
+            <div class="type-row" aria-label="属性：超能力、妖精"><span class="type-badge" style="background:#c75583">超能力</span><span class="type-badge" style="background:#b9559d">妖精</span></div>
             <div class="meta">双打使用率排名 #16</div>
             <div class="mega-changes"><a class="mega-change" href="#mega-11" aria-label="Mega沙奈朵速度变化：80 → 100（+20）">Mega速度：80 → 100（+20）</a></div>
           </div>
@@ -975,6 +1024,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>火焰鸡</h2>
+            <div class="type-row" aria-label="属性：火、格斗"><span class="type-badge" style="background:#e87835">火</span><span class="type-badge" style="background:#ba5646">格斗</span></div>
             <div class="meta">双打使用率排名 #58</div>
             <div class="mega-changes"><a class="mega-change" href="#mega-12" aria-label="Mega火焰鸡速度变化：80 → 100（+20）">Mega速度：80 → 100（+20）</a></div>
           </div>
@@ -994,6 +1044,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>艾路雷朵</h2>
+            <div class="type-row" aria-label="属性：超能力、格斗"><span class="type-badge" style="background:#c75583">超能力</span><span class="type-badge" style="background:#ba5646">格斗</span></div>
             <div class="meta">双打使用率排名 #62</div>
             <div class="mega-changes"><a class="mega-change" href="#mega-8" aria-label="Mega艾路雷朵速度变化：80 → 110（+30）">Mega速度：80 → 110（+30）</a></div>
           </div>
@@ -1013,6 +1064,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>幽尾玄鱼</h2>
+            <div class="type-row" aria-label="属性：水、幽灵"><span class="type-badge" style="background:#448aca">水</span><span class="type-badge" style="background:#665696">幽灵</span></div>
             <div class="meta">双打使用率排名 #7</div>
           </div>
           
@@ -1031,6 +1083,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>水箭龟</h2>
+            <div class="type-row" aria-label="属性：水"><span class="type-badge" style="background:#448aca">水</span></div>
             <div class="meta">双打使用率排名 #46</div>
             <div class="mega-changes"><a class="mega-change" href="#mega-14" aria-label="Mega水箭龟速度变化：78 → 78（+0）">Mega速度：78 → 78（+0）</a></div>
           </div>
@@ -1050,6 +1103,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>红莲铠骑</h2>
+            <div class="type-row" aria-label="属性：火、超能力"><span class="type-badge" style="background:#e87835">火</span><span class="type-badge" style="background:#c75583">超能力</span></div>
             <div class="meta">双打使用率排名 #22</div>
           </div>
           
@@ -1068,6 +1122,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>阿勃梭鲁</h2>
+            <div class="type-row" aria-label="属性：恶"><span class="type-badge" style="background:#5a5261">恶</span></div>
             <div class="meta">双打使用率排名 #50</div>
             <div class="mega-changes"><a class="mega-change" href="#mega-5" aria-label="Mega阿勃梭鲁速度变化：75 → 115（+40）">Mega速度：75 → 115（+40）</a></div>
           </div>
@@ -1087,6 +1142,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>甜冷美后</h2>
+            <div class="type-row" aria-label="属性：草"><span class="type-badge" style="background:#37935e">草</span></div>
             <div class="meta">双打使用率排名 #66</div>
           </div>
           
@@ -1105,6 +1161,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>巨金怪</h2>
+            <div class="type-row" aria-label="属性：钢、超能力"><span class="type-badge" style="background:#647d91">钢</span><span class="type-badge" style="background:#c75583">超能力</span></div>
             <div class="meta">双打使用率排名 #25</div>
             <div class="mega-changes"><a class="mega-change" href="#mega-7" aria-label="Mega巨金怪速度变化：70 → 110（+40）">Mega速度：70 → 110（+40）</a></div>
           </div>
@@ -1124,6 +1181,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>来悲粗茶</h2>
+            <div class="type-row" aria-label="属性：草、幽灵"><span class="type-badge" style="background:#37935e">草</span><span class="type-badge" style="background:#665696">幽灵</span></div>
             <div class="meta">双打使用率排名 #26</div>
           </div>
           
@@ -1142,6 +1200,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>蚊香蛙皇</h2>
+            <div class="type-row" aria-label="属性：水"><span class="type-badge" style="background:#448aca">水</span></div>
             <div class="meta">双打使用率排名 #31</div>
           </div>
           
@@ -1160,6 +1219,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>大嘴鸥</h2>
+            <div class="type-row" aria-label="属性：水、飞行"><span class="type-badge" style="background:#448aca">水</span><span class="type-badge" style="background:#667abc">飞行</span></div>
             <div class="meta">双打使用率排名 #11</div>
           </div>
           <span class="mine">我的队伍</span>
@@ -1178,6 +1238,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>葱游兵</h2>
+            <div class="type-row" aria-label="属性：格斗"><span class="type-badge" style="background:#ba5646">格斗</span></div>
             <div class="meta">双打使用率排名 #61</div>
           </div>
           
@@ -1196,6 +1257,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>班基拉斯</h2>
+            <div class="type-row" aria-label="属性：岩石、恶"><span class="type-badge" style="background:#9b7c42">岩石</span><span class="type-badge" style="background:#5a5261">恶</span></div>
             <div class="meta">双打使用率排名 #20</div>
             <div class="mega-changes"><a class="mega-change" href="#mega-15" aria-label="Mega班基拉斯速度变化：61 → 71（+10）">Mega速度：61 → 71（+10）</a></div>
           </div>
@@ -1215,6 +1277,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>仙子伊布</h2>
+            <div class="type-row" aria-label="属性：妖精"><span class="type-badge" style="background:#b9559d">妖精</span></div>
             <div class="meta">双打使用率排名 #19</div>
           </div>
           
@@ -1233,6 +1296,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>奇麒麟</h2>
+            <div class="type-row" aria-label="属性：一般、超能力"><span class="type-badge" style="background:#88857e">一般</span><span class="type-badge" style="background:#c75583">超能力</span></div>
             <div class="meta">双打使用率排名 #14</div>
           </div>
           <span class="mine">我的队伍</span>
@@ -1251,6 +1315,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>巨沼怪</h2>
+            <div class="type-row" aria-label="属性：水、地面"><span class="type-badge" style="background:#448aca">水</span><span class="type-badge" style="background:#a67833">地面</span></div>
             <div class="meta">双打使用率排名 #34</div>
             <div class="mega-changes"><a class="mega-change" href="#mega-16" aria-label="Mega巨沼怪速度变化：60 → 70（+10）">Mega速度：60 → 70（+10）</a></div>
           </div>
@@ -1270,6 +1335,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>炽焰咆哮虎</h2>
+            <div class="type-row" aria-label="属性：火、恶"><span class="type-badge" style="background:#e87835">火</span><span class="type-badge" style="background:#5a5261">恶</span></div>
             <div class="meta">双打使用率排名 #4</div>
           </div>
           
@@ -1288,6 +1354,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>西狮海壬</h2>
+            <div class="type-row" aria-label="属性：水、妖精"><span class="type-badge" style="background:#448aca">水</span><span class="type-badge" style="background:#b9559d">妖精</span></div>
             <div class="meta">双打使用率排名 #44</div>
           </div>
           <span class="mine">我的队伍</span>
@@ -1306,6 +1373,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>长毛巨魔</h2>
+            <div class="type-row" aria-label="属性：恶、妖精"><span class="type-badge" style="background:#5a5261">恶</span><span class="type-badge" style="background:#b9559d">妖精</span></div>
             <div class="meta">双打使用率排名 #33</div>
           </div>
           
@@ -1324,6 +1392,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>仆刀将军</h2>
+            <div class="type-row" aria-label="属性：恶、钢"><span class="type-badge" style="background:#5a5261">恶</span><span class="type-badge" style="background:#647d91">钢</span></div>
             <div class="meta">双打使用率排名 #6</div>
           </div>
           
@@ -1342,6 +1411,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>勾魂眼</h2>
+            <div class="type-row" aria-label="属性：恶、幽灵"><span class="type-badge" style="background:#5a5261">恶</span><span class="type-badge" style="background:#665696">幽灵</span></div>
             <div class="meta">双打使用率排名 #45</div>
             <div class="mega-changes"><a class="mega-change" href="#mega-18" aria-label="Mega勾魂眼速度变化：50 → 20（-30）">Mega速度：50 → 20（-30）</a></div>
           </div>
@@ -1361,6 +1431,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>大嘴娃</h2>
+            <div class="type-row" aria-label="属性：钢、妖精"><span class="type-badge" style="background:#647d91">钢</span><span class="type-badge" style="background:#b9559d">妖精</span></div>
             <div class="meta">双打使用率排名 #59</div>
             <div class="mega-changes"><a class="mega-change" href="#mega-17" aria-label="Mega大嘴娃速度变化：50 → 50（+0）">Mega速度：50 → 50（+0）</a></div>
           </div>
@@ -1380,6 +1451,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>具甲武者</h2>
+            <div class="type-row" aria-label="属性：虫、水"><span class="type-badge" style="background:#788c24">虫</span><span class="type-badge" style="background:#448aca">水</span></div>
             <div class="meta">双打使用率排名 #8</div>
           </div>
           <span class="mine">我的队伍</span>
@@ -1398,6 +1470,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>喷火驼</h2>
+            <div class="type-row" aria-label="属性：火、地面"><span class="type-badge" style="background:#e87835">火</span><span class="type-badge" style="background:#a67833">地面</span></div>
             <div class="meta">双打使用率排名 #56</div>
             <div class="mega-changes"><a class="mega-change" href="#mega-19" aria-label="Mega喷火驼速度变化：40 → 20（-20）">Mega速度：40 → 20（-20）</a></div>
           </div>
@@ -1417,6 +1490,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>布莉姆温</h2>
+            <div class="type-row" aria-label="属性：超能力、妖精"><span class="type-badge" style="background:#c75583">超能力</span><span class="type-badge" style="background:#b9559d">妖精</span></div>
             <div class="meta">双打使用率排名 #47</div>
           </div>
           
@@ -1435,6 +1509,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>煤炭龟</h2>
+            <div class="type-row" aria-label="属性：火"><span class="type-badge" style="background:#e87835">火</span></div>
             <div class="meta">双打使用率排名 #24</div>
           </div>
           
@@ -1467,6 +1542,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>Mega化石翼龙</h2>
+            <div class="type-row" aria-label="属性：岩石、飞行"><span class="type-badge" style="background:#9b7c42">岩石</span><span class="type-badge" style="background:#667abc">飞行</span></div>
             <div class="meta">原形态：化石翼龙</div>
           </div>
           
@@ -1485,6 +1561,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>Mega胡地</h2>
+            <div class="type-row" aria-label="属性：超能力"><span class="type-badge" style="background:#c75583">超能力</span></div>
             <div class="meta">原形态：胡地</div>
           </div>
           
@@ -1503,6 +1580,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>Mega耿鬼</h2>
+            <div class="type-row" aria-label="属性：幽灵、毒"><span class="type-badge" style="background:#665696">幽灵</span><span class="type-badge" style="background:#9251a4">毒</span></div>
             <div class="meta">原形态：耿鬼</div>
           </div>
           
@@ -1521,6 +1599,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>Mega暴飞龙</h2>
+            <div class="type-row" aria-label="属性：龙、飞行"><span class="type-badge" style="background:#5a65bb">龙</span><span class="type-badge" style="background:#667abc">飞行</span></div>
             <div class="meta">原形态：暴飞龙</div>
           </div>
           
@@ -1539,6 +1618,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>Mega阿勃梭鲁</h2>
+            <div class="type-row" aria-label="属性：恶"><span class="type-badge" style="background:#5a5261">恶</span></div>
             <div class="meta">原形态：阿勃梭鲁</div>
           </div>
           
@@ -1557,6 +1637,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>Mega路卡利欧</h2>
+            <div class="type-row" aria-label="属性：格斗、钢"><span class="type-badge" style="background:#ba5646">格斗</span><span class="type-badge" style="background:#647d91">钢</span></div>
             <div class="meta">原形态：路卡利欧</div>
           </div>
           
@@ -1575,6 +1656,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>Mega巨金怪</h2>
+            <div class="type-row" aria-label="属性：钢、超能力"><span class="type-badge" style="background:#647d91">钢</span><span class="type-badge" style="background:#c75583">超能力</span></div>
             <div class="meta">原形态：巨金怪</div>
           </div>
           
@@ -1593,6 +1675,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>Mega艾路雷朵</h2>
+            <div class="type-row" aria-label="属性：超能力、格斗"><span class="type-badge" style="background:#c75583">超能力</span><span class="type-badge" style="background:#ba5646">格斗</span></div>
             <div class="meta">原形态：艾路雷朵</div>
           </div>
           
@@ -1611,6 +1694,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>Mega喷火龙X</h2>
+            <div class="type-row" aria-label="属性：火、龙"><span class="type-badge" style="background:#e87835">火</span><span class="type-badge" style="background:#5a65bb">龙</span></div>
             <div class="meta">原形态：喷火龙</div>
           </div>
           <span class="mine">队伍相关</span>
@@ -1629,6 +1713,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>Mega喷火龙Y</h2>
+            <div class="type-row" aria-label="属性：火、飞行"><span class="type-badge" style="background:#e87835">火</span><span class="type-badge" style="background:#667abc">飞行</span></div>
             <div class="meta">原形态：喷火龙</div>
           </div>
           <span class="mine">队伍相关</span>
@@ -1647,6 +1732,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>Mega沙奈朵</h2>
+            <div class="type-row" aria-label="属性：超能力、妖精"><span class="type-badge" style="background:#c75583">超能力</span><span class="type-badge" style="background:#b9559d">妖精</span></div>
             <div class="meta">原形态：沙奈朵</div>
           </div>
           
@@ -1665,6 +1751,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>Mega火焰鸡</h2>
+            <div class="type-row" aria-label="属性：火、格斗"><span class="type-badge" style="background:#e87835">火</span><span class="type-badge" style="background:#ba5646">格斗</span></div>
             <div class="meta">原形态：火焰鸡</div>
           </div>
           
@@ -1683,6 +1770,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>Mega妙蛙花</h2>
+            <div class="type-row" aria-label="属性：草、毒"><span class="type-badge" style="background:#37935e">草</span><span class="type-badge" style="background:#9251a4">毒</span></div>
             <div class="meta">原形态：妙蛙花</div>
           </div>
           
@@ -1701,6 +1789,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>Mega水箭龟</h2>
+            <div class="type-row" aria-label="属性：水"><span class="type-badge" style="background:#448aca">水</span></div>
             <div class="meta">原形态：水箭龟</div>
           </div>
           
@@ -1719,6 +1808,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>Mega班基拉斯</h2>
+            <div class="type-row" aria-label="属性：岩石、恶"><span class="type-badge" style="background:#9b7c42">岩石</span><span class="type-badge" style="background:#5a5261">恶</span></div>
             <div class="meta">原形态：班基拉斯</div>
           </div>
           
@@ -1737,6 +1827,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>Mega巨沼怪</h2>
+            <div class="type-row" aria-label="属性：水、地面"><span class="type-badge" style="background:#448aca">水</span><span class="type-badge" style="background:#a67833">地面</span></div>
             <div class="meta">原形态：巨沼怪</div>
           </div>
           
@@ -1755,6 +1846,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>Mega大嘴娃</h2>
+            <div class="type-row" aria-label="属性：钢、妖精"><span class="type-badge" style="background:#647d91">钢</span><span class="type-badge" style="background:#b9559d">妖精</span></div>
             <div class="meta">原形态：大嘴娃</div>
           </div>
           
@@ -1773,6 +1865,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>Mega勾魂眼</h2>
+            <div class="type-row" aria-label="属性：恶、幽灵"><span class="type-badge" style="background:#5a5261">恶</span><span class="type-badge" style="background:#665696">幽灵</span></div>
             <div class="meta">原形态：勾魂眼</div>
           </div>
           
@@ -1791,6 +1884,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="name-row">
           <div>
             <h2>Mega喷火驼</h2>
+            <div class="type-row" aria-label="属性：火、地面"><span class="type-badge" style="background:#e87835">火</span><span class="type-badge" style="background:#a67833">地面</span></div>
             <div class="meta">原形态：喷火驼</div>
           </div>
           
