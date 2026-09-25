@@ -89,6 +89,13 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
   color:var(--team-ink); background:#ffe679; border-radius:999px; padding:5px 8px;
   font-size:10px; font-weight:900;
 }
+/* Mega speed changes stay visible on the regular form's card. */
+.mega-changes { display:flex; flex-wrap:wrap; gap:5px; margin-top:7px; }
+.mega-change {
+  display:inline-block; border:1px solid #d7c7f3; background:#f5f0ff;
+  border-radius:8px; padding:4px 6px; color:#573a83;
+  font-size:11px; font-weight:700; line-height:1.35; text-decoration:none;
+}
 .stats {
   display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px 10px; margin-top:12px;
 }
@@ -134,7 +141,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
     </div>
     <div class="key">
       你的队伍：大嘴鸥 / 西狮海壬 / 多龙巴鲁托 / 奇麒麟 / 具甲武者 / 喷火龙。<br>
-      这次我直接扩成了前70，所以多龙巴鲁托已经直接在常规区里；另外把有 Mega 的宝可梦单独做了一个 Mega 区，按 Mega 后的速度再排一次。
+      这次我直接扩成了前70，所以多龙巴鲁托已经直接在常规区里；有 Mega 形态的宝可梦，在常规卡片上直接标注速度变化；点击紫色标签可跳到对应的 Mega 卡片。Mega 区也按进化后速度排列。
     </div>
   </section>
 
@@ -187,6 +194,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <div>
             <h2>化石翼龙</h2>
             <div class="meta">双打使用率排名 #41</div>
+            <div class="mega-changes"><a class="mega-change" href="#mega-1" aria-label="Mega化石翼龙速度变化：130 → 150（+20）">Mega速度：130 → 150（+20）</a></div>
           </div>
           
         </div>
@@ -277,6 +285,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <div>
             <h2>胡地</h2>
             <div class="meta">双打使用率排名 #70</div>
+            <div class="mega-changes"><a class="mega-change" href="#mega-2" aria-label="Mega胡地速度变化：120 → 150（+30）">Mega速度：120 → 150（+30）</a></div>
           </div>
           
         </div>
@@ -349,6 +358,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <div>
             <h2>耿鬼</h2>
             <div class="meta">双打使用率排名 #37</div>
+            <div class="mega-changes"><a class="mega-change" href="#mega-3" aria-label="Mega耿鬼速度变化：110 → 130（+20）">Mega速度：110 → 130（+20）</a></div>
           </div>
           
         </div>
@@ -475,6 +485,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <div>
             <h2>喷火龙</h2>
             <div class="meta">双打使用率排名 #15</div>
+            <div class="mega-changes"><a class="mega-change" href="#mega-9" aria-label="Mega喷火龙X速度变化：100 → 100（+0）">Mega 喷火龙X速度：100 → 100（+0）</a><a class="mega-change" href="#mega-10" aria-label="Mega喷火龙Y速度变化：100 → 100（+0）">Mega 喷火龙Y速度：100 → 100（+0）</a></div>
           </div>
           <span class="mine">我的队伍</span>
         </div>
@@ -511,6 +522,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <div>
             <h2>暴飞龙</h2>
             <div class="meta">双打使用率排名 #3</div>
+            <div class="mega-changes"><a class="mega-change" href="#mega-4" aria-label="Mega暴飞龙速度变化：100 → 120（+20）">Mega速度：100 → 120（+20）</a></div>
           </div>
           
         </div>
@@ -637,6 +649,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <div>
             <h2>路卡利欧</h2>
             <div class="meta">双打使用率排名 #32</div>
+            <div class="mega-changes"><a class="mega-change" href="#mega-6" aria-label="Mega路卡利欧速度变化：90 → 112（+22）">Mega速度：90 → 112（+22）</a></div>
           </div>
           
         </div>
@@ -907,6 +920,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <div>
             <h2>妙蛙花</h2>
             <div class="meta">双打使用率排名 #43</div>
+            <div class="mega-changes"><a class="mega-change" href="#mega-13" aria-label="Mega妙蛙花速度变化：80 → 80（+0）">Mega速度：80 → 80（+0）</a></div>
           </div>
           
         </div>
@@ -943,6 +957,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <div>
             <h2>沙奈朵</h2>
             <div class="meta">双打使用率排名 #16</div>
+            <div class="mega-changes"><a class="mega-change" href="#mega-11" aria-label="Mega沙奈朵速度变化：80 → 100（+20）">Mega速度：80 → 100（+20）</a></div>
           </div>
           
         </div>
@@ -961,6 +976,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <div>
             <h2>火焰鸡</h2>
             <div class="meta">双打使用率排名 #58</div>
+            <div class="mega-changes"><a class="mega-change" href="#mega-12" aria-label="Mega火焰鸡速度变化：80 → 100（+20）">Mega速度：80 → 100（+20）</a></div>
           </div>
           
         </div>
@@ -979,6 +995,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <div>
             <h2>艾路雷朵</h2>
             <div class="meta">双打使用率排名 #62</div>
+            <div class="mega-changes"><a class="mega-change" href="#mega-8" aria-label="Mega艾路雷朵速度变化：80 → 110（+30）">Mega速度：80 → 110（+30）</a></div>
           </div>
           
         </div>
@@ -1015,6 +1032,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <div>
             <h2>水箭龟</h2>
             <div class="meta">双打使用率排名 #46</div>
+            <div class="mega-changes"><a class="mega-change" href="#mega-14" aria-label="Mega水箭龟速度变化：78 → 78（+0）">Mega速度：78 → 78（+0）</a></div>
           </div>
           
         </div>
@@ -1051,6 +1069,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <div>
             <h2>阿勃梭鲁</h2>
             <div class="meta">双打使用率排名 #50</div>
+            <div class="mega-changes"><a class="mega-change" href="#mega-5" aria-label="Mega阿勃梭鲁速度变化：75 → 115（+40）">Mega速度：75 → 115（+40）</a></div>
           </div>
           
         </div>
@@ -1087,6 +1106,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <div>
             <h2>巨金怪</h2>
             <div class="meta">双打使用率排名 #25</div>
+            <div class="mega-changes"><a class="mega-change" href="#mega-7" aria-label="Mega巨金怪速度变化：70 → 110（+40）">Mega速度：70 → 110（+40）</a></div>
           </div>
           
         </div>
@@ -1177,6 +1197,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <div>
             <h2>班基拉斯</h2>
             <div class="meta">双打使用率排名 #20</div>
+            <div class="mega-changes"><a class="mega-change" href="#mega-15" aria-label="Mega班基拉斯速度变化：61 → 71（+10）">Mega速度：61 → 71（+10）</a></div>
           </div>
           
         </div>
@@ -1231,6 +1252,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <div>
             <h2>巨沼怪</h2>
             <div class="meta">双打使用率排名 #34</div>
+            <div class="mega-changes"><a class="mega-change" href="#mega-16" aria-label="Mega巨沼怪速度变化：60 → 70（+10）">Mega速度：60 → 70（+10）</a></div>
           </div>
           
         </div>
@@ -1321,6 +1343,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <div>
             <h2>勾魂眼</h2>
             <div class="meta">双打使用率排名 #45</div>
+            <div class="mega-changes"><a class="mega-change" href="#mega-18" aria-label="Mega勾魂眼速度变化：50 → 20（-30）">Mega速度：50 → 20（-30）</a></div>
           </div>
           
         </div>
@@ -1339,6 +1362,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <div>
             <h2>大嘴娃</h2>
             <div class="meta">双打使用率排名 #59</div>
+            <div class="mega-changes"><a class="mega-change" href="#mega-17" aria-label="Mega大嘴娃速度变化：50 → 50（+0）">Mega速度：50 → 50（+0）</a></div>
           </div>
           
         </div>
@@ -1375,6 +1399,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <div>
             <h2>喷火驼</h2>
             <div class="meta">双打使用率排名 #56</div>
+            <div class="mega-changes"><a class="mega-change" href="#mega-19" aria-label="Mega喷火驼速度变化：40 → 20（-20）">Mega速度：40 → 20（-20）</a></div>
           </div>
           
         </div>
@@ -1782,7 +1807,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
   <div class="footer">
     本页是手机竖屏优先、无脚本静态版，方便直接打开浏览。<br>
     “前70”使用的是你前面要求那份双打环境榜继续向后扩展到 #70；卡片按基础速度重新排序，卡片内仍保留原使用率排名。<br>
-    Mega 区是单独的速度视图：左侧大数字是 Mega 后的速度，下面小字是“原速度 → Mega 后速度”。
+    常规卡片的紫色标签显示 Mega 后的速度变化，可点击跳到对应形态。Mega 区是单独的速度视图：左侧大数字是 Mega 后的速度，下面小字是“原速度 → Mega 后速度”。
   </div>
 </main>
 </body>
