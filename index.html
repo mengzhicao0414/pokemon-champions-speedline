@@ -101,6 +101,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
   border-radius:8px; padding:4px 6px; color:#573a83;
   font-size:11px; font-weight:700; line-height:1.35; text-decoration:none;
 }
+.type-shift { display:block; margin-top:3px; font-size:10px; font-weight:700; }
 .stats {
   display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px 10px; margin-top:12px;
 }
@@ -146,7 +147,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
     </div>
     <div class="key">
       你的队伍：大嘴鸥 / 西狮海壬 / 多龙巴鲁托 / 奇麒麟 / 具甲武者 / 喷火龙。<br>
-      这次我直接扩成了前70，所以多龙巴鲁托已经直接在常规区里；每张卡片都标有宝可梦属性（Mega 形态按进化后的属性）；有 Mega 形态的宝可梦，在常规卡片上直接标注速度变化；点击紫色标签可跳到对应的 Mega 卡片。Mega 区也按进化后速度排列。
+      这次我直接扩成了前70，所以多龙巴鲁托已经直接在常规区里；每张卡片都标有宝可梦属性（Mega 形态按进化后的属性）；有 Mega 形态的宝可梦，在常规卡片上直接标注速度变化；若 Mega 后属性改变，常规卡片的紫色标签也会标出变化；点击标签可跳到对应的 Mega 卡片。Mega 区也按进化后速度排列。
     </div>
   </section>
 
@@ -508,7 +509,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
             <h2>喷火龙</h2>
             <div class="type-row" aria-label="属性：火、飞行"><span class="type-badge" style="background:#e87835">火</span><span class="type-badge" style="background:#667abc">飞行</span></div>
             <div class="meta">双打使用率排名 #15</div>
-            <div class="mega-changes"><a class="mega-change" href="#mega-9" aria-label="Mega喷火龙X速度变化：100 → 100（+0）">Mega 喷火龙X速度：100 → 100（+0）</a><a class="mega-change" href="#mega-10" aria-label="Mega喷火龙Y速度变化：100 → 100（+0）">Mega 喷火龙Y速度：100 → 100（+0）</a></div>
+            <div class="mega-changes"><a class="mega-change" href="#mega-9" aria-label="Mega喷火龙X速度变化：100 → 100（+0）">Mega 喷火龙X速度：100 → 100（+0）<span class="type-shift">属性：火／飞行 → 火／龙</span></a><a class="mega-change" href="#mega-10" aria-label="Mega喷火龙Y速度变化：100 → 100（+0）">Mega 喷火龙Y速度：100 → 100（+0）</a></div>
           </div>
           <span class="mine">我的队伍</span>
         </div>
