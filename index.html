@@ -1,0 +1,1789 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>宝可梦冠军 双打前70速度线（手机版）</title>
+<style>
+:root {
+  --bg:#f4f6fa; --panel:#fff; --ink:#152033; --muted:#778196; --line:#e7ebf1;
+  --team:#fff8cc; --team-border:#f0cf45; --team-ink:#b42318;
+  --shadow:0 5px 18px rgba(26,39,68,.045);
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Microsoft YaHei",sans-serif;
+}
+.page {
+  width:min(100%, 470px);
+  margin:0 auto;
+  padding:env(safe-area-inset-top) 12px calc(28px + env(safe-area-inset-bottom));
+}
+.hero { padding:20px 4px 10px; }
+h1 { font-size:28px; line-height:1.08; letter-spacing:-.03em; margin:0 0 8px; }
+.subtitle { font-size:13px; color:var(--muted); line-height:1.5; }
+.legend {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:14px 0 10px;
+}
+.legend div {
+  background:#fff; border:1px solid var(--line); border-radius:12px; padding:8px 9px;
+  font-size:12px; display:flex; align-items:center; gap:7px;
+}
+.dot { width:9px; height:9px; border-radius:50%; flex:0 0 auto; }
+.key {
+  margin-top:12px; background:#fff; border:1px solid var(--line); border-radius:14px; padding:11px 12px;
+  color:#5e687b; font-size:12px; line-height:1.6;
+}
+.jump {
+  position:sticky; top:0; z-index:20; background:rgba(244,246,250,.95);
+  backdrop-filter:blur(14px); margin:0 -12px 12px; padding:10px 12px 12px;
+  border-top:1px solid rgba(0,0,0,.03); border-bottom:1px solid rgba(0,0,0,.06);
+}
+.nav-title { font-size:11px; color:#667084; font-weight:700; margin:0 0 7px; }
+.nav-row { overflow-x:auto; white-space:nowrap; padding-bottom:2px; }
+.nav-row + .nav-title { margin-top:10px; }
+.chip {
+  display:inline-flex; align-items:center; justify-content:center; gap:4px;
+  min-height:34px; margin-right:7px; padding:0 12px; border-radius:999px;
+  border:1px solid #dde2eb; background:#fff; color:#354056;
+  font-size:12px; font-weight:800; text-decoration:none;
+}
+.team-chip { background:#fff6bf; border-color:#f0cf45; color:var(--team-ink); }
+.team-chip.missing { opacity:.9; background:#fff; color:#8a6272; border-style:dashed; }
+.speed-chip { background:#18243a; color:#fff; border-color:#18243a; }
+.section-head {
+  display:flex; justify-content:space-between; align-items:flex-end; gap:10px;
+  padding:6px 4px 10px;
+}
+.section-head h3 {
+  margin:0; font-size:20px; letter-spacing:-.02em;
+}
+.section-head .desc { color:var(--muted); font-size:12px; line-height:1.45; text-align:right; }
+.cards { display:flex; flex-direction:column; gap:10px; }
+.card {
+  background:var(--panel); border:1px solid var(--line); border-radius:18px;
+  display:grid; grid-template-columns:76px 1fr; overflow:hidden; box-shadow:var(--shadow);
+  scroll-margin-top:138px;
+}
+.card.team {
+  background:linear-gradient(180deg,#fffdf0,#fff9cf);
+  border-color:var(--team-border);
+  box-shadow:0 7px 20px rgba(170,130,0,.10);
+}
+.speed-rail {
+  border-right:1px solid var(--line); padding:14px 8px; text-align:center;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+}
+.team .speed-rail { border-right-color:#edd76d; }
+.speed-num { font-size:30px; line-height:1; font-weight:900; letter-spacing:-.04em; color:#583427; }
+.speed-label { margin-top:5px; font-size:11px; color:#8a746c; }
+.order { margin-top:10px; font-size:11px; color:#99a1af; line-height:1.35; }
+.card-main { padding:13px 13px 12px; min-width:0; }
+.name-row { display:flex; align-items:flex-start; justify-content:space-between; gap:8px; }
+h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
+.meta { color:var(--muted); font-size:11px; margin-top:4px; }
+.mine {
+  display:inline-flex; flex:0 0 auto; align-items:center; justify-content:center;
+  color:var(--team-ink); background:#ffe679; border-radius:999px; padding:5px 8px;
+  font-size:10px; font-weight:900;
+}
+.stats {
+  display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px 10px; margin-top:12px;
+}
+.stat-top { display:flex; justify-content:space-between; align-items:center; font-size:11px; color:#697386; }
+.stat-top b { font-size:12px; color:#263248; }
+.bar { margin-top:4px; height:5px; background:#edf0f5; border-radius:99px; overflow:hidden; }
+.bar i { display:block; height:100%; border-radius:99px; }
+.section-divider {
+  margin:20px 0 14px; height:1px; background:linear-gradient(90deg,transparent,#d8deea,transparent);
+}
+.footer {
+  margin:18px 5px 0; padding-top:14px; border-top:1px solid #dde2ea;
+  color:#7b8495; font-size:11px; line-height:1.6;
+}
+.backtop {
+  text-align:center; margin-top:12px;
+}
+.backtop a {
+  display:inline-block; text-decoration:none; color:#44516b; background:#fff; border:1px solid #dce2eb;
+  border-radius:999px; padding:8px 12px; font-size:12px; font-weight:700;
+}
+@media (max-width:360px) {
+  .page { padding-left:8px; padding-right:8px; }
+  .jump { margin-left:-8px; margin-right:-8px; padding-left:8px; padding-right:8px; }
+  .card { grid-template-columns:68px 1fr; }
+  .speed-num { font-size:26px; }
+  .stats { gap:7px 8px; }
+}
+</style>
+</head>
+<body>
+<main id="top" class="page">
+  <section class="hero">
+    <h1>双打前70<br>速度线</h1>
+    <div class="subtitle">《宝可梦冠军》｜按基础速度从高到低排列｜竖屏手机版｜含 Mega 单独区</div>
+    <div class="legend">
+      <div><i class="dot" style="background:#4b8fdc"></i>HP</div>
+      <div><i class="dot" style="background:#f59e0b"></i>攻击</div>
+      <div><i class="dot" style="background:#22a06b"></i>防御</div>
+      <div><i class="dot" style="background:#e25555"></i>特攻</div>
+      <div><i class="dot" style="background:#8b6edb"></i>特防</div>
+      <div><i class="dot" style="background:#7a4b3a"></i>速度</div>
+    </div>
+    <div class="key">
+      你的队伍：大嘴鸥 / 西狮海壬 / 多龙巴鲁托 / 奇麒麟 / 具甲武者 / 喷火龙。<br>
+      这次我直接扩成了前70，所以多龙巴鲁托已经直接在常规区里；另外把有 Mega 的宝可梦单独做了一个 Mega 区，按 Mega 后的速度再排一次。
+    </div>
+  </section>
+
+  <section class="jump">
+    <div class="nav-title">我的队伍快速导航</div>
+    <div class="nav-row"><a class="chip team-chip" href="#reg-55">大嘴鸥</a><a class="chip team-chip" href="#reg-62">西狮海壬</a><a class="chip team-chip" href="#reg-1">多龙巴鲁托</a><a class="chip team-chip" href="#reg-59">奇麒麟</a><a class="chip team-chip" href="#reg-67">具甲武者</a><a class="chip team-chip" href="#reg-18">喷火龙</a></div>
+
+    <div class="nav-title">常规形态 · 整50速度快速标签</div>
+    <div class="nav-row"><a class="chip speed-chip" href="#reg-1">最快 142</a><a class="chip speed-chip" href="#reg-18">100速</a><a class="chip speed-chip" href="#reg-64">50速</a></div>
+
+    <div class="nav-title">Mega形态 · 整50速度快速标签</div>
+    <div class="nav-row"><a class="chip speed-chip" href="#mega-1">最快 150</a><a class="chip speed-chip" href="#mega-9">100速</a><a class="chip speed-chip" href="#mega-17">50速</a><a class="chip speed-chip" href="#mega-block">Mega区</a></div>
+  </section>
+
+  <section id="regular-block">
+    <div class="section-head">
+      <div>
+        <h3>常规形态（前70）</h3>
+      </div>
+      <div class="desc">速度序重新排序<br>使用率排名保留在卡片右下说明里</div>
+    </div>
+    <div class="cards">
+      
+    <article id="reg-1" class="card team">
+      <div class="speed-rail">
+        <div class="speed-num">142</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #1</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>多龙巴鲁托</h2>
+            <div class="meta">双打使用率排名 #55</div>
+          </div>
+          <span class="mine">我的队伍</span>
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>88</b></div><div class="bar"><i style="width:48.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-2" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">130</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #2</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>化石翼龙</h2>
+            <div class="meta">双打使用率排名 #41</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-3" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">126</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #3</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>烈箭鹰</h2>
+            <div class="meta">双打使用率排名 #52</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>81</b></div><div class="bar"><i style="width:45.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>71</b></div><div class="bar"><i style="width:39.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>74</b></div><div class="bar"><i style="width:41.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>69</b></div><div class="bar"><i style="width:38.3%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-4" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">123</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #4</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>魔幻假面喵</h2>
+            <div class="meta">双打使用率排名 #68</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>76</b></div><div class="bar"><i style="width:42.2%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>81</b></div><div class="bar"><i style="width:45.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-5" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">120</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #5</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>千面避役</h2>
+            <div class="meta">双打使用率排名 #63</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-6" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">120</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #6</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>大狃拉</h2>
+            <div class="meta">双打使用率排名 #2</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>40</b></div><div class="bar"><i style="width:22.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-7" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">120</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #7</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>胡地</h2>
+            <div class="meta">双打使用率排名 #70</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>45</b></div><div class="bar"><i style="width:25.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-8" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">116</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #8</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>风妖精</h2>
+            <div class="meta">双打使用率排名 #21</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>67</b></div><div class="bar"><i style="width:37.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>77</b></div><div class="bar"><i style="width:42.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-9" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">111</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #9</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>一家鼠</h2>
+            <div class="meta">双打使用率排名 #51</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>74</b></div><div class="bar"><i style="width:41.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-10" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">110</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #10</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>索罗亚克（洗翠）</h2>
+            <div class="meta">双打使用率排名 #65</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-11" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">110</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #11</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>耿鬼</h2>
+            <div class="meta">双打使用率排名 #37</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-12" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">110</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #12</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>雪妖女</h2>
+            <div class="meta">双打使用率排名 #35</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-13" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">110</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #13</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>雷丘</h2>
+            <div class="meta">双打使用率排名 #17</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-14" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">109</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #14</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>九尾（阿罗拉）</h2>
+            <div class="meta">双打使用率排名 #38</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>73</b></div><div class="bar"><i style="width:40.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>67</b></div><div class="bar"><i style="width:37.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>81</b></div><div class="bar"><i style="width:45.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-15" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">105</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #15</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>巴布土拨</h2>
+            <div class="meta">双打使用率排名 #42</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-16" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">104</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #16</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>妖火红狐</h2>
+            <div class="meta">双打使用率排名 #48</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>69</b></div><div class="bar"><i style="width:38.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>72</b></div><div class="bar"><i style="width:40.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>114</b></div><div class="bar"><i style="width:63.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-17" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">102</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #17</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>烈咬陆鲨</h2>
+            <div class="meta">双打使用率排名 #9</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>108</b></div><div class="bar"><i style="width:60.0%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-18" class="card team">
+      <div class="speed-rail">
+        <div class="speed-num">100</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #18</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>喷火龙</h2>
+            <div class="meta">双打使用率排名 #15</div>
+          </div>
+          <span class="mine">我的队伍</span>
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>84</b></div><div class="bar"><i style="width:46.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>109</b></div><div class="bar"><i style="width:60.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-19" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">100</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #19</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>姆克鹰</h2>
+            <div class="meta">双打使用率排名 #23</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-20" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">100</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #20</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>暴飞龙</h2>
+            <div class="meta">双打使用率排名 #3</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-21" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">100</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #21</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>火神蛾</h2>
+            <div class="meta">双打使用率排名 #30</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-22" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">98</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #22</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>三首恶龙</h2>
+            <div class="meta">双打使用率排名 #57</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>92</b></div><div class="bar"><i style="width:51.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-23" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">95</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #23</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>火暴兽（洗翠）</h2>
+            <div class="meta">双打使用率排名 #60</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>73</b></div><div class="bar"><i style="width:40.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>84</b></div><div class="bar"><i style="width:46.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>119</b></div><div class="bar"><i style="width:66.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-24" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">95</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #24</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>爱管侍（♂）</h2>
+            <div class="meta">双打使用率排名 #27</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-25" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">92</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #25</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>花叶蒂（永恒之花）</h2>
+            <div class="meta">双打使用率排名 #28</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>74</b></div><div class="bar"><i style="width:41.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>67</b></div><div class="bar"><i style="width:37.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>128</b></div><div class="bar"><i style="width:71.1%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-26" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">90</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #26</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>弃世猴</h2>
+            <div class="meta">双打使用率排名 #49</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-27" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">90</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #27</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>路卡利欧</h2>
+            <div class="meta">双打使用率排名 #32</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-28" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">90</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #28</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>风速狗（洗翠）</h2>
+            <div class="meta">双打使用率排名 #18</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-29" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">89</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #29</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>彩粉蝶（Fancy）</h2>
+            <div class="meta">双打使用率排名 #64</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>52</b></div><div class="bar"><i style="width:28.9%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-30" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">88</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #30</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>龙头地鼠</h2>
+            <div class="meta">双打使用率排名 #29</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-31" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">87</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #31</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>戟脊龙</h2>
+            <div class="meta">双打使用率排名 #36</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>145</b></div><div class="bar"><i style="width:80.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>92</b></div><div class="bar"><i style="width:51.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>86</b></div><div class="bar"><i style="width:47.8%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-32" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">86</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #32</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>晶光花</h2>
+            <div class="meta">双打使用率排名 #40</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>83</b></div><div class="bar"><i style="width:46.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>81</b></div><div class="bar"><i style="width:45.0%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-33" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">86</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #33</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>洛托姆（清洗）</h2>
+            <div class="meta">双打使用率排名 #67</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>107</b></div><div class="bar"><i style="width:59.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>107</b></div><div class="bar"><i style="width:59.4%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-34" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">85</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #34</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>劈斧螳螂</h2>
+            <div class="meta">双打使用率排名 #69</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>45</b></div><div class="bar"><i style="width:25.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-35" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">85</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #35</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>杖尾鳞甲龙</h2>
+            <div class="meta">双打使用率排名 #53</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-36" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">85</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #36</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>爱管侍（♀）</h2>
+            <div class="meta">双打使用率排名 #5</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-37" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">85</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #37</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>苍炎刃鬼</h2>
+            <div class="meta">双打使用率排名 #54</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-38" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">85</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #38</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>轰擂金刚猩</h2>
+            <div class="meta">双打使用率排名 #1</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-39" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">85</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #39</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>铝钢桥龙</h2>
+            <div class="meta">双打使用率排名 #12</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-40" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">84</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #40</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>赛富豪</h2>
+            <div class="meta">双打使用率排名 #10</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>87</b></div><div class="bar"><i style="width:48.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>133</b></div><div class="bar"><i style="width:73.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>91</b></div><div class="bar"><i style="width:50.6%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-41" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">81</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #41</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>美纳斯</h2>
+            <div class="meta">双打使用率排名 #13</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>79</b></div><div class="bar"><i style="width:43.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-42" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">80</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #42</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>妙蛙花</h2>
+            <div class="meta">双打使用率排名 #43</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>82</b></div><div class="bar"><i style="width:45.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>83</b></div><div class="bar"><i style="width:46.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-43" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">80</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #43</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>快龙</h2>
+            <div class="meta">双打使用率排名 #39</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>91</b></div><div class="bar"><i style="width:50.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>134</b></div><div class="bar"><i style="width:74.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-44" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">80</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #44</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>沙奈朵</h2>
+            <div class="meta">双打使用率排名 #16</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>68</b></div><div class="bar"><i style="width:37.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-45" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">80</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #45</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>火焰鸡</h2>
+            <div class="meta">双打使用率排名 #58</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-46" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">80</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #46</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>艾路雷朵</h2>
+            <div class="meta">双打使用率排名 #62</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>68</b></div><div class="bar"><i style="width:37.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-47" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">78</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #47</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>幽尾玄鱼</h2>
+            <div class="meta">双打使用率排名 #7</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>112</b></div><div class="bar"><i style="width:62.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-48" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">78</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #48</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>水箭龟</h2>
+            <div class="meta">双打使用率排名 #46</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>79</b></div><div class="bar"><i style="width:43.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>83</b></div><div class="bar"><i style="width:46.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-49" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">75</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #49</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>红莲铠骑</h2>
+            <div class="meta">双打使用率排名 #22</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-50" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">75</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #50</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>阿勃梭鲁</h2>
+            <div class="meta">双打使用率排名 #50</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-51" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">72</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #51</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>甜冷美后</h2>
+            <div class="meta">双打使用率排名 #66</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>72</b></div><div class="bar"><i style="width:40.0%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>98</b></div><div class="bar"><i style="width:54.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>98</b></div><div class="bar"><i style="width:54.4%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-52" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">70</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #52</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>巨金怪</h2>
+            <div class="meta">双打使用率排名 #25</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-53" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">70</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #53</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>来悲粗茶</h2>
+            <div class="meta">双打使用率排名 #26</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>71</b></div><div class="bar"><i style="width:39.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>106</b></div><div class="bar"><i style="width:58.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>121</b></div><div class="bar"><i style="width:67.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-54" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">70</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #54</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>蚊香蛙皇</h2>
+            <div class="meta">双打使用率排名 #31</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-55" class="card team">
+      <div class="speed-rail">
+        <div class="speed-num">65</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #55</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>大嘴鸥</h2>
+            <div class="meta">双打使用率排名 #11</div>
+          </div>
+          <span class="mine">我的队伍</span>
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-56" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">65</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #56</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>葱游兵</h2>
+            <div class="meta">双打使用率排名 #61</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>62</b></div><div class="bar"><i style="width:34.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>68</b></div><div class="bar"><i style="width:37.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>82</b></div><div class="bar"><i style="width:45.6%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-57" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">61</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #57</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>班基拉斯</h2>
+            <div class="meta">双打使用率排名 #20</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>134</b></div><div class="bar"><i style="width:74.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-58" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">60</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #58</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>仙子伊布</h2>
+            <div class="meta">双打使用率排名 #19</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-59" class="card team">
+      <div class="speed-rail">
+        <div class="speed-num">60</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #59</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>奇麒麟</h2>
+            <div class="meta">双打使用率排名 #14</div>
+          </div>
+          <span class="mine">我的队伍</span>
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-60" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">60</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #60</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>巨沼怪</h2>
+            <div class="meta">双打使用率排名 #34</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-61" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">60</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #61</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>炽焰咆哮虎</h2>
+            <div class="meta">双打使用率排名 #4</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-62" class="card team">
+      <div class="speed-rail">
+        <div class="speed-num">60</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #62</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>西狮海壬</h2>
+            <div class="meta">双打使用率排名 #44</div>
+          </div>
+          <span class="mine">我的队伍</span>
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>74</b></div><div class="bar"><i style="width:41.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>74</b></div><div class="bar"><i style="width:41.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>126</b></div><div class="bar"><i style="width:70.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>116</b></div><div class="bar"><i style="width:64.4%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-63" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">60</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #63</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>长毛巨魔</h2>
+            <div class="meta">双打使用率排名 #33</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-64" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">50</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #64</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>仆刀将军</h2>
+            <div class="meta">双打使用率排名 #6</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-65" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">50</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #65</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>勾魂眼</h2>
+            <div class="meta">双打使用率排名 #45</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-66" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">50</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #66</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>大嘴娃</h2>
+            <div class="meta">双打使用率排名 #59</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-67" class="card team">
+      <div class="speed-rail">
+        <div class="speed-num">40</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #67</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>具甲武者</h2>
+            <div class="meta">双打使用率排名 #8</div>
+          </div>
+          <span class="mine">我的队伍</span>
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>140</b></div><div class="bar"><i style="width:77.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-68" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">40</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #68</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>喷火驼</h2>
+            <div class="meta">双打使用率排名 #56</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-69" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">29</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #69</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>布莉姆温</h2>
+            <div class="meta">双打使用率排名 #47</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>57</b></div><div class="bar"><i style="width:31.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>136</b></div><div class="bar"><i style="width:75.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>103</b></div><div class="bar"><i style="width:57.2%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="reg-70" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">20</div>
+        <div class="speed-label">速度</div>
+        <div class="order">速度序 #70</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>煤炭龟</h2>
+            <div class="meta">双打使用率排名 #24</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>140</b></div><div class="bar"><i style="width:77.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <section id="mega-block">
+    <div class="section-head">
+      <div>
+        <h3>Mega 形态（单独区）</h3>
+      </div>
+      <div class="desc">只收录前70里那些<br>存在 Mega 形态的宝可梦</div>
+    </div>
+    <div class="cards">
+      
+    <article id="mega-1" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">150</div>
+        <div class="speed-label">Mega速度</div>
+        <div class="order">130 → 150（+20）</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>Mega化石翼龙</h2>
+            <div class="meta">原形态：化石翼龙</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="mega-2" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">150</div>
+        <div class="speed-label">Mega速度</div>
+        <div class="order">120 → 150（+30）</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>Mega胡地</h2>
+            <div class="meta">原形态：胡地</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>175</b></div><div class="bar"><i style="width:97.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="mega-3" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">130</div>
+        <div class="speed-label">Mega速度</div>
+        <div class="order">110 → 130（+20）</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>Mega耿鬼</h2>
+            <div class="meta">原形态：耿鬼</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>170</b></div><div class="bar"><i style="width:94.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="mega-4" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">120</div>
+        <div class="speed-label">Mega速度</div>
+        <div class="order">100 → 120（+20）</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>Mega暴飞龙</h2>
+            <div class="meta">原形态：暴飞龙</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>145</b></div><div class="bar"><i style="width:80.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="mega-5" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">115</div>
+        <div class="speed-label">Mega速度</div>
+        <div class="order">75 → 115（+40）</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>Mega阿勃梭鲁</h2>
+            <div class="meta">原形态：阿勃梭鲁</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>150</b></div><div class="bar"><i style="width:83.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="mega-6" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">112</div>
+        <div class="speed-label">Mega速度</div>
+        <div class="order">90 → 112（+22）</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>Mega路卡利欧</h2>
+            <div class="meta">原形态：路卡利欧</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>145</b></div><div class="bar"><i style="width:80.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>88</b></div><div class="bar"><i style="width:48.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>140</b></div><div class="bar"><i style="width:77.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="mega-7" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">110</div>
+        <div class="speed-label">Mega速度</div>
+        <div class="order">70 → 110（+40）</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>Mega巨金怪</h2>
+            <div class="meta">原形态：巨金怪</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>145</b></div><div class="bar"><i style="width:80.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>150</b></div><div class="bar"><i style="width:83.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="mega-8" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">110</div>
+        <div class="speed-label">Mega速度</div>
+        <div class="order">80 → 110（+30）</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>Mega艾路雷朵</h2>
+            <div class="meta">原形态：艾路雷朵</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>68</b></div><div class="bar"><i style="width:37.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>165</b></div><div class="bar"><i style="width:91.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="mega-9" class="card team">
+      <div class="speed-rail">
+        <div class="speed-num">100</div>
+        <div class="speed-label">Mega速度</div>
+        <div class="order">100 → 100（+0）</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>Mega喷火龙X</h2>
+            <div class="meta">原形态：喷火龙</div>
+          </div>
+          <span class="mine">队伍相关</span>
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>111</b></div><div class="bar"><i style="width:61.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="mega-10" class="card team">
+      <div class="speed-rail">
+        <div class="speed-num">100</div>
+        <div class="speed-label">Mega速度</div>
+        <div class="order">100 → 100（+0）</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>Mega喷火龙Y</h2>
+            <div class="meta">原形态：喷火龙</div>
+          </div>
+          <span class="mine">队伍相关</span>
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>104</b></div><div class="bar"><i style="width:57.8%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>159</b></div><div class="bar"><i style="width:88.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="mega-11" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">100</div>
+        <div class="speed-label">Mega速度</div>
+        <div class="order">80 → 100（+20）</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>Mega沙奈朵</h2>
+            <div class="meta">原形态：沙奈朵</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>68</b></div><div class="bar"><i style="width:37.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>165</b></div><div class="bar"><i style="width:91.7%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="mega-12" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">100</div>
+        <div class="speed-label">Mega速度</div>
+        <div class="order">80 → 100（+20）</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>Mega火焰鸡</h2>
+            <div class="meta">原形态：火焰鸡</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>160</b></div><div class="bar"><i style="width:88.9%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="mega-13" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">80</div>
+        <div class="speed-label">Mega速度</div>
+        <div class="order">80 → 80（+0）</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>Mega妙蛙花</h2>
+            <div class="meta">原形态：妙蛙花</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>123</b></div><div class="bar"><i style="width:68.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>122</b></div><div class="bar"><i style="width:67.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="mega-14" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">78</div>
+        <div class="speed-label">Mega速度</div>
+        <div class="order">78 → 78（+0）</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>Mega水箭龟</h2>
+            <div class="meta">原形态：水箭龟</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>79</b></div><div class="bar"><i style="width:43.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>103</b></div><div class="bar"><i style="width:57.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="mega-15" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">71</div>
+        <div class="speed-label">Mega速度</div>
+        <div class="order">61 → 71（+10）</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>Mega班基拉斯</h2>
+            <div class="meta">原形态：班基拉斯</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>164</b></div><div class="bar"><i style="width:91.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>150</b></div><div class="bar"><i style="width:83.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="mega-16" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">70</div>
+        <div class="speed-label">Mega速度</div>
+        <div class="order">60 → 70（+10）</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>Mega巨沼怪</h2>
+            <div class="meta">原形态：巨沼怪</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>150</b></div><div class="bar"><i style="width:83.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="mega-17" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">50</div>
+        <div class="speed-label">Mega速度</div>
+        <div class="order">50 → 50（+0）</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>Mega大嘴娃</h2>
+            <div class="meta">原形态：大嘴娃</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="mega-18" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">20</div>
+        <div class="speed-label">Mega速度</div>
+        <div class="order">50 → 20（-30）</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>Mega勾魂眼</h2>
+            <div class="meta">原形态：勾魂眼</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    <article id="mega-19" class="card ">
+      <div class="speed-rail">
+        <div class="speed-num">20</div>
+        <div class="speed-label">Mega速度</div>
+        <div class="order">40 → 20（-20）</div>
+      </div>
+      <div class="card-main">
+        <div class="name-row">
+          <div>
+            <h2>Mega喷火驼</h2>
+            <div class="meta">原形态：喷火驼</div>
+          </div>
+          
+        </div>
+        <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>145</b></div><div class="bar"><i style="width:80.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#8b6edb"></i></div></div></div>
+      </div>
+    </article>
+    
+    </div>
+  </section>
+
+  <div class="backtop"><a href="#top">回到顶部</a></div>
+
+  <div class="footer">
+    本页是手机竖屏优先、无脚本静态版，方便直接打开浏览。<br>
+    “前70”使用的是你前面要求那份双打环境榜继续向后扩展到 #70；卡片按基础速度重新排序，卡片内仍保留原使用率排名。<br>
+    Mega 区是单独的速度视图：左侧大数字是 Mega 后的速度，下面小字是“原速度 → Mega 后速度”。
+  </div>
+</main>
+</body>
+</html>
