@@ -48,10 +48,14 @@ h1 { font-size:28px; line-height:1.08; letter-spacing:-.03em; margin:0 0 8px; }
 .quick-search input:focus { border-color:#5590d9; box-shadow:0 0 0 3px #5590d933; }
 .search-results { position:absolute; top:100%; left:0; right:0; z-index:25; max-height:min(310px,48vh); overflow:auto; border:1px solid #dce2eb; border-radius:10px; background:white; box-shadow:0 12px 30px #15243b30; }
 .search-results[hidden] { display:none; }
-.search-results a, .search-empty { display:flex; align-items:center; justify-content:space-between; gap:10px; min-height:40px; padding:8px 12px; border-bottom:1px solid #edf0f5; color:#24324a; font-size:13px; text-decoration:none; }
+.search-results a, .search-empty { display:flex; align-items:center; justify-content:space-between; gap:10px; min-height:48px; padding:8px 12px; border-bottom:1px solid #edf0f5; color:#24324a; font-size:13px; text-decoration:none; }
+.search-results a { position:relative; overflow:hidden; }
+.search-results a > img { position:absolute; right:5px; top:0; width:92px; height:100%; object-fit:contain; object-position:right center; opacity:.20; pointer-events:none; }
+.search-results a > span, .search-results a > small { position:relative; }
+.search-results a > span { font-weight:700; }
 .search-results a:last-child { border-bottom:0; }
 .search-results a:hover, .search-results a:focus-visible { background:#e8f1ff; outline:none; }
-.search-results small { flex:none; color:#6b7588; font-size:11px; }
+.search-results small { flex:none; color:#586477; font-size:11px; background:#ffffffc9; border-radius:5px; padding:2px 4px; }
 .search-empty { color:#778196; }
 .nav-title { font-size:11px; color:#667084; font-weight:700; margin:0 0 7px; }
 .nav-row { overflow-x:auto; white-space:nowrap; padding-bottom:2px; }
@@ -62,8 +66,6 @@ h1 { font-size:28px; line-height:1.08; letter-spacing:-.03em; margin:0 0 8px; }
   border:1px solid #dde2eb; background:#fff; color:#354056;
   font-size:12px; font-weight:800; text-decoration:none;
 }
-.team-chip { background:#fff6bf; border-color:#f0cf45; color:var(--team-ink); }
-.team-chip.missing { opacity:.9; background:#fff; color:#8a6272; border-style:dashed; }
 .speed-chip { background:#18243a; color:#fff; border-color:#18243a; }
 .section-head {
   display:flex; justify-content:space-between; align-items:flex-end; gap:10px;
@@ -77,9 +79,9 @@ h1 { font-size:28px; line-height:1.08; letter-spacing:-.03em; margin:0 0 8px; }
 .card {
   background:var(--panel); border:1px solid var(--line); border-radius:18px;
   display:grid; grid-template-columns:76px 1fr; overflow:hidden; box-shadow:var(--shadow);
-  scroll-margin-top:315px; position:relative;
+  scroll-margin-top:225px; position:relative;
 }
-#mega-block { scroll-margin-top:315px; }
+#mega-block { scroll-margin-top:225px; }
 .card-art {
   position:absolute; top:0; right:2px; width:58%; height:100%;
   object-fit:contain; object-position:right center; opacity:.20;
@@ -246,9 +248,6 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
       <input id="pokemon-search" type="search" placeholder="输入名称，如多龙、具甲、Mega喷火龙" autocomplete="off" aria-controls="pokemon-search-results" aria-expanded="false">
       <div id="pokemon-search-results" class="search-results" aria-label="搜索结果" hidden></div>
     </div>
-    <div class="nav-title">我的队伍快速导航</div>
-    <div class="nav-row"><a class="chip team-chip" href="#reg-55">大嘴鸥</a><a class="chip team-chip" href="#reg-62">西狮海壬</a><a class="chip team-chip" href="#reg-1">多龙巴鲁托</a><a class="chip team-chip" href="#reg-59">奇麒麟</a><a class="chip team-chip" href="#reg-67">具甲武者</a><a class="chip team-chip" href="#reg-18">喷火龙</a></div>
-
     <div class="nav-title">常规形态 · 每20基础速度快速标签</div>
     <div class="nav-row"><a class="chip speed-chip" href="#reg-67">40速</a><a class="chip speed-chip" href="#reg-58">60速</a><a class="chip speed-chip" href="#reg-42">80速</a><a class="chip speed-chip" href="#reg-18">100速</a><a class="chip speed-chip" href="#reg-5">120速</a><a class="chip speed-chip" href="#reg-2">140速</a></div>
 
@@ -3014,7 +3013,8 @@ const pokemonResults=document.getElementById('pokemon-search-results');
 const pokemonCards=[...document.querySelectorAll('.card')].map(card=>({
   id:card.id, name:card.querySelector('h2').textContent.trim(),
   speed:card.querySelector('.speed-num').textContent.trim(),
-  mega:card.id.startsWith('mega-')
+  mega:card.id.startsWith('mega-'),
+  art:card.querySelector('.card-art')?.getAttribute('src')
 }));
 const searchAliases={西施:'西狮海壬',大嘴欧:'大嘴鸥',桥龙:'铝钢桥龙',大将:'仆刀将军',多龙:'多龙巴鲁托'};
 const normalizeSearch=value=>value.toLowerCase().replace(/[\s·（）()\-]/g,'');
@@ -3039,6 +3039,10 @@ function updatePokemonResults() {
     link.href='#'+card.id;
     const name=document.createElement('span'); name.textContent=card.name;
     const speed=document.createElement('small'); speed.textContent='基础速度 '+card.speed;
+    if(card.art) {
+      const art=document.createElement('img'); art.src=card.art; art.alt=''; art.setAttribute('aria-hidden','true'); art.loading='lazy'; art.decoding='async';
+      link.append(art);
+    }
     link.append(name,speed);
     link.addEventListener('click',()=>{pokemonSearch.value='';closePokemonResults();});
     pokemonResults.append(link);
