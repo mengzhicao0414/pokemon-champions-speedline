@@ -42,6 +42,17 @@ h1 { font-size:28px; line-height:1.08; letter-spacing:-.03em; margin:0 0 8px; }
   backdrop-filter:blur(14px); margin:0 -12px 12px; padding:10px 12px 12px;
   border-top:1px solid rgba(0,0,0,.03); border-bottom:1px solid rgba(0,0,0,.06);
 }
+.quick-search { position:relative; margin-bottom:10px; }
+.quick-search label { display:block; margin-bottom:5px; color:#667084; font-size:11px; font-weight:700; }
+.quick-search input { width:100%; height:38px; border:1px solid #d6deea; border-radius:10px; background:white; color:#152033; padding:0 12px; font:inherit; font-size:14px; outline:none; }
+.quick-search input:focus { border-color:#5590d9; box-shadow:0 0 0 3px #5590d933; }
+.search-results { position:absolute; top:100%; left:0; right:0; z-index:25; max-height:min(310px,48vh); overflow:auto; border:1px solid #dce2eb; border-radius:10px; background:white; box-shadow:0 12px 30px #15243b30; }
+.search-results[hidden] { display:none; }
+.search-results a, .search-empty { display:flex; align-items:center; justify-content:space-between; gap:10px; min-height:40px; padding:8px 12px; border-bottom:1px solid #edf0f5; color:#24324a; font-size:13px; text-decoration:none; }
+.search-results a:last-child { border-bottom:0; }
+.search-results a:hover, .search-results a:focus-visible { background:#e8f1ff; outline:none; }
+.search-results small { flex:none; color:#6b7588; font-size:11px; }
+.search-empty { color:#778196; }
 .nav-title { font-size:11px; color:#667084; font-weight:700; margin:0 0 7px; }
 .nav-row { overflow-x:auto; white-space:nowrap; padding-bottom:2px; }
 .nav-row + .nav-title { margin-top:10px; }
@@ -66,8 +77,9 @@ h1 { font-size:28px; line-height:1.08; letter-spacing:-.03em; margin:0 0 8px; }
 .card {
   background:var(--panel); border:1px solid var(--line); border-radius:18px;
   display:grid; grid-template-columns:76px 1fr; overflow:hidden; box-shadow:var(--shadow);
-  scroll-margin-top:250px; position:relative;
+  scroll-margin-top:315px; position:relative;
 }
+#mega-block { scroll-margin-top:315px; }
 .card-art {
   position:absolute; top:0; right:2px; width:58%; height:100%;
   object-fit:contain; object-position:right center; opacity:.20;
@@ -229,6 +241,11 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
   </section>
 
   <section class="jump">
+    <div class="quick-search">
+      <label for="pokemon-search">快速搜索宝可梦</label>
+      <input id="pokemon-search" type="search" placeholder="输入名称，如多龙、具甲、Mega喷火龙" autocomplete="off" aria-controls="pokemon-search-results" aria-expanded="false">
+      <div id="pokemon-search-results" class="search-results" aria-label="搜索结果" hidden></div>
+    </div>
     <div class="nav-title">我的队伍快速导航</div>
     <div class="nav-row"><a class="chip team-chip" href="#reg-55">大嘴鸥</a><a class="chip team-chip" href="#reg-62">西狮海壬</a><a class="chip team-chip" href="#reg-1">多龙巴鲁托</a><a class="chip team-chip" href="#reg-59">奇麒麟</a><a class="chip team-chip" href="#reg-67">具甲武者</a><a class="chip team-chip" href="#reg-18">喷火龙</a></div>
 
@@ -2991,6 +3008,62 @@ document.getElementById('open-type-guide').addEventListener('click',()=>{showGui
 document.getElementById('close-type-guide').addEventListener('click',()=>guideDialog.close());
 for(const b of guideButtons)b.addEventListener('click',()=>showGuide(b.dataset.view));
 guideDialog.addEventListener('click',e=>{if(e.target===guideDialog)guideDialog.close();});
+
+const pokemonSearch=document.getElementById('pokemon-search');
+const pokemonResults=document.getElementById('pokemon-search-results');
+const pokemonCards=[...document.querySelectorAll('.card')].map(card=>({
+  id:card.id, name:card.querySelector('h2').textContent.trim(),
+  speed:card.querySelector('.speed-num').textContent.trim(),
+  mega:card.id.startsWith('mega-')
+}));
+const searchAliases={西施:'西狮海壬',大嘴欧:'大嘴鸥',桥龙:'铝钢桥龙',大将:'仆刀将军',多龙:'多龙巴鲁托'};
+const normalizeSearch=value=>value.toLowerCase().replace(/[\s·（）()\-]/g,'');
+function searchScore(name,query) {
+  const target=normalizeSearch(name);
+  if(target.startsWith(query))return 0;
+  if(target.includes(query))return 1;
+  let index=0;
+  for(const character of target)if(character===query[index])index++;
+  return index===query.length?2:Infinity;
+}
+function closePokemonResults() { pokemonResults.hidden=true; pokemonSearch.setAttribute('aria-expanded','false'); }
+function updatePokemonResults() {
+  const query=normalizeSearch(pokemonSearch.value.trim());
+  pokemonResults.replaceChildren();
+  if(!query) { closePokemonResults(); return; }
+  const alias=searchAliases[query];
+  const matches=pokemonCards.map(card=>({card,score:Math.min(searchScore(card.name,query),alias?searchScore(card.name,normalizeSearch(alias)):Infinity)}))
+    .filter(item=>Number.isFinite(item.score)).sort((a,b)=>a.score-b.score || Number(a.card.mega)-Number(b.card.mega)).slice(0,12);
+  for(const {card} of matches) {
+    const link=document.createElement('a');
+    link.href='#'+card.id;
+    const name=document.createElement('span'); name.textContent=card.name;
+    const speed=document.createElement('small'); speed.textContent='基础速度 '+card.speed;
+    link.append(name,speed);
+    link.addEventListener('click',()=>{pokemonSearch.value='';closePokemonResults();});
+    pokemonResults.append(link);
+  }
+  if(!matches.length) {
+    const empty=document.createElement('div'); empty.className='search-empty'; empty.textContent='没有找到匹配的宝可梦'; pokemonResults.append(empty);
+  }
+  pokemonResults.hidden=false;
+  pokemonSearch.setAttribute('aria-expanded','true');
+}
+pokemonSearch.addEventListener('input',updatePokemonResults);
+pokemonSearch.addEventListener('focus',updatePokemonResults);
+pokemonSearch.addEventListener('keydown',event=>{
+  if(event.key==='Escape') { closePokemonResults(); pokemonSearch.blur(); }
+  if(event.key==='ArrowDown' && !pokemonResults.hidden) { const first=pokemonResults.querySelector('a'); if(first) { event.preventDefault(); first.focus(); } }
+  if(event.key==='Enter' && !pokemonResults.hidden) { const first=pokemonResults.querySelector('a'); if(first) { event.preventDefault(); first.click(); } }
+});
+pokemonResults.addEventListener('keydown',event=>{
+  const links=[...pokemonResults.querySelectorAll('a')];
+  const index=links.indexOf(document.activeElement);
+  if(event.key==='Escape') { closePokemonResults(); pokemonSearch.focus(); }
+  if(event.key==='ArrowDown' && index>=0) { event.preventDefault(); links[Math.min(index+1,links.length-1)].focus(); }
+  if(event.key==='ArrowUp' && index>=0) { event.preventDefault(); if(index)links[index-1].focus(); else pokemonSearch.focus(); }
+});
+document.addEventListener('click',event=>{if(!event.target.closest('.quick-search'))closePokemonResults();});
 </script>
 </body>
 </html>
