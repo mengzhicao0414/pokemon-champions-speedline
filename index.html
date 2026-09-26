@@ -151,7 +151,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
 .stat-top b { font-size:12px; color:#263248; }
 .bar { margin-top:4px; height:5px; background:#edf0f5; border-radius:99px; overflow:hidden; }
 .bar i { display:block; height:100%; border-radius:99px; }
-.speed-spreads { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:5px; margin-top:12px; }
+.speed-spreads { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:5px; margin-top:12px; }
 .speed-case { padding:6px 3px; border:1px solid #e3e6ed; border-radius:9px; background:rgba(255,255,255,.88); text-align:center; }
 .speed-case span { display:block; color:#667084; font-size:10px; white-space:nowrap; }
 .speed-case b { display:block; margin-top:2px; color:#583427; font-size:16px; line-height:1.1; }
@@ -193,7 +193,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
     </div>
     <div class="key">
       你的队伍：大嘴鸥 / 西狮海壬 / 多龙巴鲁托 / 奇麒麟 / 具甲武者 / 喷火龙。<br>
-      卡片内的 50 级速度：减速 0速＝减速度性格、速度个体值 0、速度努力值 0；满速＝速度个体值 31、速度努力值 252、性格不修正；极速＝速度个体值 31、速度努力值 252、加速度性格。<br>
+      卡片内的 50 级速度：无努力＝速度 0 SP、性格不修正；减速 20 SP＝减速度性格、速度投入 20 点 SP；满速＝速度投入 32 点 SP、性格不修正；极速＝速度投入 32 点 SP、加速度性格。<br>
       这次我直接扩成了前70，所以多龙巴鲁托已经直接在常规区里；按目前 M-C 规则补齐前70里可用的34种 Mega 形态；每张卡片都标有属性（Mega 形态按进化后的属性）；有 Mega 形态的宝可梦，在常规卡片上直接标注速度变化；若 Mega 后属性改变，常规卡片的紫色标签也会标出变化；点击标签可跳到对应的 Mega 卡片。Mega 区也按进化后速度排列。
     </div>
   </section>
@@ -234,7 +234,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <span class="mine">我的队伍</span>
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>88</b></div><div class="bar"><i style="width:48.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 132；满速 194；极速 213"><div class="speed-case"><span>减速 0速</span><b>132</b></div><div class="speed-case"><span>满速</span><b>194</b></div><div class="speed-case"><span>极速</span><b>213</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 162；减速度性格、速度 20 SP 163；满速 194；极速 213"><div class="speed-case"><span>无努力 0 SP</span><b>162</b></div><div class="speed-case"><span>减速 20 SP</span><b>163</b></div><div class="speed-case"><span>满速</span><b>194</b></div><div class="speed-case"><span>极速</span><b>213</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/887.png" alt="" aria-hidden="true" loading="eager" decoding="async">
       </div>
       <details class="matchups">
@@ -261,7 +261,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 121；满速 182；极速 200"><div class="speed-case"><span>减速 0速</span><b>121</b></div><div class="speed-case"><span>满速</span><b>182</b></div><div class="speed-case"><span>极速</span><b>200</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 150；减速度性格、速度 20 SP 153；满速 182；极速 200"><div class="speed-case"><span>无努力 0 SP</span><b>150</b></div><div class="speed-case"><span>减速 20 SP</span><b>153</b></div><div class="speed-case"><span>满速</span><b>182</b></div><div class="speed-case"><span>极速</span><b>200</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/142.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -287,7 +287,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>81</b></div><div class="bar"><i style="width:45.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>71</b></div><div class="bar"><i style="width:39.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>74</b></div><div class="bar"><i style="width:41.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>69</b></div><div class="bar"><i style="width:38.3%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 117；满速 178；极速 195"><div class="speed-case"><span>减速 0速</span><b>117</b></div><div class="speed-case"><span>满速</span><b>178</b></div><div class="speed-case"><span>极速</span><b>195</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 146；减速度性格、速度 20 SP 149；满速 178；极速 195"><div class="speed-case"><span>无努力 0 SP</span><b>146</b></div><div class="speed-case"><span>减速 20 SP</span><b>149</b></div><div class="speed-case"><span>满速</span><b>178</b></div><div class="speed-case"><span>极速</span><b>195</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/663.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -313,7 +313,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>76</b></div><div class="bar"><i style="width:42.2%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>81</b></div><div class="bar"><i style="width:45.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 115；满速 175；极速 192"><div class="speed-case"><span>减速 0速</span><b>115</b></div><div class="speed-case"><span>满速</span><b>175</b></div><div class="speed-case"><span>极速</span><b>192</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 143；减速度性格、速度 20 SP 146；满速 175；极速 192"><div class="speed-case"><span>无努力 0 SP</span><b>143</b></div><div class="speed-case"><span>减速 20 SP</span><b>146</b></div><div class="speed-case"><span>满速</span><b>175</b></div><div class="speed-case"><span>极速</span><b>192</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/908.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -339,7 +339,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 112；满速 172；极速 189"><div class="speed-case"><span>减速 0速</span><b>112</b></div><div class="speed-case"><span>满速</span><b>172</b></div><div class="speed-case"><span>极速</span><b>189</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 140；减速度性格、速度 20 SP 144；满速 172；极速 189"><div class="speed-case"><span>无努力 0 SP</span><b>140</b></div><div class="speed-case"><span>减速 20 SP</span><b>144</b></div><div class="speed-case"><span>满速</span><b>172</b></div><div class="speed-case"><span>极速</span><b>189</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/818.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -365,7 +365,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>40</b></div><div class="bar"><i style="width:22.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 112；满速 172；极速 189"><div class="speed-case"><span>减速 0速</span><b>112</b></div><div class="speed-case"><span>满速</span><b>172</b></div><div class="speed-case"><span>极速</span><b>189</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 140；减速度性格、速度 20 SP 144；满速 172；极速 189"><div class="speed-case"><span>无努力 0 SP</span><b>140</b></div><div class="speed-case"><span>减速 20 SP</span><b>144</b></div><div class="speed-case"><span>满速</span><b>172</b></div><div class="speed-case"><span>极速</span><b>189</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/903.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -392,7 +392,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>45</b></div><div class="bar"><i style="width:25.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 112；满速 172；极速 189"><div class="speed-case"><span>减速 0速</span><b>112</b></div><div class="speed-case"><span>满速</span><b>172</b></div><div class="speed-case"><span>极速</span><b>189</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 140；减速度性格、速度 20 SP 144；满速 172；极速 189"><div class="speed-case"><span>无努力 0 SP</span><b>140</b></div><div class="speed-case"><span>减速 20 SP</span><b>144</b></div><div class="speed-case"><span>满速</span><b>172</b></div><div class="speed-case"><span>极速</span><b>189</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -418,7 +418,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>67</b></div><div class="bar"><i style="width:37.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>77</b></div><div class="bar"><i style="width:42.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 108；满速 168；极速 184"><div class="speed-case"><span>减速 0速</span><b>108</b></div><div class="speed-case"><span>满速</span><b>168</b></div><div class="speed-case"><span>极速</span><b>184</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 136；减速度性格、速度 20 SP 140；满速 168；极速 184"><div class="speed-case"><span>无努力 0 SP</span><b>136</b></div><div class="speed-case"><span>减速 20 SP</span><b>140</b></div><div class="speed-case"><span>满速</span><b>168</b></div><div class="speed-case"><span>极速</span><b>184</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/547.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -444,7 +444,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>74</b></div><div class="bar"><i style="width:41.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 104；满速 163；极速 179"><div class="speed-case"><span>减速 0速</span><b>104</b></div><div class="speed-case"><span>满速</span><b>163</b></div><div class="speed-case"><span>极速</span><b>179</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 131；减速度性格、速度 20 SP 135；满速 163；极速 179"><div class="speed-case"><span>无努力 0 SP</span><b>131</b></div><div class="speed-case"><span>减速 20 SP</span><b>135</b></div><div class="speed-case"><span>满速</span><b>163</b></div><div class="speed-case"><span>极速</span><b>179</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/925.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -470,7 +470,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 103；满速 162；极速 178"><div class="speed-case"><span>减速 0速</span><b>103</b></div><div class="speed-case"><span>满速</span><b>162</b></div><div class="speed-case"><span>极速</span><b>178</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 130；减速度性格、速度 20 SP 135；满速 162；极速 178"><div class="speed-case"><span>无努力 0 SP</span><b>130</b></div><div class="speed-case"><span>减速 20 SP</span><b>135</b></div><div class="speed-case"><span>满速</span><b>162</b></div><div class="speed-case"><span>极速</span><b>178</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10239.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -497,7 +497,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 103；满速 162；极速 178"><div class="speed-case"><span>减速 0速</span><b>103</b></div><div class="speed-case"><span>满速</span><b>162</b></div><div class="speed-case"><span>极速</span><b>178</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 130；减速度性格、速度 20 SP 135；满速 162；极速 178"><div class="speed-case"><span>无努力 0 SP</span><b>130</b></div><div class="speed-case"><span>减速 20 SP</span><b>135</b></div><div class="speed-case"><span>满速</span><b>162</b></div><div class="speed-case"><span>极速</span><b>178</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -524,7 +524,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 103；满速 162；极速 178"><div class="speed-case"><span>减速 0速</span><b>103</b></div><div class="speed-case"><span>满速</span><b>162</b></div><div class="speed-case"><span>极速</span><b>178</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 130；减速度性格、速度 20 SP 135；满速 162；极速 178"><div class="speed-case"><span>无努力 0 SP</span><b>130</b></div><div class="speed-case"><span>减速 20 SP</span><b>135</b></div><div class="speed-case"><span>满速</span><b>162</b></div><div class="speed-case"><span>极速</span><b>178</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/478.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -551,7 +551,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 103；满速 162；极速 178"><div class="speed-case"><span>减速 0速</span><b>103</b></div><div class="speed-case"><span>满速</span><b>162</b></div><div class="speed-case"><span>极速</span><b>178</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 130；减速度性格、速度 20 SP 135；满速 162；极速 178"><div class="speed-case"><span>无努力 0 SP</span><b>130</b></div><div class="speed-case"><span>减速 20 SP</span><b>135</b></div><div class="speed-case"><span>满速</span><b>162</b></div><div class="speed-case"><span>极速</span><b>178</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -577,7 +577,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>73</b></div><div class="bar"><i style="width:40.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>67</b></div><div class="bar"><i style="width:37.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>81</b></div><div class="bar"><i style="width:45.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 102；满速 161；极速 177"><div class="speed-case"><span>减速 0速</span><b>102</b></div><div class="speed-case"><span>满速</span><b>161</b></div><div class="speed-case"><span>极速</span><b>177</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 129；减速度性格、速度 20 SP 134；满速 161；极速 177"><div class="speed-case"><span>无努力 0 SP</span><b>129</b></div><div class="speed-case"><span>减速 20 SP</span><b>134</b></div><div class="speed-case"><span>满速</span><b>161</b></div><div class="speed-case"><span>极速</span><b>177</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10104.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -603,7 +603,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 99；满速 157；极速 172"><div class="speed-case"><span>减速 0速</span><b>99</b></div><div class="speed-case"><span>满速</span><b>157</b></div><div class="speed-case"><span>极速</span><b>172</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 125；减速度性格、速度 20 SP 130；满速 157；极速 172"><div class="speed-case"><span>无努力 0 SP</span><b>125</b></div><div class="speed-case"><span>减速 20 SP</span><b>130</b></div><div class="speed-case"><span>满速</span><b>157</b></div><div class="speed-case"><span>极速</span><b>172</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/923.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -630,7 +630,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>69</b></div><div class="bar"><i style="width:38.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>72</b></div><div class="bar"><i style="width:40.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>114</b></div><div class="bar"><i style="width:63.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 98；满速 156；极速 171"><div class="speed-case"><span>减速 0速</span><b>98</b></div><div class="speed-case"><span>满速</span><b>156</b></div><div class="speed-case"><span>极速</span><b>171</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 124；减速度性格、速度 20 SP 129；满速 156；极速 171"><div class="speed-case"><span>无努力 0 SP</span><b>124</b></div><div class="speed-case"><span>减速 20 SP</span><b>129</b></div><div class="speed-case"><span>满速</span><b>156</b></div><div class="speed-case"><span>极速</span><b>171</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/655.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -657,7 +657,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>108</b></div><div class="bar"><i style="width:60.0%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 96；满速 154；极速 169"><div class="speed-case"><span>减速 0速</span><b>96</b></div><div class="speed-case"><span>满速</span><b>154</b></div><div class="speed-case"><span>极速</span><b>169</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 122；减速度性格、速度 20 SP 127；满速 154；极速 169"><div class="speed-case"><span>无努力 0 SP</span><b>122</b></div><div class="speed-case"><span>减速 20 SP</span><b>127</b></div><div class="speed-case"><span>满速</span><b>154</b></div><div class="speed-case"><span>极速</span><b>169</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/445.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -684,7 +684,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <span class="mine">我的队伍</span>
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>84</b></div><div class="bar"><i style="width:46.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>109</b></div><div class="bar"><i style="width:60.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 94；满速 152；极速 167"><div class="speed-case"><span>减速 0速</span><b>94</b></div><div class="speed-case"><span>满速</span><b>152</b></div><div class="speed-case"><span>极速</span><b>167</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 120；减速度性格、速度 20 SP 126；满速 152；极速 167"><div class="speed-case"><span>无努力 0 SP</span><b>120</b></div><div class="speed-case"><span>减速 20 SP</span><b>126</b></div><div class="speed-case"><span>满速</span><b>152</b></div><div class="speed-case"><span>极速</span><b>167</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -711,7 +711,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 94；满速 152；极速 167"><div class="speed-case"><span>减速 0速</span><b>94</b></div><div class="speed-case"><span>满速</span><b>152</b></div><div class="speed-case"><span>极速</span><b>167</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 120；减速度性格、速度 20 SP 126；满速 152；极速 167"><div class="speed-case"><span>无努力 0 SP</span><b>120</b></div><div class="speed-case"><span>减速 20 SP</span><b>126</b></div><div class="speed-case"><span>满速</span><b>152</b></div><div class="speed-case"><span>极速</span><b>167</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/398.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -738,7 +738,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 94；满速 152；极速 167"><div class="speed-case"><span>减速 0速</span><b>94</b></div><div class="speed-case"><span>满速</span><b>152</b></div><div class="speed-case"><span>极速</span><b>167</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 120；减速度性格、速度 20 SP 126；满速 152；极速 167"><div class="speed-case"><span>无努力 0 SP</span><b>120</b></div><div class="speed-case"><span>减速 20 SP</span><b>126</b></div><div class="speed-case"><span>满速</span><b>152</b></div><div class="speed-case"><span>极速</span><b>167</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/373.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -764,7 +764,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 94；满速 152；极速 167"><div class="speed-case"><span>减速 0速</span><b>94</b></div><div class="speed-case"><span>满速</span><b>152</b></div><div class="speed-case"><span>极速</span><b>167</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 120；减速度性格、速度 20 SP 126；满速 152；极速 167"><div class="speed-case"><span>无努力 0 SP</span><b>120</b></div><div class="speed-case"><span>减速 20 SP</span><b>126</b></div><div class="speed-case"><span>满速</span><b>152</b></div><div class="speed-case"><span>极速</span><b>167</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/637.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -790,7 +790,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>92</b></div><div class="bar"><i style="width:51.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 92；满速 150；极速 165"><div class="speed-case"><span>减速 0速</span><b>92</b></div><div class="speed-case"><span>满速</span><b>150</b></div><div class="speed-case"><span>极速</span><b>165</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 118；减速度性格、速度 20 SP 124；满速 150；极速 165"><div class="speed-case"><span>无努力 0 SP</span><b>118</b></div><div class="speed-case"><span>减速 20 SP</span><b>124</b></div><div class="speed-case"><span>满速</span><b>150</b></div><div class="speed-case"><span>极速</span><b>165</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/635.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -816,7 +816,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>73</b></div><div class="bar"><i style="width:40.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>84</b></div><div class="bar"><i style="width:46.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>119</b></div><div class="bar"><i style="width:66.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 90；满速 147；极速 161"><div class="speed-case"><span>减速 0速</span><b>90</b></div><div class="speed-case"><span>满速</span><b>147</b></div><div class="speed-case"><span>极速</span><b>161</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 115；减速度性格、速度 20 SP 121；满速 147；极速 161"><div class="speed-case"><span>无努力 0 SP</span><b>115</b></div><div class="speed-case"><span>减速 20 SP</span><b>121</b></div><div class="speed-case"><span>满速</span><b>147</b></div><div class="speed-case"><span>极速</span><b>161</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10233.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -842,7 +842,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 90；满速 147；极速 161"><div class="speed-case"><span>减速 0速</span><b>90</b></div><div class="speed-case"><span>满速</span><b>147</b></div><div class="speed-case"><span>极速</span><b>161</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 115；减速度性格、速度 20 SP 121；满速 147；极速 161"><div class="speed-case"><span>无努力 0 SP</span><b>115</b></div><div class="speed-case"><span>减速 20 SP</span><b>121</b></div><div class="speed-case"><span>满速</span><b>147</b></div><div class="speed-case"><span>极速</span><b>161</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/876.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -869,7 +869,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>74</b></div><div class="bar"><i style="width:41.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>67</b></div><div class="bar"><i style="width:37.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>128</b></div><div class="bar"><i style="width:71.1%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 87；满速 144；极速 158"><div class="speed-case"><span>减速 0速</span><b>87</b></div><div class="speed-case"><span>满速</span><b>144</b></div><div class="speed-case"><span>极速</span><b>158</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 112；减速度性格、速度 20 SP 118；满速 144；极速 158"><div class="speed-case"><span>无努力 0 SP</span><b>112</b></div><div class="speed-case"><span>减速 20 SP</span><b>118</b></div><div class="speed-case"><span>满速</span><b>144</b></div><div class="speed-case"><span>极速</span><b>158</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10061.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -895,7 +895,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 85；满速 142；极速 156"><div class="speed-case"><span>减速 0速</span><b>85</b></div><div class="speed-case"><span>满速</span><b>142</b></div><div class="speed-case"><span>极速</span><b>156</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 110；减速度性格、速度 20 SP 117；满速 142；极速 156"><div class="speed-case"><span>无努力 0 SP</span><b>110</b></div><div class="speed-case"><span>减速 20 SP</span><b>117</b></div><div class="speed-case"><span>满速</span><b>142</b></div><div class="speed-case"><span>极速</span><b>156</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/979.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -922,7 +922,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 85；满速 142；极速 156"><div class="speed-case"><span>减速 0速</span><b>85</b></div><div class="speed-case"><span>满速</span><b>142</b></div><div class="speed-case"><span>极速</span><b>156</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 110；减速度性格、速度 20 SP 117；满速 142；极速 156"><div class="speed-case"><span>无努力 0 SP</span><b>110</b></div><div class="speed-case"><span>减速 20 SP</span><b>117</b></div><div class="speed-case"><span>满速</span><b>142</b></div><div class="speed-case"><span>极速</span><b>156</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -948,7 +948,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 85；满速 142；极速 156"><div class="speed-case"><span>减速 0速</span><b>85</b></div><div class="speed-case"><span>满速</span><b>142</b></div><div class="speed-case"><span>极速</span><b>156</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 110；减速度性格、速度 20 SP 117；满速 142；极速 156"><div class="speed-case"><span>无努力 0 SP</span><b>110</b></div><div class="speed-case"><span>减速 20 SP</span><b>117</b></div><div class="speed-case"><span>满速</span><b>142</b></div><div class="speed-case"><span>极速</span><b>156</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10230.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -974,7 +974,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>52</b></div><div class="bar"><i style="width:28.9%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 84；满速 141；极速 155"><div class="speed-case"><span>减速 0速</span><b>84</b></div><div class="speed-case"><span>满速</span><b>141</b></div><div class="speed-case"><span>极速</span><b>155</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 109；减速度性格、速度 20 SP 116；满速 141；极速 155"><div class="speed-case"><span>无努力 0 SP</span><b>109</b></div><div class="speed-case"><span>减速 20 SP</span><b>116</b></div><div class="speed-case"><span>满速</span><b>141</b></div><div class="speed-case"><span>极速</span><b>155</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/666.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1001,7 +1001,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 83；满速 140；极速 154"><div class="speed-case"><span>减速 0速</span><b>83</b></div><div class="speed-case"><span>满速</span><b>140</b></div><div class="speed-case"><span>极速</span><b>154</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 108；减速度性格、速度 20 SP 115；满速 140；极速 154"><div class="speed-case"><span>无努力 0 SP</span><b>108</b></div><div class="speed-case"><span>减速 20 SP</span><b>115</b></div><div class="speed-case"><span>满速</span><b>140</b></div><div class="speed-case"><span>极速</span><b>154</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/530.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1028,7 +1028,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>145</b></div><div class="bar"><i style="width:80.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>92</b></div><div class="bar"><i style="width:51.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>86</b></div><div class="bar"><i style="width:47.8%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 82；满速 139；极速 152"><div class="speed-case"><span>减速 0速</span><b>82</b></div><div class="speed-case"><span>满速</span><b>139</b></div><div class="speed-case"><span>极速</span><b>152</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 107；减速度性格、速度 20 SP 114；满速 139；极速 152"><div class="speed-case"><span>无努力 0 SP</span><b>107</b></div><div class="speed-case"><span>减速 20 SP</span><b>114</b></div><div class="speed-case"><span>满速</span><b>139</b></div><div class="speed-case"><span>极速</span><b>152</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/998.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1055,7 +1055,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>83</b></div><div class="bar"><i style="width:46.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>81</b></div><div class="bar"><i style="width:45.0%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 81；满速 138；极速 151"><div class="speed-case"><span>减速 0速</span><b>81</b></div><div class="speed-case"><span>满速</span><b>138</b></div><div class="speed-case"><span>极速</span><b>151</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 106；减速度性格、速度 20 SP 113；满速 138；极速 151"><div class="speed-case"><span>无努力 0 SP</span><b>106</b></div><div class="speed-case"><span>减速 20 SP</span><b>113</b></div><div class="speed-case"><span>满速</span><b>138</b></div><div class="speed-case"><span>极速</span><b>151</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/970.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1081,7 +1081,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>107</b></div><div class="bar"><i style="width:59.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>107</b></div><div class="bar"><i style="width:59.4%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 81；满速 138；极速 151"><div class="speed-case"><span>减速 0速</span><b>81</b></div><div class="speed-case"><span>满速</span><b>138</b></div><div class="speed-case"><span>极速</span><b>151</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 106；减速度性格、速度 20 SP 113；满速 138；极速 151"><div class="speed-case"><span>无努力 0 SP</span><b>106</b></div><div class="speed-case"><span>减速 20 SP</span><b>113</b></div><div class="speed-case"><span>满速</span><b>138</b></div><div class="speed-case"><span>极速</span><b>151</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10009.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1107,7 +1107,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>45</b></div><div class="bar"><i style="width:25.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 81；满速 137；极速 150"><div class="speed-case"><span>减速 0速</span><b>81</b></div><div class="speed-case"><span>满速</span><b>137</b></div><div class="speed-case"><span>极速</span><b>150</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 105；减速度性格、速度 20 SP 112；满速 137；极速 150"><div class="speed-case"><span>无努力 0 SP</span><b>105</b></div><div class="speed-case"><span>减速 20 SP</span><b>112</b></div><div class="speed-case"><span>满速</span><b>137</b></div><div class="speed-case"><span>极速</span><b>150</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/900.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1133,7 +1133,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 81；满速 137；极速 150"><div class="speed-case"><span>减速 0速</span><b>81</b></div><div class="speed-case"><span>满速</span><b>137</b></div><div class="speed-case"><span>极速</span><b>150</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 105；减速度性格、速度 20 SP 112；满速 137；极速 150"><div class="speed-case"><span>无努力 0 SP</span><b>105</b></div><div class="speed-case"><span>减速 20 SP</span><b>112</b></div><div class="speed-case"><span>满速</span><b>137</b></div><div class="speed-case"><span>极速</span><b>150</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/784.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1159,7 +1159,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 81；满速 137；极速 150"><div class="speed-case"><span>减速 0速</span><b>81</b></div><div class="speed-case"><span>满速</span><b>137</b></div><div class="speed-case"><span>极速</span><b>150</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 105；减速度性格、速度 20 SP 112；满速 137；极速 150"><div class="speed-case"><span>无努力 0 SP</span><b>105</b></div><div class="speed-case"><span>减速 20 SP</span><b>112</b></div><div class="speed-case"><span>满速</span><b>137</b></div><div class="speed-case"><span>极速</span><b>150</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10186.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1185,7 +1185,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 81；满速 137；极速 150"><div class="speed-case"><span>减速 0速</span><b>81</b></div><div class="speed-case"><span>满速</span><b>137</b></div><div class="speed-case"><span>极速</span><b>150</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 105；减速度性格、速度 20 SP 112；满速 137；极速 150"><div class="speed-case"><span>无努力 0 SP</span><b>105</b></div><div class="speed-case"><span>减速 20 SP</span><b>112</b></div><div class="speed-case"><span>满速</span><b>137</b></div><div class="speed-case"><span>极速</span><b>150</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/937.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1211,7 +1211,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 81；满速 137；极速 150"><div class="speed-case"><span>减速 0速</span><b>81</b></div><div class="speed-case"><span>满速</span><b>137</b></div><div class="speed-case"><span>极速</span><b>150</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 105；减速度性格、速度 20 SP 112；满速 137；极速 150"><div class="speed-case"><span>无努力 0 SP</span><b>105</b></div><div class="speed-case"><span>减速 20 SP</span><b>112</b></div><div class="speed-case"><span>满速</span><b>137</b></div><div class="speed-case"><span>极速</span><b>150</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/812.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1237,7 +1237,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 81；满速 137；极速 150"><div class="speed-case"><span>减速 0速</span><b>81</b></div><div class="speed-case"><span>满速</span><b>137</b></div><div class="speed-case"><span>极速</span><b>150</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 105；减速度性格、速度 20 SP 112；满速 137；极速 150"><div class="speed-case"><span>无努力 0 SP</span><b>105</b></div><div class="speed-case"><span>减速 20 SP</span><b>112</b></div><div class="speed-case"><span>满速</span><b>137</b></div><div class="speed-case"><span>极速</span><b>150</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1018.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1263,7 +1263,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>87</b></div><div class="bar"><i style="width:48.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>133</b></div><div class="bar"><i style="width:73.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>91</b></div><div class="bar"><i style="width:50.6%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 80；满速 136；极速 149"><div class="speed-case"><span>减速 0速</span><b>80</b></div><div class="speed-case"><span>满速</span><b>136</b></div><div class="speed-case"><span>极速</span><b>149</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 104；减速度性格、速度 20 SP 111；满速 136；极速 149"><div class="speed-case"><span>无努力 0 SP</span><b>104</b></div><div class="speed-case"><span>减速 20 SP</span><b>111</b></div><div class="speed-case"><span>满速</span><b>136</b></div><div class="speed-case"><span>极速</span><b>149</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1000.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1289,7 +1289,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>79</b></div><div class="bar"><i style="width:43.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 77；满速 133；极速 146"><div class="speed-case"><span>减速 0速</span><b>77</b></div><div class="speed-case"><span>满速</span><b>133</b></div><div class="speed-case"><span>极速</span><b>146</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 101；减速度性格、速度 20 SP 108；满速 133；极速 146"><div class="speed-case"><span>无努力 0 SP</span><b>101</b></div><div class="speed-case"><span>减速 20 SP</span><b>108</b></div><div class="speed-case"><span>满速</span><b>133</b></div><div class="speed-case"><span>极速</span><b>146</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/350.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1316,7 +1316,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>82</b></div><div class="bar"><i style="width:45.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>83</b></div><div class="bar"><i style="width:46.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 76；满速 132；极速 145"><div class="speed-case"><span>减速 0速</span><b>76</b></div><div class="speed-case"><span>满速</span><b>132</b></div><div class="speed-case"><span>极速</span><b>145</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 100；减速度性格、速度 20 SP 108；满速 132；极速 145"><div class="speed-case"><span>无努力 0 SP</span><b>100</b></div><div class="speed-case"><span>减速 20 SP</span><b>108</b></div><div class="speed-case"><span>满速</span><b>132</b></div><div class="speed-case"><span>极速</span><b>145</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1343,7 +1343,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>91</b></div><div class="bar"><i style="width:50.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>134</b></div><div class="bar"><i style="width:74.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 76；满速 132；极速 145"><div class="speed-case"><span>减速 0速</span><b>76</b></div><div class="speed-case"><span>满速</span><b>132</b></div><div class="speed-case"><span>极速</span><b>145</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 100；减速度性格、速度 20 SP 108；满速 132；极速 145"><div class="speed-case"><span>无努力 0 SP</span><b>100</b></div><div class="speed-case"><span>减速 20 SP</span><b>108</b></div><div class="speed-case"><span>满速</span><b>132</b></div><div class="speed-case"><span>极速</span><b>145</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1370,7 +1370,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>68</b></div><div class="bar"><i style="width:37.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 76；满速 132；极速 145"><div class="speed-case"><span>减速 0速</span><b>76</b></div><div class="speed-case"><span>满速</span><b>132</b></div><div class="speed-case"><span>极速</span><b>145</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 100；减速度性格、速度 20 SP 108；满速 132；极速 145"><div class="speed-case"><span>无努力 0 SP</span><b>100</b></div><div class="speed-case"><span>减速 20 SP</span><b>108</b></div><div class="speed-case"><span>满速</span><b>132</b></div><div class="speed-case"><span>极速</span><b>145</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/282.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1397,7 +1397,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 76；满速 132；极速 145"><div class="speed-case"><span>减速 0速</span><b>76</b></div><div class="speed-case"><span>满速</span><b>132</b></div><div class="speed-case"><span>极速</span><b>145</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 100；减速度性格、速度 20 SP 108；满速 132；极速 145"><div class="speed-case"><span>无努力 0 SP</span><b>100</b></div><div class="speed-case"><span>减速 20 SP</span><b>108</b></div><div class="speed-case"><span>满速</span><b>132</b></div><div class="speed-case"><span>极速</span><b>145</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/257.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1424,7 +1424,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>68</b></div><div class="bar"><i style="width:37.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 76；满速 132；极速 145"><div class="speed-case"><span>减速 0速</span><b>76</b></div><div class="speed-case"><span>满速</span><b>132</b></div><div class="speed-case"><span>极速</span><b>145</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 100；减速度性格、速度 20 SP 108；满速 132；极速 145"><div class="speed-case"><span>无努力 0 SP</span><b>100</b></div><div class="speed-case"><span>减速 20 SP</span><b>108</b></div><div class="speed-case"><span>满速</span><b>132</b></div><div class="speed-case"><span>极速</span><b>145</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/475.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1450,7 +1450,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>112</b></div><div class="bar"><i style="width:62.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 74；满速 130；极速 143"><div class="speed-case"><span>减速 0速</span><b>74</b></div><div class="speed-case"><span>满速</span><b>130</b></div><div class="speed-case"><span>极速</span><b>143</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 98；减速度性格、速度 20 SP 106；满速 130；极速 143"><div class="speed-case"><span>无努力 0 SP</span><b>98</b></div><div class="speed-case"><span>减速 20 SP</span><b>106</b></div><div class="speed-case"><span>满速</span><b>130</b></div><div class="speed-case"><span>极速</span><b>143</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/902.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1477,7 +1477,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>79</b></div><div class="bar"><i style="width:43.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>83</b></div><div class="bar"><i style="width:46.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 74；满速 130；极速 143"><div class="speed-case"><span>减速 0速</span><b>74</b></div><div class="speed-case"><span>满速</span><b>130</b></div><div class="speed-case"><span>极速</span><b>143</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 98；减速度性格、速度 20 SP 106；满速 130；极速 143"><div class="speed-case"><span>无努力 0 SP</span><b>98</b></div><div class="speed-case"><span>减速 20 SP</span><b>106</b></div><div class="speed-case"><span>满速</span><b>130</b></div><div class="speed-case"><span>极速</span><b>143</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1503,7 +1503,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 72；满速 127；极速 139"><div class="speed-case"><span>减速 0速</span><b>72</b></div><div class="speed-case"><span>满速</span><b>127</b></div><div class="speed-case"><span>极速</span><b>139</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 95；减速度性格、速度 20 SP 103；满速 127；极速 139"><div class="speed-case"><span>无努力 0 SP</span><b>95</b></div><div class="speed-case"><span>减速 20 SP</span><b>103</b></div><div class="speed-case"><span>满速</span><b>127</b></div><div class="speed-case"><span>极速</span><b>139</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/936.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1530,7 +1530,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 72；满速 127；极速 139"><div class="speed-case"><span>减速 0速</span><b>72</b></div><div class="speed-case"><span>满速</span><b>127</b></div><div class="speed-case"><span>极速</span><b>139</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 95；减速度性格、速度 20 SP 103；满速 127；极速 139"><div class="speed-case"><span>无努力 0 SP</span><b>95</b></div><div class="speed-case"><span>减速 20 SP</span><b>103</b></div><div class="speed-case"><span>满速</span><b>127</b></div><div class="speed-case"><span>极速</span><b>139</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/359.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1556,7 +1556,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>72</b></div><div class="bar"><i style="width:40.0%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>98</b></div><div class="bar"><i style="width:54.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>98</b></div><div class="bar"><i style="width:54.4%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 69；满速 124；极速 136"><div class="speed-case"><span>减速 0速</span><b>69</b></div><div class="speed-case"><span>满速</span><b>124</b></div><div class="speed-case"><span>极速</span><b>136</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 92；减速度性格、速度 20 SP 100；满速 124；极速 136"><div class="speed-case"><span>无努力 0 SP</span><b>92</b></div><div class="speed-case"><span>减速 20 SP</span><b>100</b></div><div class="speed-case"><span>满速</span><b>124</b></div><div class="speed-case"><span>极速</span><b>136</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/763.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1583,7 +1583,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 67；满速 122；极速 134"><div class="speed-case"><span>减速 0速</span><b>67</b></div><div class="speed-case"><span>满速</span><b>122</b></div><div class="speed-case"><span>极速</span><b>134</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 90；减速度性格、速度 20 SP 99；满速 122；极速 134"><div class="speed-case"><span>无努力 0 SP</span><b>90</b></div><div class="speed-case"><span>减速 20 SP</span><b>99</b></div><div class="speed-case"><span>满速</span><b>122</b></div><div class="speed-case"><span>极速</span><b>134</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/376.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1609,7 +1609,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>71</b></div><div class="bar"><i style="width:39.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>106</b></div><div class="bar"><i style="width:58.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>121</b></div><div class="bar"><i style="width:67.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 67；满速 122；极速 134"><div class="speed-case"><span>减速 0速</span><b>67</b></div><div class="speed-case"><span>满速</span><b>122</b></div><div class="speed-case"><span>极速</span><b>134</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 90；减速度性格、速度 20 SP 99；满速 122；极速 134"><div class="speed-case"><span>无努力 0 SP</span><b>90</b></div><div class="speed-case"><span>减速 20 SP</span><b>99</b></div><div class="speed-case"><span>满速</span><b>122</b></div><div class="speed-case"><span>极速</span><b>134</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1013.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1635,7 +1635,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 67；满速 122；极速 134"><div class="speed-case"><span>减速 0速</span><b>67</b></div><div class="speed-case"><span>满速</span><b>122</b></div><div class="speed-case"><span>极速</span><b>134</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 90；减速度性格、速度 20 SP 99；满速 122；极速 134"><div class="speed-case"><span>无努力 0 SP</span><b>90</b></div><div class="speed-case"><span>减速 20 SP</span><b>99</b></div><div class="speed-case"><span>满速</span><b>122</b></div><div class="speed-case"><span>极速</span><b>134</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/186.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1661,7 +1661,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <span class="mine">我的队伍</span>
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 63；满速 117；极速 128"><div class="speed-case"><span>减速 0速</span><b>63</b></div><div class="speed-case"><span>满速</span><b>117</b></div><div class="speed-case"><span>极速</span><b>128</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 85；减速度性格、速度 20 SP 94；满速 117；极速 128"><div class="speed-case"><span>无努力 0 SP</span><b>85</b></div><div class="speed-case"><span>减速 20 SP</span><b>94</b></div><div class="speed-case"><span>满速</span><b>117</b></div><div class="speed-case"><span>极速</span><b>128</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/279.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1687,7 +1687,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>62</b></div><div class="bar"><i style="width:34.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>68</b></div><div class="bar"><i style="width:37.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>82</b></div><div class="bar"><i style="width:45.6%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 63；满速 117；极速 128"><div class="speed-case"><span>减速 0速</span><b>63</b></div><div class="speed-case"><span>满速</span><b>117</b></div><div class="speed-case"><span>极速</span><b>128</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 85；减速度性格、速度 20 SP 94；满速 117；极速 128"><div class="speed-case"><span>无努力 0 SP</span><b>85</b></div><div class="speed-case"><span>减速 20 SP</span><b>94</b></div><div class="speed-case"><span>满速</span><b>117</b></div><div class="speed-case"><span>极速</span><b>128</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/865.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1714,7 +1714,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>134</b></div><div class="bar"><i style="width:74.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 59；满速 113；极速 124"><div class="speed-case"><span>减速 0速</span><b>59</b></div><div class="speed-case"><span>满速</span><b>113</b></div><div class="speed-case"><span>极速</span><b>124</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 81；减速度性格、速度 20 SP 90；满速 113；极速 124"><div class="speed-case"><span>无努力 0 SP</span><b>81</b></div><div class="speed-case"><span>减速 20 SP</span><b>90</b></div><div class="speed-case"><span>满速</span><b>113</b></div><div class="speed-case"><span>极速</span><b>124</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/248.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1740,7 +1740,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 58；满速 112；极速 123"><div class="speed-case"><span>减速 0速</span><b>58</b></div><div class="speed-case"><span>满速</span><b>112</b></div><div class="speed-case"><span>极速</span><b>123</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 80；减速度性格、速度 20 SP 90；满速 112；极速 123"><div class="speed-case"><span>无努力 0 SP</span><b>80</b></div><div class="speed-case"><span>减速 20 SP</span><b>90</b></div><div class="speed-case"><span>满速</span><b>112</b></div><div class="speed-case"><span>极速</span><b>123</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/700.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1766,7 +1766,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <span class="mine">我的队伍</span>
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 58；满速 112；极速 123"><div class="speed-case"><span>减速 0速</span><b>58</b></div><div class="speed-case"><span>满速</span><b>112</b></div><div class="speed-case"><span>极速</span><b>123</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 80；减速度性格、速度 20 SP 90；满速 112；极速 123"><div class="speed-case"><span>无努力 0 SP</span><b>80</b></div><div class="speed-case"><span>减速 20 SP</span><b>90</b></div><div class="speed-case"><span>满速</span><b>112</b></div><div class="speed-case"><span>极速</span><b>123</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/981.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1793,7 +1793,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 58；满速 112；极速 123"><div class="speed-case"><span>减速 0速</span><b>58</b></div><div class="speed-case"><span>满速</span><b>112</b></div><div class="speed-case"><span>极速</span><b>123</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 80；减速度性格、速度 20 SP 90；满速 112；极速 123"><div class="speed-case"><span>无努力 0 SP</span><b>80</b></div><div class="speed-case"><span>减速 20 SP</span><b>90</b></div><div class="speed-case"><span>满速</span><b>112</b></div><div class="speed-case"><span>极速</span><b>123</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/260.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1819,7 +1819,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 58；满速 112；极速 123"><div class="speed-case"><span>减速 0速</span><b>58</b></div><div class="speed-case"><span>满速</span><b>112</b></div><div class="speed-case"><span>极速</span><b>123</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 80；减速度性格、速度 20 SP 90；满速 112；极速 123"><div class="speed-case"><span>无努力 0 SP</span><b>80</b></div><div class="speed-case"><span>减速 20 SP</span><b>90</b></div><div class="speed-case"><span>满速</span><b>112</b></div><div class="speed-case"><span>极速</span><b>123</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/727.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1845,7 +1845,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <span class="mine">我的队伍</span>
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>74</b></div><div class="bar"><i style="width:41.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>74</b></div><div class="bar"><i style="width:41.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>126</b></div><div class="bar"><i style="width:70.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>116</b></div><div class="bar"><i style="width:64.4%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 58；满速 112；极速 123"><div class="speed-case"><span>减速 0速</span><b>58</b></div><div class="speed-case"><span>满速</span><b>112</b></div><div class="speed-case"><span>极速</span><b>123</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 80；减速度性格、速度 20 SP 90；满速 112；极速 123"><div class="speed-case"><span>无努力 0 SP</span><b>80</b></div><div class="speed-case"><span>减速 20 SP</span><b>90</b></div><div class="speed-case"><span>满速</span><b>112</b></div><div class="speed-case"><span>极速</span><b>123</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/730.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1871,7 +1871,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 58；满速 112；极速 123"><div class="speed-case"><span>减速 0速</span><b>58</b></div><div class="speed-case"><span>满速</span><b>112</b></div><div class="speed-case"><span>极速</span><b>123</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 80；减速度性格、速度 20 SP 90；满速 112；极速 123"><div class="speed-case"><span>无努力 0 SP</span><b>80</b></div><div class="speed-case"><span>减速 20 SP</span><b>90</b></div><div class="speed-case"><span>满速</span><b>112</b></div><div class="speed-case"><span>极速</span><b>123</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/861.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1897,7 +1897,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 49；满速 102；极速 112"><div class="speed-case"><span>减速 0速</span><b>49</b></div><div class="speed-case"><span>满速</span><b>102</b></div><div class="speed-case"><span>极速</span><b>112</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 70；减速度性格、速度 20 SP 81；满速 102；极速 112"><div class="speed-case"><span>无努力 0 SP</span><b>70</b></div><div class="speed-case"><span>减速 20 SP</span><b>81</b></div><div class="speed-case"><span>满速</span><b>102</b></div><div class="speed-case"><span>极速</span><b>112</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/983.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1924,7 +1924,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 49；满速 102；极速 112"><div class="speed-case"><span>减速 0速</span><b>49</b></div><div class="speed-case"><span>满速</span><b>102</b></div><div class="speed-case"><span>极速</span><b>112</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 70；减速度性格、速度 20 SP 81；满速 102；极速 112"><div class="speed-case"><span>无努力 0 SP</span><b>70</b></div><div class="speed-case"><span>减速 20 SP</span><b>81</b></div><div class="speed-case"><span>满速</span><b>102</b></div><div class="speed-case"><span>极速</span><b>112</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/302.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1951,7 +1951,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 49；满速 102；极速 112"><div class="speed-case"><span>减速 0速</span><b>49</b></div><div class="speed-case"><span>满速</span><b>102</b></div><div class="speed-case"><span>极速</span><b>112</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 70；减速度性格、速度 20 SP 81；满速 102；极速 112"><div class="speed-case"><span>无努力 0 SP</span><b>70</b></div><div class="speed-case"><span>减速 20 SP</span><b>81</b></div><div class="speed-case"><span>满速</span><b>102</b></div><div class="speed-case"><span>极速</span><b>112</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/303.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -1978,7 +1978,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <span class="mine">我的队伍</span>
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>140</b></div><div class="bar"><i style="width:77.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 40；满速 92；极速 101"><div class="speed-case"><span>减速 0速</span><b>40</b></div><div class="speed-case"><span>满速</span><b>92</b></div><div class="speed-case"><span>极速</span><b>101</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 60；减速度性格、速度 20 SP 72；满速 92；极速 101"><div class="speed-case"><span>无努力 0 SP</span><b>60</b></div><div class="speed-case"><span>减速 20 SP</span><b>72</b></div><div class="speed-case"><span>满速</span><b>92</b></div><div class="speed-case"><span>极速</span><b>101</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/768.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2005,7 +2005,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 40；满速 92；极速 101"><div class="speed-case"><span>减速 0速</span><b>40</b></div><div class="speed-case"><span>满速</span><b>92</b></div><div class="speed-case"><span>极速</span><b>101</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 60；减速度性格、速度 20 SP 72；满速 92；极速 101"><div class="speed-case"><span>无努力 0 SP</span><b>60</b></div><div class="speed-case"><span>减速 20 SP</span><b>72</b></div><div class="speed-case"><span>满速</span><b>92</b></div><div class="speed-case"><span>极速</span><b>101</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/323.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2031,7 +2031,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>57</b></div><div class="bar"><i style="width:31.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>136</b></div><div class="bar"><i style="width:75.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>103</b></div><div class="bar"><i style="width:57.2%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 30；满速 81；极速 89"><div class="speed-case"><span>减速 0速</span><b>30</b></div><div class="speed-case"><span>满速</span><b>81</b></div><div class="speed-case"><span>极速</span><b>89</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 49；减速度性格、速度 20 SP 62；满速 81；极速 89"><div class="speed-case"><span>无努力 0 SP</span><b>49</b></div><div class="speed-case"><span>减速 20 SP</span><b>62</b></div><div class="speed-case"><span>满速</span><b>81</b></div><div class="speed-case"><span>极速</span><b>89</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/858.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2057,7 +2057,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>140</b></div><div class="bar"><i style="width:77.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 22；满速 72；极速 79"><div class="speed-case"><span>减速 0速</span><b>22</b></div><div class="speed-case"><span>满速</span><b>72</b></div><div class="speed-case"><span>极速</span><b>79</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 40；减速度性格、速度 20 SP 54；满速 72；极速 79"><div class="speed-case"><span>无努力 0 SP</span><b>40</b></div><div class="speed-case"><span>减速 20 SP</span><b>54</b></div><div class="speed-case"><span>满速</span><b>72</b></div><div class="speed-case"><span>极速</span><b>79</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/324.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2095,7 +2095,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>108</b></div><div class="bar"><i style="width:60.0%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>141</b></div><div class="bar"><i style="width:78.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 140；满速 203；极速 223"><div class="speed-case"><span>减速 0速</span><b>140</b></div><div class="speed-case"><span>满速</span><b>203</b></div><div class="speed-case"><span>极速</span><b>223</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 171；减速度性格、速度 20 SP 171；满速 203；极速 223"><div class="speed-case"><span>无努力 0 SP</span><b>171</b></div><div class="speed-case"><span>减速 20 SP</span><b>171</b></div><div class="speed-case"><span>满速</span><b>203</b></div><div class="speed-case"><span>极速</span><b>223</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10309.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2120,7 +2120,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>164</b></div><div class="bar"><i style="width:91.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 140；满速 203；极速 223"><div class="speed-case"><span>减速 0速</span><b>140</b></div><div class="speed-case"><span>满速</span><b>203</b></div><div class="speed-case"><span>极速</span><b>223</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 171；减速度性格、速度 20 SP 171；满速 203；极速 223"><div class="speed-case"><span>无努力 0 SP</span><b>171</b></div><div class="speed-case"><span>减速 20 SP</span><b>171</b></div><div class="speed-case"><span>满速</span><b>203</b></div><div class="speed-case"><span>极速</span><b>223</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10310.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2145,7 +2145,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>154</b></div><div class="bar"><i style="width:85.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 140；满速 203；极速 223"><div class="speed-case"><span>减速 0速</span><b>140</b></div><div class="speed-case"><span>满速</span><b>203</b></div><div class="speed-case"><span>极速</span><b>223</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 171；减速度性格、速度 20 SP 171；满速 203；极速 223"><div class="speed-case"><span>无努力 0 SP</span><b>171</b></div><div class="speed-case"><span>减速 20 SP</span><b>171</b></div><div class="speed-case"><span>满速</span><b>203</b></div><div class="speed-case"><span>极速</span><b>223</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10307.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2170,7 +2170,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 139；满速 202；极速 222"><div class="speed-case"><span>减速 0速</span><b>139</b></div><div class="speed-case"><span>满速</span><b>202</b></div><div class="speed-case"><span>极速</span><b>222</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 170；减速度性格、速度 20 SP 171；满速 202；极速 222"><div class="speed-case"><span>无努力 0 SP</span><b>170</b></div><div class="speed-case"><span>减速 20 SP</span><b>171</b></div><div class="speed-case"><span>满速</span><b>202</b></div><div class="speed-case"><span>极速</span><b>222</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10042.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2195,7 +2195,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>175</b></div><div class="bar"><i style="width:97.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 139；满速 202；极速 222"><div class="speed-case"><span>减速 0速</span><b>139</b></div><div class="speed-case"><span>满速</span><b>202</b></div><div class="speed-case"><span>极速</span><b>222</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 170；减速度性格、速度 20 SP 171；满速 202；极速 222"><div class="speed-case"><span>无努力 0 SP</span><b>170</b></div><div class="speed-case"><span>减速 20 SP</span><b>171</b></div><div class="speed-case"><span>满速</span><b>202</b></div><div class="speed-case"><span>极速</span><b>222</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10037.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2220,7 +2220,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>69</b></div><div class="bar"><i style="width:38.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>72</b></div><div class="bar"><i style="width:40.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>159</b></div><div class="bar"><i style="width:88.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 125；满速 186；极速 204"><div class="speed-case"><span>减速 0速</span><b>125</b></div><div class="speed-case"><span>满速</span><b>186</b></div><div class="speed-case"><span>极速</span><b>204</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 154；减速度性格、速度 20 SP 156；满速 186；极速 204"><div class="speed-case"><span>无努力 0 SP</span><b>154</b></div><div class="speed-case"><span>减速 20 SP</span><b>156</b></div><div class="speed-case"><span>满速</span><b>186</b></div><div class="speed-case"><span>极速</span><b>204</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10293.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2245,7 +2245,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>170</b></div><div class="bar"><i style="width:94.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 121；满速 182；极速 200"><div class="speed-case"><span>减速 0速</span><b>121</b></div><div class="speed-case"><span>满速</span><b>182</b></div><div class="speed-case"><span>极速</span><b>200</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 150；减速度性格、速度 20 SP 153；满速 182；极速 200"><div class="speed-case"><span>无努力 0 SP</span><b>150</b></div><div class="speed-case"><span>减速 20 SP</span><b>153</b></div><div class="speed-case"><span>满速</span><b>182</b></div><div class="speed-case"><span>极速</span><b>200</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10038.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2270,7 +2270,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>160</b></div><div class="bar"><i style="width:88.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 121；满速 182；极速 200"><div class="speed-case"><span>减速 0速</span><b>121</b></div><div class="speed-case"><span>满速</span><b>182</b></div><div class="speed-case"><span>极速</span><b>200</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 150；减速度性格、速度 20 SP 153；满速 182；极速 200"><div class="speed-case"><span>无努力 0 SP</span><b>150</b></div><div class="speed-case"><span>减速 20 SP</span><b>153</b></div><div class="speed-case"><span>满速</span><b>182</b></div><div class="speed-case"><span>极速</span><b>200</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10305.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2295,7 +2295,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>140</b></div><div class="bar"><i style="width:77.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 112；满速 172；极速 189"><div class="speed-case"><span>减速 0速</span><b>112</b></div><div class="speed-case"><span>满速</span><b>172</b></div><div class="speed-case"><span>极速</span><b>189</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 140；减速度性格、速度 20 SP 144；满速 172；极速 189"><div class="speed-case"><span>无努力 0 SP</span><b>140</b></div><div class="speed-case"><span>减速 20 SP</span><b>144</b></div><div class="speed-case"><span>满速</span><b>172</b></div><div class="speed-case"><span>极速</span><b>189</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10285.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2320,7 +2320,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>145</b></div><div class="bar"><i style="width:80.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 112；满速 172；极速 189"><div class="speed-case"><span>减速 0速</span><b>112</b></div><div class="speed-case"><span>满速</span><b>172</b></div><div class="speed-case"><span>极速</span><b>189</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 140；减速度性格、速度 20 SP 144；满速 172；极速 189"><div class="speed-case"><span>无努力 0 SP</span><b>140</b></div><div class="speed-case"><span>减速 20 SP</span><b>144</b></div><div class="speed-case"><span>满速</span><b>172</b></div><div class="speed-case"><span>极速</span><b>189</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10089.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2345,7 +2345,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>150</b></div><div class="bar"><i style="width:83.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 108；满速 167；极速 183"><div class="speed-case"><span>减速 0速</span><b>108</b></div><div class="speed-case"><span>满速</span><b>167</b></div><div class="speed-case"><span>极速</span><b>183</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 135；减速度性格、速度 20 SP 139；满速 167；极速 183"><div class="speed-case"><span>无努力 0 SP</span><b>135</b></div><div class="speed-case"><span>减速 20 SP</span><b>139</b></div><div class="speed-case"><span>满速</span><b>167</b></div><div class="speed-case"><span>极速</span><b>183</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10057.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2370,7 +2370,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>145</b></div><div class="bar"><i style="width:80.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>88</b></div><div class="bar"><i style="width:48.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>140</b></div><div class="bar"><i style="width:77.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 105；满速 164；极速 180"><div class="speed-case"><span>减速 0速</span><b>105</b></div><div class="speed-case"><span>满速</span><b>164</b></div><div class="speed-case"><span>极速</span><b>180</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 132；减速度性格、速度 20 SP 136；满速 164；极速 180"><div class="speed-case"><span>无努力 0 SP</span><b>132</b></div><div class="speed-case"><span>减速 20 SP</span><b>136</b></div><div class="speed-case"><span>满速</span><b>164</b></div><div class="speed-case"><span>极速</span><b>180</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10059.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2395,7 +2395,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 103；满速 162；极速 178"><div class="speed-case"><span>减速 0速</span><b>103</b></div><div class="speed-case"><span>满速</span><b>162</b></div><div class="speed-case"><span>极速</span><b>178</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 130；减速度性格、速度 20 SP 135；满速 162；极速 178"><div class="speed-case"><span>无努力 0 SP</span><b>130</b></div><div class="speed-case"><span>减速 20 SP</span><b>135</b></div><div class="speed-case"><span>满速</span><b>162</b></div><div class="speed-case"><span>极速</span><b>178</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10304.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2420,7 +2420,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>140</b></div><div class="bar"><i style="width:77.8%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 103；满速 162；极速 178"><div class="speed-case"><span>减速 0速</span><b>103</b></div><div class="speed-case"><span>满速</span><b>162</b></div><div class="speed-case"><span>极速</span><b>178</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 130；减速度性格、速度 20 SP 135；满速 162；极速 178"><div class="speed-case"><span>无努力 0 SP</span><b>130</b></div><div class="speed-case"><span>减速 20 SP</span><b>135</b></div><div class="speed-case"><span>满速</span><b>162</b></div><div class="speed-case"><span>极速</span><b>178</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10308.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2445,7 +2445,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>68</b></div><div class="bar"><i style="width:37.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>165</b></div><div class="bar"><i style="width:91.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 103；满速 162；极速 178"><div class="speed-case"><span>减速 0速</span><b>103</b></div><div class="speed-case"><span>满速</span><b>162</b></div><div class="speed-case"><span>极速</span><b>178</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 130；减速度性格、速度 20 SP 135；满速 162；极速 178"><div class="speed-case"><span>无努力 0 SP</span><b>130</b></div><div class="speed-case"><span>减速 20 SP</span><b>135</b></div><div class="speed-case"><span>满速</span><b>162</b></div><div class="speed-case"><span>极速</span><b>178</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10068.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2470,7 +2470,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>145</b></div><div class="bar"><i style="width:80.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>150</b></div><div class="bar"><i style="width:83.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 103；满速 162；极速 178"><div class="speed-case"><span>减速 0速</span><b>103</b></div><div class="speed-case"><span>满速</span><b>162</b></div><div class="speed-case"><span>极速</span><b>178</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 130；减速度性格、速度 20 SP 135；满速 162；极速 178"><div class="speed-case"><span>无努力 0 SP</span><b>130</b></div><div class="speed-case"><span>减速 20 SP</span><b>135</b></div><div class="speed-case"><span>满速</span><b>162</b></div><div class="speed-case"><span>极速</span><b>178</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10076.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2495,7 +2495,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>165</b></div><div class="bar"><i style="width:91.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 97；满速 155；极速 170"><div class="speed-case"><span>减速 0速</span><b>97</b></div><div class="speed-case"><span>满速</span><b>155</b></div><div class="speed-case"><span>极速</span><b>170</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 123；减速度性格、速度 20 SP 128；满速 155；极速 170"><div class="speed-case"><span>无努力 0 SP</span><b>123</b></div><div class="speed-case"><span>减速 20 SP</span><b>128</b></div><div class="speed-case"><span>满速</span><b>155</b></div><div class="speed-case"><span>极速</span><b>170</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10287.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2520,7 +2520,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>74</b></div><div class="bar"><i style="width:41.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>87</b></div><div class="bar"><i style="width:48.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>155</b></div><div class="bar"><i style="width:86.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>148</b></div><div class="bar"><i style="width:82.2%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 96；满速 154；极速 169"><div class="speed-case"><span>减速 0速</span><b>96</b></div><div class="speed-case"><span>满速</span><b>154</b></div><div class="speed-case"><span>极速</span><b>169</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 122；减速度性格、速度 20 SP 127；满速 154；极速 169"><div class="speed-case"><span>无努力 0 SP</span><b>122</b></div><div class="speed-case"><span>减速 20 SP</span><b>127</b></div><div class="speed-case"><span>满速</span><b>154</b></div><div class="speed-case"><span>极速</span><b>169</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10296.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2545,7 +2545,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>83</b></div><div class="bar"><i style="width:46.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>150</b></div><div class="bar"><i style="width:83.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>96</b></div><div class="bar"><i style="width:53.3%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 95；满速 153；极速 168"><div class="speed-case"><span>减速 0速</span><b>95</b></div><div class="speed-case"><span>满速</span><b>153</b></div><div class="speed-case"><span>极速</span><b>168</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 121；减速度性格、速度 20 SP 126；满速 153；极速 168"><div class="speed-case"><span>无努力 0 SP</span><b>121</b></div><div class="speed-case"><span>减速 20 SP</span><b>126</b></div><div class="speed-case"><span>满速</span><b>153</b></div><div class="speed-case"><span>极速</span><b>168</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10321.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2570,7 +2570,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <span class="mine">队伍相关</span>
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>111</b></div><div class="bar"><i style="width:61.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 94；满速 152；极速 167"><div class="speed-case"><span>减速 0速</span><b>94</b></div><div class="speed-case"><span>满速</span><b>152</b></div><div class="speed-case"><span>极速</span><b>167</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 120；减速度性格、速度 20 SP 126；满速 152；极速 167"><div class="speed-case"><span>无努力 0 SP</span><b>120</b></div><div class="speed-case"><span>减速 20 SP</span><b>126</b></div><div class="speed-case"><span>满速</span><b>152</b></div><div class="speed-case"><span>极速</span><b>167</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10034.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2595,7 +2595,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <span class="mine">队伍相关</span>
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>104</b></div><div class="bar"><i style="width:57.8%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>159</b></div><div class="bar"><i style="width:88.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 94；满速 152；极速 167"><div class="speed-case"><span>减速 0速</span><b>94</b></div><div class="speed-case"><span>满速</span><b>152</b></div><div class="speed-case"><span>极速</span><b>167</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 120；减速度性格、速度 20 SP 126；满速 152；极速 167"><div class="speed-case"><span>无努力 0 SP</span><b>120</b></div><div class="speed-case"><span>减速 20 SP</span><b>126</b></div><div class="speed-case"><span>满速</span><b>152</b></div><div class="speed-case"><span>极速</span><b>167</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10035.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2620,7 +2620,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>91</b></div><div class="bar"><i style="width:50.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>124</b></div><div class="bar"><i style="width:68.9%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>145</b></div><div class="bar"><i style="width:80.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 94；满速 152；极速 167"><div class="speed-case"><span>减速 0速</span><b>94</b></div><div class="speed-case"><span>满速</span><b>152</b></div><div class="speed-case"><span>极速</span><b>167</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 120；减速度性格、速度 20 SP 126；满速 152；极速 167"><div class="speed-case"><span>无努力 0 SP</span><b>120</b></div><div class="speed-case"><span>减速 20 SP</span><b>126</b></div><div class="speed-case"><span>满速</span><b>152</b></div><div class="speed-case"><span>极速</span><b>167</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10281.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2645,7 +2645,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>68</b></div><div class="bar"><i style="width:37.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>165</b></div><div class="bar"><i style="width:91.7%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 94；满速 152；极速 167"><div class="speed-case"><span>减速 0速</span><b>94</b></div><div class="speed-case"><span>满速</span><b>152</b></div><div class="speed-case"><span>极速</span><b>167</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 120；减速度性格、速度 20 SP 126；满速 152；极速 167"><div class="speed-case"><span>无努力 0 SP</span><b>120</b></div><div class="speed-case"><span>减速 20 SP</span><b>126</b></div><div class="speed-case"><span>满速</span><b>152</b></div><div class="speed-case"><span>极速</span><b>167</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10051.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2670,7 +2670,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>160</b></div><div class="bar"><i style="width:88.9%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 94；满速 152；极速 167"><div class="speed-case"><span>减速 0速</span><b>94</b></div><div class="speed-case"><span>满速</span><b>152</b></div><div class="speed-case"><span>极速</span><b>167</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 120；减速度性格、速度 20 SP 126；满速 152；极速 167"><div class="speed-case"><span>无努力 0 SP</span><b>120</b></div><div class="speed-case"><span>减速 20 SP</span><b>126</b></div><div class="speed-case"><span>满速</span><b>152</b></div><div class="speed-case"><span>极速</span><b>167</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10050.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2695,7 +2695,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>108</b></div><div class="bar"><i style="width:60.0%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>170</b></div><div class="bar"><i style="width:94.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 87；满速 144；极速 158"><div class="speed-case"><span>减速 0速</span><b>87</b></div><div class="speed-case"><span>满速</span><b>144</b></div><div class="speed-case"><span>极速</span><b>158</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 112；减速度性格、速度 20 SP 118；满速 144；极速 158"><div class="speed-case"><span>无努力 0 SP</span><b>112</b></div><div class="speed-case"><span>减速 20 SP</span><b>118</b></div><div class="speed-case"><span>满速</span><b>144</b></div><div class="speed-case"><span>极速</span><b>158</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10058.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2720,7 +2720,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>175</b></div><div class="bar"><i style="width:97.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>117</b></div><div class="bar"><i style="width:65.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>101</b></div><div class="bar"><i style="width:56.1%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 82；满速 139；极速 152"><div class="speed-case"><span>减速 0速</span><b>82</b></div><div class="speed-case"><span>满速</span><b>139</b></div><div class="speed-case"><span>极速</span><b>152</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 107；减速度性格、速度 20 SP 114；满速 139；极速 152"><div class="speed-case"><span>无努力 0 SP</span><b>107</b></div><div class="speed-case"><span>减速 20 SP</span><b>114</b></div><div class="speed-case"><span>满速</span><b>139</b></div><div class="speed-case"><span>极速</span><b>152</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10325.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2745,7 +2745,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>123</b></div><div class="bar"><i style="width:68.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>122</b></div><div class="bar"><i style="width:67.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 76；满速 132；极速 145"><div class="speed-case"><span>减速 0速</span><b>76</b></div><div class="speed-case"><span>满速</span><b>132</b></div><div class="speed-case"><span>极速</span><b>145</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 100；减速度性格、速度 20 SP 108；满速 132；极速 145"><div class="speed-case"><span>无努力 0 SP</span><b>100</b></div><div class="speed-case"><span>减速 20 SP</span><b>108</b></div><div class="speed-case"><span>满速</span><b>132</b></div><div class="speed-case"><span>极速</span><b>145</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10033.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2770,7 +2770,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>79</b></div><div class="bar"><i style="width:43.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>103</b></div><div class="bar"><i style="width:57.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 74；满速 130；极速 143"><div class="speed-case"><span>减速 0速</span><b>74</b></div><div class="speed-case"><span>满速</span><b>130</b></div><div class="speed-case"><span>极速</span><b>143</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 98；减速度性格、速度 20 SP 106；满速 130；极速 143"><div class="speed-case"><span>无努力 0 SP</span><b>98</b></div><div class="speed-case"><span>减速 20 SP</span><b>106</b></div><div class="speed-case"><span>满速</span><b>130</b></div><div class="speed-case"><span>极速</span><b>143</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10036.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2795,7 +2795,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>164</b></div><div class="bar"><i style="width:91.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>150</b></div><div class="bar"><i style="width:83.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 68；满速 123；极速 135"><div class="speed-case"><span>减速 0速</span><b>68</b></div><div class="speed-case"><span>满速</span><b>123</b></div><div class="speed-case"><span>极速</span><b>135</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 91；减速度性格、速度 20 SP 99；满速 123；极速 135"><div class="speed-case"><span>无努力 0 SP</span><b>91</b></div><div class="speed-case"><span>减速 20 SP</span><b>99</b></div><div class="speed-case"><span>满速</span><b>123</b></div><div class="speed-case"><span>极速</span><b>135</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10049.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2820,7 +2820,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>150</b></div><div class="bar"><i style="width:83.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 67；满速 122；极速 134"><div class="speed-case"><span>减速 0速</span><b>67</b></div><div class="speed-case"><span>满速</span><b>122</b></div><div class="speed-case"><span>极速</span><b>134</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 90；减速度性格、速度 20 SP 99；满速 122；极速 134"><div class="speed-case"><span>无努力 0 SP</span><b>90</b></div><div class="speed-case"><span>减速 20 SP</span><b>99</b></div><div class="speed-case"><span>满速</span><b>122</b></div><div class="speed-case"><span>极速</span><b>134</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10064.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2845,7 +2845,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 49；满速 102；极速 112"><div class="speed-case"><span>减速 0速</span><b>49</b></div><div class="speed-case"><span>满速</span><b>102</b></div><div class="speed-case"><span>极速</span><b>112</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 70；减速度性格、速度 20 SP 81；满速 102；极速 112"><div class="speed-case"><span>无努力 0 SP</span><b>70</b></div><div class="speed-case"><span>减速 20 SP</span><b>81</b></div><div class="speed-case"><span>满速</span><b>102</b></div><div class="speed-case"><span>极速</span><b>112</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10052.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2870,7 +2870,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <span class="mine">队伍相关</span>
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>150</b></div><div class="bar"><i style="width:83.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>175</b></div><div class="bar"><i style="width:97.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 40；满速 92；极速 101"><div class="speed-case"><span>减速 0速</span><b>40</b></div><div class="speed-case"><span>满速</span><b>92</b></div><div class="speed-case"><span>极速</span><b>101</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 60；减速度性格、速度 20 SP 72；满速 92；极速 101"><div class="speed-case"><span>无努力 0 SP</span><b>60</b></div><div class="speed-case"><span>减速 20 SP</span><b>72</b></div><div class="speed-case"><span>满速</span><b>92</b></div><div class="speed-case"><span>极速</span><b>101</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10316.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2895,7 +2895,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 22；满速 72；极速 79"><div class="speed-case"><span>减速 0速</span><b>22</b></div><div class="speed-case"><span>满速</span><b>72</b></div><div class="speed-case"><span>极速</span><b>79</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 40；减速度性格、速度 20 SP 54；满速 72；极速 79"><div class="speed-case"><span>无努力 0 SP</span><b>40</b></div><div class="speed-case"><span>减速 20 SP</span><b>54</b></div><div class="speed-case"><span>满速</span><b>72</b></div><div class="speed-case"><span>极速</span><b>79</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10066.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
@@ -2920,7 +2920,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>145</b></div><div class="bar"><i style="width:80.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#8b6edb"></i></div></div></div>
-              <div class="speed-spreads" aria-label="50级速度：减速性格、0速度个体和0努力值 22；满速 72；极速 79"><div class="speed-case"><span>减速 0速</span><b>22</b></div><div class="speed-case"><span>满速</span><b>72</b></div><div class="speed-case"><span>极速</span><b>79</b></div></div>
+              <div class="speed-spreads" aria-label="50级速度：无努力、性格不修正 40；减速度性格、速度 20 SP 54；满速 72；极速 79"><div class="speed-case"><span>无努力 0 SP</span><b>40</b></div><div class="speed-case"><span>减速 20 SP</span><b>54</b></div><div class="speed-case"><span>满速</span><b>72</b></div><div class="speed-case"><span>极速</span><b>79</b></div></div>
               <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10087.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
       <details class="matchups">
