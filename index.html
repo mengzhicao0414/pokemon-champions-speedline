@@ -72,6 +72,10 @@ h1 { font-size:28px; line-height:1.08; letter-spacing:-.03em; margin:0 0 8px; }
   border-color:var(--team-border);
   box-shadow:0 7px 20px rgba(170,130,0,.10);
 }
+.mega-card { position:relative; cursor:pointer; }
+.mega-card:hover { border-color:#af92d9; }
+.mega-card-link { position:absolute; inset:0; z-index:1; border-radius:18px; }
+.mega-card-link:focus-visible { outline:3px solid #6745a0; outline-offset:-3px; }
 .speed-rail {
   border-right:1px solid var(--line); padding:14px 8px; text-align:center;
   display:flex; flex-direction:column; align-items:center; justify-content:center;
@@ -158,8 +162,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
     <div class="nav-title">常规形态 · 整50速度快速标签</div>
     <div class="nav-row"><a class="chip speed-chip" href="#reg-1">最快 142</a><a class="chip speed-chip" href="#reg-18">100速</a><a class="chip speed-chip" href="#reg-64">50速</a></div>
 
-    <div class="nav-title">Mega形态 · 整50速度快速标签</div>
-    <div class="nav-row"><a class="chip speed-chip" href="#mega-1">最快 151</a><a class="chip speed-chip" href="#mega-20">100速</a><a class="chip speed-chip" href="#mega-31">50速</a><a class="chip speed-chip" href="#mega-block">Mega区</a></div>
+    <div class="nav-title">Mega 形态导航</div>
+    <div class="nav-row"><a class="chip speed-chip" href="#mega-block">Mega区</a></div>
   </section>
 
   <section id="regular-block">
@@ -1539,10 +1543,10 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
     <div class="section-divider"></div>
     <div class="section-head">
       <div><h3>Mega 形态（M-C 可用）</h3></div>
-      <div class="desc">这 70 只宝可梦对应的 34 种 Mega<br>按 Mega 后速度排列</div>
+      <div class="desc">这 70 只宝可梦对应的 34 种 Mega<br>按 Mega 后速度排列 · 点击卡片返回常态</div>
     </div>
     <div class="cards">
-    <article id="mega-1" class="card ">
+    <article id="mega-1" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">151</div>
         <div class="speed-label">Mega速度</div>
@@ -1559,8 +1563,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>108</b></div><div class="bar"><i style="width:60.0%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>141</b></div><div class="bar"><i style="width:78.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-17" aria-label="返回烈咬陆鲨Z的常态卡片"></a>
     </article>
-    <article id="mega-2" class="card ">
+    <article id="mega-2" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">151</div>
         <div class="speed-label">Mega速度</div>
@@ -1577,8 +1582,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>164</b></div><div class="bar"><i style="width:91.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-27" aria-label="返回路卡利欧Z的常态卡片"></a>
     </article>
-    <article id="mega-3" class="card ">
+    <article id="mega-3" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">151</div>
         <div class="speed-label">Mega速度</div>
@@ -1595,8 +1601,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>154</b></div><div class="bar"><i style="width:85.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-50" aria-label="返回阿勃梭鲁Z的常态卡片"></a>
     </article>
-    <article id="mega-4" class="card ">
+    <article id="mega-4" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">150</div>
         <div class="speed-label">Mega速度</div>
@@ -1613,8 +1620,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-2" aria-label="返回化石翼龙的常态卡片"></a>
     </article>
-    <article id="mega-5" class="card ">
+    <article id="mega-5" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">150</div>
         <div class="speed-label">Mega速度</div>
@@ -1631,8 +1639,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>175</b></div><div class="bar"><i style="width:97.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-7" aria-label="返回胡地的常态卡片"></a>
     </article>
-    <article id="mega-6" class="card ">
+    <article id="mega-6" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">134</div>
         <div class="speed-label">Mega速度</div>
@@ -1649,8 +1658,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>69</b></div><div class="bar"><i style="width:38.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>72</b></div><div class="bar"><i style="width:40.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>159</b></div><div class="bar"><i style="width:88.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-16" aria-label="返回妖火红狐的常态卡片"></a>
     </article>
-    <article id="mega-7" class="card ">
+    <article id="mega-7" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">130</div>
         <div class="speed-label">Mega速度</div>
@@ -1667,8 +1677,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>170</b></div><div class="bar"><i style="width:94.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-11" aria-label="返回耿鬼的常态卡片"></a>
     </article>
-    <article id="mega-8" class="card ">
+    <article id="mega-8" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">130</div>
         <div class="speed-label">Mega速度</div>
@@ -1685,8 +1696,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>160</b></div><div class="bar"><i style="width:88.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-13" aria-label="返回雷丘Y的常态卡片"></a>
     </article>
-    <article id="mega-9" class="card ">
+    <article id="mega-9" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">120</div>
         <div class="speed-label">Mega速度</div>
@@ -1703,8 +1715,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>140</b></div><div class="bar"><i style="width:77.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-12" aria-label="返回雪妖女的常态卡片"></a>
     </article>
-    <article id="mega-10" class="card ">
+    <article id="mega-10" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">120</div>
         <div class="speed-label">Mega速度</div>
@@ -1721,8 +1734,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>145</b></div><div class="bar"><i style="width:80.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-20" aria-label="返回暴飞龙的常态卡片"></a>
     </article>
-    <article id="mega-11" class="card ">
+    <article id="mega-11" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">115</div>
         <div class="speed-label">Mega速度</div>
@@ -1739,8 +1753,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>150</b></div><div class="bar"><i style="width:83.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-50" aria-label="返回阿勃梭鲁的常态卡片"></a>
     </article>
-    <article id="mega-12" class="card ">
+    <article id="mega-12" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">112</div>
         <div class="speed-label">Mega速度</div>
@@ -1757,8 +1772,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>145</b></div><div class="bar"><i style="width:80.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>88</b></div><div class="bar"><i style="width:48.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>140</b></div><div class="bar"><i style="width:77.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-27" aria-label="返回路卡利欧的常态卡片"></a>
     </article>
-    <article id="mega-13" class="card ">
+    <article id="mega-13" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">110</div>
         <div class="speed-label">Mega速度</div>
@@ -1775,8 +1791,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-13" aria-label="返回雷丘X的常态卡片"></a>
     </article>
-    <article id="mega-14" class="card ">
+    <article id="mega-14" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">110</div>
         <div class="speed-label">Mega速度</div>
@@ -1793,8 +1810,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>140</b></div><div class="bar"><i style="width:77.8%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-19" aria-label="返回姆克鹰的常态卡片"></a>
     </article>
-    <article id="mega-15" class="card ">
+    <article id="mega-15" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">110</div>
         <div class="speed-label">Mega速度</div>
@@ -1811,8 +1829,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>68</b></div><div class="bar"><i style="width:37.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>165</b></div><div class="bar"><i style="width:91.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-46" aria-label="返回艾路雷朵的常态卡片"></a>
     </article>
-    <article id="mega-16" class="card ">
+    <article id="mega-16" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">110</div>
         <div class="speed-label">Mega速度</div>
@@ -1829,8 +1848,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>145</b></div><div class="bar"><i style="width:80.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>150</b></div><div class="bar"><i style="width:83.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-52" aria-label="返回巨金怪的常态卡片"></a>
     </article>
-    <article id="mega-17" class="card ">
+    <article id="mega-17" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">103</div>
         <div class="speed-label">Mega速度</div>
@@ -1847,8 +1867,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>165</b></div><div class="bar"><i style="width:91.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-30" aria-label="返回龙头地鼠的常态卡片"></a>
     </article>
-    <article id="mega-18" class="card ">
+    <article id="mega-18" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">102</div>
         <div class="speed-label">Mega速度</div>
@@ -1865,8 +1886,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>74</b></div><div class="bar"><i style="width:41.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>87</b></div><div class="bar"><i style="width:48.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>155</b></div><div class="bar"><i style="width:86.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>148</b></div><div class="bar"><i style="width:82.2%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-25" aria-label="返回花叶蒂（永恒之花）的常态卡片"></a>
     </article>
-    <article id="mega-19" class="card ">
+    <article id="mega-19" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">101</div>
         <div class="speed-label">Mega速度</div>
@@ -1883,8 +1905,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>83</b></div><div class="bar"><i style="width:46.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>150</b></div><div class="bar"><i style="width:83.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>96</b></div><div class="bar"><i style="width:53.3%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-32" aria-label="返回晶光花的常态卡片"></a>
     </article>
-    <article id="mega-20" class="card team">
+    <article id="mega-20" class="card mega-card team">
       <div class="speed-rail">
         <div class="speed-num">100</div>
         <div class="speed-label">Mega速度</div>
@@ -1901,8 +1924,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>111</b></div><div class="bar"><i style="width:61.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-18" aria-label="返回喷火龙X的常态卡片"></a>
     </article>
-    <article id="mega-21" class="card team">
+    <article id="mega-21" class="card mega-card team">
       <div class="speed-rail">
         <div class="speed-num">100</div>
         <div class="speed-label">Mega速度</div>
@@ -1919,8 +1943,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>104</b></div><div class="bar"><i style="width:57.8%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>159</b></div><div class="bar"><i style="width:88.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-18" aria-label="返回喷火龙Y的常态卡片"></a>
     </article>
-    <article id="mega-22" class="card ">
+    <article id="mega-22" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">100</div>
         <div class="speed-label">Mega速度</div>
@@ -1937,8 +1962,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>91</b></div><div class="bar"><i style="width:50.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>124</b></div><div class="bar"><i style="width:68.9%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>145</b></div><div class="bar"><i style="width:80.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-43" aria-label="返回快龙的常态卡片"></a>
     </article>
-    <article id="mega-23" class="card ">
+    <article id="mega-23" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">100</div>
         <div class="speed-label">Mega速度</div>
@@ -1955,8 +1981,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>68</b></div><div class="bar"><i style="width:37.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>165</b></div><div class="bar"><i style="width:91.7%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-44" aria-label="返回沙奈朵的常态卡片"></a>
     </article>
-    <article id="mega-24" class="card ">
+    <article id="mega-24" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">100</div>
         <div class="speed-label">Mega速度</div>
@@ -1973,8 +2000,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>160</b></div><div class="bar"><i style="width:88.9%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-45" aria-label="返回火焰鸡的常态卡片"></a>
     </article>
-    <article id="mega-25" class="card ">
+    <article id="mega-25" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">92</div>
         <div class="speed-label">Mega速度</div>
@@ -1991,8 +2019,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>108</b></div><div class="bar"><i style="width:60.0%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>170</b></div><div class="bar"><i style="width:94.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-17" aria-label="返回烈咬陆鲨的常态卡片"></a>
     </article>
-    <article id="mega-26" class="card ">
+    <article id="mega-26" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">87</div>
         <div class="speed-label">Mega速度</div>
@@ -2009,8 +2038,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>175</b></div><div class="bar"><i style="width:97.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>117</b></div><div class="bar"><i style="width:65.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>101</b></div><div class="bar"><i style="width:56.1%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-31" aria-label="返回戟脊龙的常态卡片"></a>
     </article>
-    <article id="mega-27" class="card ">
+    <article id="mega-27" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">80</div>
         <div class="speed-label">Mega速度</div>
@@ -2027,8 +2057,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>123</b></div><div class="bar"><i style="width:68.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>122</b></div><div class="bar"><i style="width:67.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-42" aria-label="返回妙蛙花的常态卡片"></a>
     </article>
-    <article id="mega-28" class="card ">
+    <article id="mega-28" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">78</div>
         <div class="speed-label">Mega速度</div>
@@ -2045,8 +2076,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>79</b></div><div class="bar"><i style="width:43.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>103</b></div><div class="bar"><i style="width:57.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-48" aria-label="返回水箭龟的常态卡片"></a>
     </article>
-    <article id="mega-29" class="card ">
+    <article id="mega-29" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">71</div>
         <div class="speed-label">Mega速度</div>
@@ -2063,8 +2095,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>164</b></div><div class="bar"><i style="width:91.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>150</b></div><div class="bar"><i style="width:83.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-57" aria-label="返回班基拉斯的常态卡片"></a>
     </article>
-    <article id="mega-30" class="card ">
+    <article id="mega-30" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">70</div>
         <div class="speed-label">Mega速度</div>
@@ -2081,8 +2114,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>150</b></div><div class="bar"><i style="width:83.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-60" aria-label="返回巨沼怪的常态卡片"></a>
     </article>
-    <article id="mega-31" class="card ">
+    <article id="mega-31" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">50</div>
         <div class="speed-label">Mega速度</div>
@@ -2099,8 +2133,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-66" aria-label="返回大嘴娃的常态卡片"></a>
     </article>
-    <article id="mega-32" class="card team">
+    <article id="mega-32" class="card mega-card team">
       <div class="speed-rail">
         <div class="speed-num">40</div>
         <div class="speed-label">Mega速度</div>
@@ -2117,8 +2152,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>150</b></div><div class="bar"><i style="width:83.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>175</b></div><div class="bar"><i style="width:97.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-67" aria-label="返回具甲武者的常态卡片"></a>
     </article>
-    <article id="mega-33" class="card ">
+    <article id="mega-33" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">20</div>
         <div class="speed-label">Mega速度</div>
@@ -2135,8 +2171,9 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-65" aria-label="返回勾魂眼的常态卡片"></a>
     </article>
-    <article id="mega-34" class="card ">
+    <article id="mega-34" class="card mega-card ">
       <div class="speed-rail">
         <div class="speed-num">20</div>
         <div class="speed-label">Mega速度</div>
@@ -2153,6 +2190,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>145</b></div><div class="bar"><i style="width:80.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#8b6edb"></i></div></div></div>
       </div>
+      <a class="mega-card-link" href="#reg-68" aria-label="返回喷火驼的常态卡片"></a>
     </article>
     </div>
   </section>
