@@ -65,8 +65,14 @@ h1 { font-size:28px; line-height:1.08; letter-spacing:-.03em; margin:0 0 8px; }
 .card {
   background:var(--panel); border:1px solid var(--line); border-radius:18px;
   display:grid; grid-template-columns:76px 1fr; overflow:hidden; box-shadow:var(--shadow);
-  scroll-margin-top:250px;
+  scroll-margin-top:250px; position:relative;
 }
+.card-art {
+  position:absolute; top:0; right:2px; width:48%; height:100%;
+  object-fit:contain; object-position:right center; opacity:.20;
+  pointer-events:none; z-index:0;
+}
+.card > .speed-rail, .card > .card-main { position:relative; z-index:1; }
 .card.team {
   background:linear-gradient(180deg,#fffdf0,#fff9cf);
   border-color:var(--team-border);
@@ -195,6 +201,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>88</b></div><div class="bar"><i style="width:48.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
       </div>
+      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/887.png" alt="" aria-hidden="true" loading="eager" decoding="async">
     </article>
     
     <article id="reg-2" class="card ">
