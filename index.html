@@ -68,11 +68,12 @@ h1 { font-size:28px; line-height:1.08; letter-spacing:-.03em; margin:0 0 8px; }
   scroll-margin-top:250px; position:relative;
 }
 .card-art {
-  position:absolute; top:0; right:2px; width:48%; height:100%;
+  position:absolute; top:0; right:2px; width:58%; height:100%;
   object-fit:contain; object-position:right center; opacity:.20;
   pointer-events:none; z-index:0;
 }
 .card > .speed-rail, .card > .card-main { position:relative; z-index:1; }
+.card-main > .name-row, .card-main > .stats { position:relative; z-index:1; }
 .matchups {
   grid-column:1 / -1; position:relative; z-index:2;
   border-top:1px solid var(--line); background:rgba(255,255,255,.94);
@@ -228,8 +229,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <span class="mine">我的队伍</span>
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>88</b></div><div class="bar"><i style="width:48.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/887.png" alt="" aria-hidden="true" loading="eager" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/887.png" alt="" aria-hidden="true" loading="eager" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -254,8 +255,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/142.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/142.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -279,8 +280,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>81</b></div><div class="bar"><i style="width:45.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>71</b></div><div class="bar"><i style="width:39.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>74</b></div><div class="bar"><i style="width:41.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>69</b></div><div class="bar"><i style="width:38.3%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/663.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/663.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -304,8 +305,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>76</b></div><div class="bar"><i style="width:42.2%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>81</b></div><div class="bar"><i style="width:45.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/908.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/908.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -329,8 +330,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/818.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/818.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -354,8 +355,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>40</b></div><div class="bar"><i style="width:22.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/903.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/903.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -380,8 +381,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>45</b></div><div class="bar"><i style="width:25.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/65.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -405,8 +406,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>67</b></div><div class="bar"><i style="width:37.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>77</b></div><div class="bar"><i style="width:42.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/547.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/547.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -430,8 +431,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>74</b></div><div class="bar"><i style="width:41.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/925.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/925.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -455,8 +456,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10239.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10239.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -481,8 +482,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/94.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -507,8 +508,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/478.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/478.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -533,8 +534,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -558,8 +559,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>73</b></div><div class="bar"><i style="width:40.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>67</b></div><div class="bar"><i style="width:37.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>81</b></div><div class="bar"><i style="width:45.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10104.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10104.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -583,8 +584,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/923.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/923.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -609,8 +610,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>69</b></div><div class="bar"><i style="width:38.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>72</b></div><div class="bar"><i style="width:40.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>114</b></div><div class="bar"><i style="width:63.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/655.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/655.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -635,8 +636,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>108</b></div><div class="bar"><i style="width:60.0%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/445.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/445.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -661,8 +662,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <span class="mine">我的队伍</span>
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>84</b></div><div class="bar"><i style="width:46.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>109</b></div><div class="bar"><i style="width:60.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/6.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -687,8 +688,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/398.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/398.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -713,8 +714,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/373.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/373.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -738,8 +739,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/637.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/637.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -763,8 +764,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>92</b></div><div class="bar"><i style="width:51.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/635.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/635.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -788,8 +789,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>73</b></div><div class="bar"><i style="width:40.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>84</b></div><div class="bar"><i style="width:46.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>119</b></div><div class="bar"><i style="width:66.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10233.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10233.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -813,8 +814,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/876.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/876.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -839,8 +840,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>74</b></div><div class="bar"><i style="width:41.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>67</b></div><div class="bar"><i style="width:37.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>128</b></div><div class="bar"><i style="width:71.1%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10061.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10061.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -864,8 +865,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/979.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/979.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -890,8 +891,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/448.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -915,8 +916,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10230.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10230.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -940,8 +941,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>52</b></div><div class="bar"><i style="width:28.9%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/666.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/666.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -966,8 +967,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/530.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/530.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -992,8 +993,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>145</b></div><div class="bar"><i style="width:80.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>92</b></div><div class="bar"><i style="width:51.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>86</b></div><div class="bar"><i style="width:47.8%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/998.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/998.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1018,8 +1019,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>83</b></div><div class="bar"><i style="width:46.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>81</b></div><div class="bar"><i style="width:45.0%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/970.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/970.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1043,8 +1044,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>107</b></div><div class="bar"><i style="width:59.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>107</b></div><div class="bar"><i style="width:59.4%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10009.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10009.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1068,8 +1069,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>45</b></div><div class="bar"><i style="width:25.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/900.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/900.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1093,8 +1094,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/784.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/784.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1118,8 +1119,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10186.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10186.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1143,8 +1144,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/937.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/937.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1168,8 +1169,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/812.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/812.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1193,8 +1194,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1018.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1018.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1218,8 +1219,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>87</b></div><div class="bar"><i style="width:48.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>133</b></div><div class="bar"><i style="width:73.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>91</b></div><div class="bar"><i style="width:50.6%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1000.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1000.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1243,8 +1244,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>79</b></div><div class="bar"><i style="width:43.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/350.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/350.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1269,8 +1270,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>82</b></div><div class="bar"><i style="width:45.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>83</b></div><div class="bar"><i style="width:46.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/3.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1295,8 +1296,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>91</b></div><div class="bar"><i style="width:50.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>134</b></div><div class="bar"><i style="width:74.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/149.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1321,8 +1322,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>68</b></div><div class="bar"><i style="width:37.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/282.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/282.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1347,8 +1348,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/257.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/257.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1373,8 +1374,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>68</b></div><div class="bar"><i style="width:37.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/475.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/475.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1398,8 +1399,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>112</b></div><div class="bar"><i style="width:62.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/902.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/902.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1424,8 +1425,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>79</b></div><div class="bar"><i style="width:43.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>83</b></div><div class="bar"><i style="width:46.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/9.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1449,8 +1450,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/936.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/936.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1475,8 +1476,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/359.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/359.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1500,8 +1501,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>72</b></div><div class="bar"><i style="width:40.0%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>98</b></div><div class="bar"><i style="width:54.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>98</b></div><div class="bar"><i style="width:54.4%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/763.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/763.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1526,8 +1527,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/376.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/376.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1551,8 +1552,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>71</b></div><div class="bar"><i style="width:39.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>106</b></div><div class="bar"><i style="width:58.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>121</b></div><div class="bar"><i style="width:67.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1013.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1013.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1576,8 +1577,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/186.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/186.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1601,8 +1602,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <span class="mine">我的队伍</span>
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/279.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/279.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1626,8 +1627,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>62</b></div><div class="bar"><i style="width:34.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>68</b></div><div class="bar"><i style="width:37.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>82</b></div><div class="bar"><i style="width:45.6%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/865.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/865.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1652,8 +1653,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>134</b></div><div class="bar"><i style="width:74.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/248.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/248.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1677,8 +1678,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/700.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/700.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1702,8 +1703,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <span class="mine">我的队伍</span>
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/981.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/981.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1728,8 +1729,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/260.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/260.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1753,8 +1754,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/727.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/727.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1778,8 +1779,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <span class="mine">我的队伍</span>
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>74</b></div><div class="bar"><i style="width:41.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>74</b></div><div class="bar"><i style="width:41.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>126</b></div><div class="bar"><i style="width:70.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>116</b></div><div class="bar"><i style="width:64.4%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/730.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/730.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1803,8 +1804,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/861.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/861.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1828,8 +1829,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/983.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/983.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1854,8 +1855,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/302.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/302.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1880,8 +1881,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/303.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/303.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1906,8 +1907,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <span class="mine">我的队伍</span>
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>140</b></div><div class="bar"><i style="width:77.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/768.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/768.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1932,8 +1933,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/323.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/323.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1957,8 +1958,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>57</b></div><div class="bar"><i style="width:31.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>136</b></div><div class="bar"><i style="width:75.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>103</b></div><div class="bar"><i style="width:57.2%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/858.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/858.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -1982,8 +1983,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>140</b></div><div class="bar"><i style="width:77.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/324.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/324.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2019,8 +2020,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>108</b></div><div class="bar"><i style="width:60.0%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>141</b></div><div class="bar"><i style="width:78.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10309.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10309.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2043,8 +2044,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>164</b></div><div class="bar"><i style="width:91.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10310.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10310.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2067,8 +2068,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>154</b></div><div class="bar"><i style="width:85.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10307.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10307.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2091,8 +2092,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10042.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10042.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2115,8 +2116,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>175</b></div><div class="bar"><i style="width:97.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10037.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10037.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2139,8 +2140,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>69</b></div><div class="bar"><i style="width:38.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>72</b></div><div class="bar"><i style="width:40.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>159</b></div><div class="bar"><i style="width:88.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10293.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10293.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2163,8 +2164,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>170</b></div><div class="bar"><i style="width:94.4%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10038.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10038.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2187,8 +2188,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>160</b></div><div class="bar"><i style="width:88.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10305.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10305.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2211,8 +2212,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>140</b></div><div class="bar"><i style="width:77.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10285.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10285.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2235,8 +2236,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>145</b></div><div class="bar"><i style="width:80.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10089.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10089.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2259,8 +2260,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>150</b></div><div class="bar"><i style="width:83.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10057.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10057.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2283,8 +2284,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>145</b></div><div class="bar"><i style="width:80.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>88</b></div><div class="bar"><i style="width:48.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>140</b></div><div class="bar"><i style="width:77.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10059.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10059.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2307,8 +2308,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10304.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10304.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2331,8 +2332,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>140</b></div><div class="bar"><i style="width:77.8%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>60</b></div><div class="bar"><i style="width:33.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10308.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10308.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2355,8 +2356,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>68</b></div><div class="bar"><i style="width:37.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>165</b></div><div class="bar"><i style="width:91.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10068.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10068.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2379,8 +2380,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>145</b></div><div class="bar"><i style="width:80.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>150</b></div><div class="bar"><i style="width:83.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10076.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10076.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2403,8 +2404,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>165</b></div><div class="bar"><i style="width:91.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10287.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10287.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2427,8 +2428,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>74</b></div><div class="bar"><i style="width:41.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>87</b></div><div class="bar"><i style="width:48.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>155</b></div><div class="bar"><i style="width:86.1%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>148</b></div><div class="bar"><i style="width:82.2%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10296.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10296.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2451,8 +2452,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>83</b></div><div class="bar"><i style="width:46.1%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>90</b></div><div class="bar"><i style="width:50.0%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>150</b></div><div class="bar"><i style="width:83.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>96</b></div><div class="bar"><i style="width:53.3%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10321.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10321.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2475,8 +2476,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <span class="mine">队伍相关</span>
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>111</b></div><div class="bar"><i style="width:61.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10034.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10034.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2499,8 +2500,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <span class="mine">队伍相关</span>
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>104</b></div><div class="bar"><i style="width:57.8%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>78</b></div><div class="bar"><i style="width:43.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>159</b></div><div class="bar"><i style="width:88.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10035.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10035.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2523,8 +2524,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>91</b></div><div class="bar"><i style="width:50.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>124</b></div><div class="bar"><i style="width:68.9%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>145</b></div><div class="bar"><i style="width:80.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10281.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10281.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2547,8 +2548,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>68</b></div><div class="bar"><i style="width:37.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>65</b></div><div class="bar"><i style="width:36.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>165</b></div><div class="bar"><i style="width:91.7%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10051.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10051.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2571,8 +2572,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>160</b></div><div class="bar"><i style="width:88.9%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>130</b></div><div class="bar"><i style="width:72.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10050.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10050.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2595,8 +2596,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>108</b></div><div class="bar"><i style="width:60.0%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>170</b></div><div class="bar"><i style="width:94.4%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10058.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10058.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2619,8 +2620,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>175</b></div><div class="bar"><i style="width:97.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>117</b></div><div class="bar"><i style="width:65.0%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>101</b></div><div class="bar"><i style="width:56.1%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10325.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10325.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2643,8 +2644,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>80</b></div><div class="bar"><i style="width:44.4%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>123</b></div><div class="bar"><i style="width:68.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>122</b></div><div class="bar"><i style="width:67.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10033.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10033.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2667,8 +2668,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>79</b></div><div class="bar"><i style="width:43.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>103</b></div><div class="bar"><i style="width:57.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>135</b></div><div class="bar"><i style="width:75.0%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10036.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10036.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2691,8 +2692,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>164</b></div><div class="bar"><i style="width:91.1%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>150</b></div><div class="bar"><i style="width:83.3%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10049.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10049.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2715,8 +2716,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>150</b></div><div class="bar"><i style="width:83.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>110</b></div><div class="bar"><i style="width:61.1%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10064.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10064.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2739,8 +2740,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>55</b></div><div class="bar"><i style="width:30.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>95</b></div><div class="bar"><i style="width:52.8%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10052.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10052.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2763,8 +2764,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           <span class="mine">队伍相关</span>
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>75</b></div><div class="bar"><i style="width:41.7%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>150</b></div><div class="bar"><i style="width:83.3%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>175</b></div><div class="bar"><i style="width:97.2%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10316.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10316.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2787,8 +2788,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>50</b></div><div class="bar"><i style="width:27.8%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>125</b></div><div class="bar"><i style="width:69.4%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>85</b></div><div class="bar"><i style="width:47.2%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>115</b></div><div class="bar"><i style="width:63.9%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10066.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10066.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
@@ -2811,8 +2812,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
           
         </div>
         <div class="stats"><div class="stat"><div class="stat-top"><span>HP</span><b>70</b></div><div class="bar"><i style="width:38.9%;background:#4b8fdc"></i></div></div><div class="stat"><div class="stat-top"><span>攻击</span><b>120</b></div><div class="bar"><i style="width:66.7%;background:#f59e0b"></i></div></div><div class="stat"><div class="stat-top"><span>防御</span><b>100</b></div><div class="bar"><i style="width:55.6%;background:#22a06b"></i></div></div><div class="stat"><div class="stat-top"><span>特攻</span><b>145</b></div><div class="bar"><i style="width:80.6%;background:#e25555"></i></div></div><div class="stat"><div class="stat-top"><span>特防</span><b>105</b></div><div class="bar"><i style="width:58.3%;background:#8b6edb"></i></div></div></div>
+              <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10087.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
-      <img class="card-art" src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10087.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
       <details class="matchups">
         <summary>属性相性 · 受到招式的倍率</summary>
         <div class="matchup-note">仅计算属性，不包含特性、道具、天气或场地</div>
