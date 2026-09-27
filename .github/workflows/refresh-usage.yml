@@ -1,0 +1,53 @@
+name: Refresh Champions battle usage
+
+on:
+  schedule:
+    - cron: '40 3 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: refresh-champions-usage
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download both in-game formats and validate snapshot
+        id: snapshot
+        run: |
+          python build_usage.py
+          if git diff --quiet -- usage.json; then
+            echo 'changed=false' >> "$GITHUB_OUTPUT"
+          else
+            echo 'changed=true' >> "$GITHUB_OUTPUT"
+          fi
+      - name: Commit refreshed usage
+        if: steps.snapshot.outputs.changed == 'true'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add usage.json
+          git commit -m 'Refresh in-game Champions usage data'
+          git push origin HEAD:main
+      # A GITHUB_TOKEN commit does not trigger the normal branch-source Pages build.
+      - name: Request Pages build from main root
+        if: steps.snapshot.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          curl --fail-with-body --silent --show-error --request POST \
+            --header 'Accept: application/vnd.github+json' \
+            --header "Authorization: Bearer ${GH_TOKEN}" \
+            --header 'X-GitHub-Api-Version: 2022-11-28' \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages/builds"
