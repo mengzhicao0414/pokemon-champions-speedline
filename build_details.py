@@ -15,6 +15,15 @@ import urllib.request
 ROOT = pathlib.Path(__file__).resolve().parent
 BASE = "https://raw.githubusercontent.com/PokeAPI/pokeapi/master/data/v2/csv/"
 CHAMPIONS = "https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/mods/champions/"
+MOVE_TARGETS = {
+    "1": "根据反击条件决定", "2": "指定单体", "3": "一名队友",
+    "4": "己方场地", "5": "自己或一名队友", "6": "对方场地",
+    "7": "自己", "8": "随机一名对手", "9": "场上其他全部（含队友）",
+    "10": "指定单体", "11": "对方全体", "12": "全场场地",
+    "13": "己方全体（含自己）", "14": "场上全体（含自己）",
+    "15": "所有队友", "16": "己方濒死宝可梦",
+}
+CHAMPIONS_TARGETS = {"adjacentAllyOrSelf": "自己或一名队友"}
 
 
 def rows(filename):
@@ -113,6 +122,14 @@ def main():
             match = re.search(r"^\s*" + field + r":\s*(\d+),", override, re.M)
             return match.group(1) if match else default
         new_type = re.search(r'^\s*type:\s*"([^"]+)",', override, re.M)
+        new_target = re.search(r'^\s*target:\s*"([^"]+)",', override, re.M)
+        target = MOVE_TARGETS.get(info.get("target_id"), "")
+        if new_target:
+            target = CHAMPIONS_TARGETS.get(new_target.group(1))
+            if not target:
+                raise ValueError("Unknown Champions move target: " + new_target.group(1))
+        if english == "Dragon Darts":
+            target = "对方两只各1次；仅一只则2次"
         type_name = type_names.get(info.get("type_id"), "")
         if new_type:
             known_types = {row["name"].lower():row["type_id"] for row in rows("type_names.csv") if row["local_language_id"] == "9"}
@@ -124,6 +141,7 @@ def main():
             "language": lang,
             "type": type_name,
             "category": damage_classes.get(info.get("damage_class_id"), ""),
+            "target": target,
             "power": changed("basePower", info.get("power", "")),
             "accuracy": changed("accuracy", info.get("accuracy", "")),
             "pp": changed("pp", info.get("pp", "")),

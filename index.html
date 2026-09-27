@@ -7115,7 +7115,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
     <div class="moves-head-row"><h2 id="moves-title"></h2><button type="button" class="moves-close" aria-label="关闭可学技能">关闭 ✕</button></div>
     <input type="search" class="moves-search" aria-label="搜索可学技能" placeholder="搜索技能名称、属性或效果">
   </div>
-  <div class="moves-source">学习表：<a href="https://github.com/smogon/pokemon-showdown/blob/master/data/mods/champions/learnsets.ts" target="_blank" rel="noopener noreferrer">Showdown 冠军赛制</a>；技能说明参考主系列资料，技能数值优先使用冠军赛制数据。实际请以游戏内为准。</div>
+  <div class="moves-source">学习表：<a href="https://github.com/smogon/pokemon-showdown/blob/master/data/mods/champions/learnsets.ts" target="_blank" rel="noopener noreferrer">Showdown 冠军赛制</a>；技能说明和作用范围参考主系列资料，冠军赛制有调整时优先使用其数据。“场上其他全部”包含队友，特殊技能以详细说明及游戏内显示为准。</div>
   <div class="moves-status" role="status">读取技能中…</div>
   <div class="moves-list"></div>
 </dialog>
@@ -7282,7 +7282,7 @@ function getLearnsetsData(){
 }
 function appendMoveReference(container,info){
   const meta=document.createElement('div');meta.className='usage-detail-meta';
-  for(const [label,datum] of [['属性',info.type],['分类',info.category],['威力',info.power],['命中',info.accuracy?info.accuracy+'%':''],['PP',info.pp]]){
+  for(const [label,datum] of [['属性',info.type],['分类',info.category],['范围',info.target],['威力',info.power],['命中',info.accuracy?info.accuracy+'%':''],['PP',info.pp]]){
     if(!datum)continue;
     const badge=document.createElement('span');badge.textContent=label+' '+datum;meta.append(badge);
   }
