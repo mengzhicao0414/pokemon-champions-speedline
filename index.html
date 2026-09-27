@@ -66,13 +66,15 @@ h1 { font-size:28px; line-height:1.08; letter-spacing:-.03em; margin:0 0 8px; }
   font-size:12px; font-weight:800; text-decoration:none;
 }
 .speed-chip { background:#18243a; color:#fff; border-color:#18243a; }
-.temp-section[hidden] { display:none; }
-.temp-row { display:flex; gap:7px; }
+.temp-row { display:flex; align-items:center; gap:7px; margin-top:8px; }
+.temp-row > .chip { flex:none; margin-right:0; }
 .temp-tag { display:inline-flex; align-items:center; flex:none; border-radius:999px; background:#e8dcfb; color:#513382; }
 .temp-tag a { padding:9px 5px 9px 12px; color:inherit; font-size:12px; font-weight:800; text-decoration:none; }
 .temp-tag button { min-width:30px; min-height:34px; border:0; background:transparent; color:inherit; cursor:pointer; font-size:17px; }
 .temp-button { display:inline-flex; align-items:center; min-height:34px; margin-top:7px; margin-left:5px; padding:0 9px; border:1px solid #d7c7f3; border-radius:8px; background:#f5f0ff; color:#573a83; font:inherit; font-size:11px; font-weight:800; cursor:pointer; }
 .temp-button[aria-pressed="true"] { background:#e8dcfb; border-color:#a884d0; }
+.card-actions { display:flex; align-items:center; gap:5px; max-width:100%; overflow-x:auto; white-space:nowrap; }
+.card-actions .ability-button, .card-actions .move-button, .card-actions .temp-button { flex:none; margin:7px 0 0; }
 .temp-button:focus-visible, .temp-tag a:focus-visible, .temp-tag button:focus-visible { outline:3px solid #6745a0; outline-offset:2px; }
 .section-head {
   display:flex; justify-content:space-between; align-items:flex-end; gap:10px;
@@ -140,7 +142,9 @@ h1 { font-size:28px; line-height:1.08; letter-spacing:-.03em; margin:0 0 8px; }
 .speed-label { margin-top:5px; font-size:11px; color:#8a746c; }
 .order { margin-top:10px; font-size:11px; color:#99a1af; line-height:1.35; }
 .card-main { padding:13px 13px 12px; min-width:0; }
-.name-row { display:flex; align-items:flex-start; justify-content:space-between; gap:8px; }
+.name-row { position:relative; display:block; }
+.name-row h2 { padding-right:54px; }
+.name-row > .usage-button { position:absolute; right:0; top:0; }
 h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
 .meta { color:var(--muted); font-size:11px; margin-top:4px; }
 .type-row { display:flex; flex-wrap:wrap; gap:4px; margin-top:6px; }
@@ -374,12 +378,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
     <div class="nav-title">常规形态 · 每20基础速度快速标签</div>
     <div class="nav-row"><a class="chip speed-chip" href="#reg-p-168-0">40速</a><a class="chip speed-chip" href="#reg-p-36-0">60速</a><a class="chip speed-chip" href="#reg-42">80速</a><a class="chip speed-chip" href="#reg-18">100速</a><a class="chip speed-chip" href="#reg-7">120速</a><a class="chip speed-chip" href="#reg-p-135-0">140速</a></div>
 
-    <div class="nav-title">Mega 形态导航</div>
-    <div class="nav-row"><a class="chip speed-chip" href="#mega-block">Mega区</a></div>
-    <div class="temp-section" id="temp-section" hidden>
-      <div class="nav-title">临时标签 · 刷新后清空</div>
-      <div class="nav-row temp-row" id="temp-row"></div>
-    </div>
+    <div class="nav-row temp-row" id="temp-row" aria-label="Mega 区与临时标签"><a class="chip speed-chip" href="#mega-block">Mega区</a></div>
   </section>
 
   <section id="regular-block"><div class="section-head"><div><h3>常规及其他形态（314）</h3></div><div class="desc">按基础速度从高到低<br>同速按全国图鉴排序</div></div><div class="cards">
@@ -7192,12 +7191,10 @@ const pokemonCards=[...document.querySelectorAll('.card')].map(card=>({
   art:card.querySelector('.card-art')?.getAttribute('src')
 }));
 // Keep temporary bookmarks in memory only; reloading creates an empty list.
-const tempSection=document.getElementById('temp-section');
 const tempRow=document.getElementById('temp-row');
 const tempCards=new Map();
 function renderTempTags(){
-  tempRow.replaceChildren();
-  tempSection.hidden=tempCards.size===0;
+  tempRow.querySelectorAll('.temp-tag').forEach(tag=>tag.remove());
   for(const [id,name] of tempCards){
     const tag=document.createElement('span');tag.className='temp-tag';
     const link=document.createElement('a');link.href='#'+id;link.textContent=name;
@@ -7324,6 +7321,9 @@ for(const abilityButton of document.querySelectorAll('.card .ability-button')){
   button.setAttribute('aria-label','查看'+abilityButton.closest('.card').querySelector('h2').textContent+'可学的技能');
   button.innerHTML='技能 <span aria-hidden="true">↗</span>';
   abilityButton.after(button);
+  const actions=document.createElement('div');actions.className='card-actions';
+  abilityButton.before(actions);
+  actions.append(abilityButton,button,abilityButton.closest('.card').querySelector('.temp-button'));
 }
 function getLearnsetsData(){
   if(learnsetsData)return Promise.resolve(learnsetsData);
