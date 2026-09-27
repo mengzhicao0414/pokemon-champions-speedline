@@ -268,6 +268,20 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
 .usage-percent { text-align:right; font-weight:800; color:#245aa3; font-variant-numeric:tabular-nums; }
 .usage-entry { min-width:0; }
 .usage-name { overflow-wrap:anywhere; font-weight:650; }
+.usage-detail-toggle { display:inline; border:0; border-radius:4px; padding:2px 0;
+  background:transparent; color:#245aa3; font:inherit; font-weight:700; text-align:left;
+  text-decoration:underline; text-decoration-style:dotted; text-underline-offset:3px; cursor:pointer; }
+.usage-detail-toggle:hover { color:#163d72; }
+.usage-detail-toggle:focus-visible { outline:3px solid #286fd4; outline-offset:2px; }
+.usage-detail-toggle::after { content:' ▾'; font-size:10px; text-decoration:none; }
+.usage-detail-toggle[aria-expanded="true"]::after { content:' ▴'; }
+.usage-detail { grid-column:2 / -1; margin:2px 0 8px; padding:9px 10px;
+  border-radius:8px; background:#f1f5fc; color:#34465d; line-height:1.55; }
+.usage-detail[hidden] { display:none; }
+.usage-detail-meta { display:flex; flex-wrap:wrap; gap:5px; margin-bottom:5px; }
+.usage-detail-meta span { padding:2px 5px; border-radius:5px; background:#e1ebfa; font-size:11px; }
+.usage-detail p { margin:0; white-space:normal; }
+.usage-detail-source { margin-top:5px; color:#66778f; font-size:10px; }
 .usage-bar { height:3px; margin-top:4px; background:#edf1f8; border-radius:5px; }
 .usage-bar i { display:block; height:100%; border-radius:5px; background:#72a2e8; }
 .usage-spread { display:flex; flex-wrap:wrap; gap:4px 7px; font-variant-numeric:tabular-nums; }
@@ -7194,14 +7208,18 @@ const usageDialog=document.getElementById('usage-dialog');
 const usageList=usageDialog.querySelector('.usage-list');
 const usageStatus=usageDialog.querySelector('.usage-status');
 const usageNote=usageDialog.querySelector('.usage-note');
-let usageData=null,usageRequest=null,usageCard=null,usageTrigger=null,usageMode='single';
+let usageData=null,usageRequest=null,detailsData=null,usageCard=null,usageTrigger=null,usageMode='single';
 const usageSections=[['moves','技能'],['spreads','加点（HP／攻击／防御／特攻／特防／速度）'],['items','持有物'],['abilities','特性']];
 const pointNames=['HP','攻击','防御','特攻','特防','速度'];
 function getUsageData(){
   if(usageData)return Promise.resolve(usageData);
-  if(!usageRequest)usageRequest=fetch('usage.json',{cache:'no-cache'})
-    .then(response=>{if(!response.ok)throw new Error('暂时无法读取配置数据');return response.json();})
-    .then(data=>{if(!data.formats?.single || !data.formats?.double)throw new Error('配置数据不完整');return usageData=data;})
+  if(!usageRequest)usageRequest=Promise.all([
+    fetch('usage.json',{cache:'no-cache'}).then(response=>{if(!response.ok)throw new Error('暂时无法读取配置数据');return response.json();}),
+    fetch('details.json').then(response=>response.ok?response.json():{}).catch(()=>({}))
+  ]).then(([data,details])=>{
+      if(!data.formats?.single || !data.formats?.double)throw new Error('配置数据不完整');
+      detailsData=details;return usageData=data;
+    })
     .catch(error=>{usageRequest=null;throw error;});
   return usageRequest;
 }
@@ -7216,6 +7234,7 @@ function renderUsage(){
   const attribution=document.createElement('a');attribution.href=usageData.url;
   attribution.target='_blank';attribution.rel='noopener noreferrer';attribution.textContent='MunchStats';
   source.append(attribution);
+  source.append('。技能与道具说明、技能参数参考主系列资料，冠军内实际效果请以游戏为准。');
   usageNote.hidden=!mega;
   if(mega)usageNote.textContent='游戏的使用数据按原形态统计；这里显示该宝可梦整体的配置，无法单独区分 Mega 前后的技能和特性。';
   usageStatus.hidden=!!pokemon;
@@ -7233,25 +7252,58 @@ function renderUsage(){
       const row=document.createElement('div');row.className='usage-row';
       const rank=document.createElement('span');rank.className='usage-rank';rank.textContent=String(index+1)+'.';
       const value=document.createElement('div');value.className='usage-entry';
-      const name=document.createElement('div');name.className='usage-name';
+      let name=document.createElement('div');name.className='usage-name';
       if(key==='spreads'){
         name.className='usage-spread';
         english.split('/').forEach((points,i)=>{const part=document.createElement('span');
           part.textContent=(pointNames[i]||'')+points;name.append(part);});
       }else{
         const translated=usageData.names?.[key]?.[english];
-        name.textContent=translated||english;
+        name=document.createElement('button');name.type='button';
+        name.className='usage-detail-toggle';name.textContent=translated||english;
+        name.setAttribute('aria-expanded','false');
+        name.setAttribute('aria-label','查看'+(translated||english)+'的详细说明');
         if(translated && translated!==english)name.title=english;
       }
       const bar=document.createElement('div');bar.className='usage-bar';
       const fill=document.createElement('i');fill.style.width=Math.max(0,Math.min(100,Number(pct)))+'%';bar.append(fill);
       value.append(name,bar);
       const percent=document.createElement('span');percent.className='usage-percent';percent.textContent=pct+'%';
-      row.append(rank,value,percent);section.append(row);
+      row.append(rank,value,percent);
+      if(key!=='spreads'){
+        const info=detailsData?.[key]?.[english]||{};
+        const detail=document.createElement('div');detail.className='usage-detail';detail.hidden=true;
+        detail.id='usage-detail-'+key+'-'+index;
+        name.setAttribute('aria-controls',detail.id);
+        if(key==='moves'){
+          const meta=document.createElement('div');meta.className='usage-detail-meta';
+          for(const [label,datum] of [['属性',info.type],['分类',info.category],['威力',info.power],['命中',info.accuracy?info.accuracy+'%':''],['PP',info.pp]]){
+            if(!datum)continue;
+            const badge=document.createElement('span');badge.textContent=label+' '+datum;meta.append(badge);
+          }
+          if(meta.childElementCount)detail.append(meta);
+        }
+        const description=document.createElement('p');
+        description.textContent=info.description||'暂无详细说明，请以游戏内资料为准。';
+        if(info.language==='en')description.lang='en';
+        detail.append(description);
+        if(info.description && info.language!=='zh'){
+          const source=document.createElement('div');source.className='usage-detail-source';
+          source.textContent='暂无简体中文资料，显示英文原文。';detail.append(source);
+        }
+        row.append(detail);
+      }
+      section.append(row);
     }
     usageList.append(section);
   }
 }
+usageList.addEventListener('click',event=>{
+  const button=event.target.closest('.usage-detail-toggle');if(!button)return;
+  const detail=document.getElementById(button.getAttribute('aria-controls'));
+  const expanded=button.getAttribute('aria-expanded')==='true';
+  button.setAttribute('aria-expanded',String(!expanded));detail.hidden=expanded;
+});
 document.addEventListener('click',event=>{
   const button=event.target.closest('.usage-button');
   if(!button)return;
