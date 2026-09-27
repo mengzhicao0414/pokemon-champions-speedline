@@ -308,6 +308,11 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
 .usage-percent { text-align:right; font-weight:800; color:#245aa3; font-variant-numeric:tabular-nums; }
 .usage-entry { min-width:0; }
 .usage-name { overflow-wrap:anywhere; font-weight:650; }
+.usage-nature { display:flex; align-items:baseline; flex-wrap:wrap; column-gap:8px; row-gap:1px; }
+.usage-nature-name { font-weight:750; }
+.usage-nature-plus { color:#166439; font-weight:700; }
+.usage-nature-minus { color:#a13f32; font-weight:700; }
+.usage-nature-neutral { color:#63738a; }
 .usage-detail-toggle { display:inline; border:0; border-radius:4px; padding:2px 0;
   background:transparent; color:#245aa3; font:inherit; font-weight:700; text-align:left;
   text-decoration:underline; text-decoration-style:dotted; text-underline-offset:3px; cursor:pointer; }
@@ -7349,8 +7354,9 @@ const usageList=usageDialog.querySelector('.usage-list');
 const usageStatus=usageDialog.querySelector('.usage-status');
 const usageNote=usageDialog.querySelector('.usage-note');
 let usageData=null,usageRequest=null,detailsData=null,detailsRequest=null,usageCard=null,usageTrigger=null,usageMode='single';
-const usageSections=[['moves','技能'],['spreads','加点（HP／攻击／防御／特攻／特防／速度）'],['items','持有物'],['abilities','特性']];
+const usageSections=[['moves','技能'],['spreads','加点（HP／攻击／防御／特攻／特防／速度）'],['natures','性格（前 5）'],['items','持有物'],['abilities','特性']];
 const pointNames=['HP','攻击','防御','特攻','特防','速度'];
+const natureStatNames={'Attack':'攻击','Defense':'防御','Sp. Atk':'特攻','Sp. Def':'特防','Speed':'速度'};
 function getUsageData(){
   if(usageData)return Promise.resolve(usageData);
   if(!usageRequest)usageRequest=Promise.all([
@@ -7395,7 +7401,7 @@ function renderUsage(){
     const entries=pokemon[key]||[];
     if(!entries.length){const empty=document.createElement('p');empty.className='usage-empty';
       empty.textContent='暂无使用率数据';section.append(empty);}
-    for(const [index,entry] of entries.slice(0,10).entries()){
+    for(const [index,entry] of entries.slice(0,key==='natures'?5:10).entries()){
       const [english,pct]=entry;
       const row=document.createElement('div');row.className='usage-row';
       const rank=document.createElement('span');rank.className='usage-rank';rank.textContent=String(index+1)+'.';
@@ -7405,6 +7411,22 @@ function renderUsage(){
         name.className='usage-spread';
         english.split('/').forEach((points,i)=>{const part=document.createElement('span');
           part.textContent=(pointNames[i]||'')+points;name.append(part);});
+      }else if(key==='natures'){
+        name.className='usage-nature';
+        const label=document.createElement('span');label.className='usage-nature-name';
+        label.textContent=usageData.names?.natures?.[english]||english;name.append(label);
+        const modifier=entry[2]||'';
+        const match=/^\+(.+?) \/ -(.+)$/.exec(modifier);
+        if(match){
+          const plus=document.createElement('span');plus.className='usage-nature-plus';
+          plus.textContent='加'+(natureStatNames[match[1]]||match[1]);
+          const minus=document.createElement('span');minus.className='usage-nature-minus';
+          minus.textContent='减'+(natureStatNames[match[2]]||match[2]);
+          name.append(plus,minus);
+        }else{
+          const neutral=document.createElement('span');neutral.className='usage-nature-neutral';
+          neutral.textContent=modifier==='Neutral'?'不增不减':'能力变化未知';name.append(neutral);
+        }
       }else{
         const translated=usageData.names?.[key]?.[english];
         name=document.createElement('button');name.type='button';
@@ -7418,7 +7440,7 @@ function renderUsage(){
       value.append(name,bar);
       const percent=document.createElement('span');percent.className='usage-percent';percent.textContent=pct+'%';
       row.append(rank,value,percent);
-      if(key!=='spreads'){
+      if(key!=='spreads' && key!=='natures'){
         const info=detailsData?.[key]?.[english]||{};
         const detail=document.createElement('div');detail.className='usage-detail';detail.hidden=true;
         detail.id='usage-detail-'+key+'-'+index;

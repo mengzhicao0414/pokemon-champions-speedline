@@ -38,6 +38,23 @@ def top_ten(entries):
     return sorted(result, key=lambda row: -row[1])[:10]
 
 
+def top_natures(entries):
+    """Keep the in-game nature modifier next to the ranked percentage."""
+    result = []
+    for entry in entries or []:
+        if not isinstance(entry, list) or len(entry) < 3 or not entry[0]:
+            continue
+        try:
+            percentage = float(str(entry[1]).rstrip("%"))
+        except (TypeError, ValueError):
+            continue
+        modifier = str(entry[2])
+        if not 0 <= percentage <= 100 or not (modifier == "Neutral" or (modifier.startswith("+") and " / -" in modifier)):
+            continue
+        result.append([str(entry[0]), percentage, modifier])
+    return sorted(result, key=lambda row: -row[1])[:5]
+
+
 def main():
     # Fetch both first; an upstream failure must not overwrite yesterday's usable snapshot.
     packs = {kind: fetch_pack(code) for kind, code in FORMATS.items()}
@@ -47,6 +64,7 @@ def main():
         pokemon = {}
         for name, detail in pack["pokemon"].items():
             sections = {key: top_ten(detail.get(field)) for key, field in CATEGORIES.items()}
+            sections["natures"] = top_natures(detail.get("natures_list"))
             if any(sections.values()):
                 pokemon[name] = sections
         output["formats"][kind] = {"updated": pack.get("updated", ""), "pokemon": pokemon}
