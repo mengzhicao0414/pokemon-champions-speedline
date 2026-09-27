@@ -23,7 +23,7 @@ body {
 .hero { padding:20px 4px 10px; }
 h1 { font-size:28px; line-height:1.08; letter-spacing:-.03em; margin:0 0 8px; }
 .subtitle { font-size:13px; color:var(--muted); line-height:1.5; }
-.guide-entry { display:inline-block; margin-top:10px; padding:9px 12px; border-radius:10px; background:#e8f1ff; color:#16436d; border:1px solid #c8def8; font:inherit; font-size:12px; font-weight:800; cursor:pointer; }
+.guide-entry { display:block; width:100%; margin:0 0 10px; padding:7px 10px; border-radius:10px; background:#e8f1ff; color:#16436d; border:1px solid #c8def8; font:inherit; font-size:12px; font-weight:800; cursor:pointer; }
 .legend {
   display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:14px 0 10px;
 }
@@ -342,7 +342,6 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
   <section class="hero">
     <h1>M-C 全图鉴<br>速度线</h1>
     <div class="subtitle">《宝可梦冠军》赛制 M-C｜231 种宝可梦｜含 81 种 Mega</div>
-    <button class="guide-entry" type="button" id="open-type-guide">属性速查表：攻击篇 / 防御篇</button>
     <div class="legend">
       <div><i class="dot" style="background:#4b8fdc"></i>HP</div>
       <div><i class="dot" style="background:#f59e0b"></i>攻击</div>
@@ -363,6 +362,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
       <input id="pokemon-search" type="search" placeholder="输入名称，如多龙、具甲、Mega喷火龙" autocomplete="off" aria-controls="pokemon-search-results" aria-expanded="false">
       <div id="pokemon-search-results" class="search-results" aria-label="搜索结果" hidden></div>
     </div>
+    <button class="guide-entry" type="button" id="open-type-guide">属性速查表：攻击篇 / 防御篇</button>
     <div class="nav-title">常规形态 · 每20基础速度快速标签</div>
     <div class="nav-row"><a class="chip speed-chip" href="#reg-p-168-0">40速</a><a class="chip speed-chip" href="#reg-p-36-0">60速</a><a class="chip speed-chip" href="#reg-42">80速</a><a class="chip speed-chip" href="#reg-18">100速</a><a class="chip speed-chip" href="#reg-7">120速</a><a class="chip speed-chip" href="#reg-p-135-0">140速</a></div>
 
