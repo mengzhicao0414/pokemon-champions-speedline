@@ -66,6 +66,14 @@ h1 { font-size:28px; line-height:1.08; letter-spacing:-.03em; margin:0 0 8px; }
   font-size:12px; font-weight:800; text-decoration:none;
 }
 .speed-chip { background:#18243a; color:#fff; border-color:#18243a; }
+.temp-section[hidden] { display:none; }
+.temp-row { display:flex; gap:7px; }
+.temp-tag { display:inline-flex; align-items:center; flex:none; border-radius:999px; background:#e8dcfb; color:#513382; }
+.temp-tag a { padding:9px 5px 9px 12px; color:inherit; font-size:12px; font-weight:800; text-decoration:none; }
+.temp-tag button { min-width:30px; min-height:34px; border:0; background:transparent; color:inherit; cursor:pointer; font-size:17px; }
+.temp-button { display:inline-flex; align-items:center; min-height:34px; margin-top:7px; margin-left:5px; padding:0 9px; border:1px solid #d7c7f3; border-radius:8px; background:#f5f0ff; color:#573a83; font:inherit; font-size:11px; font-weight:800; cursor:pointer; }
+.temp-button[aria-pressed="true"] { background:#e8dcfb; border-color:#a884d0; }
+.temp-button:focus-visible, .temp-tag a:focus-visible, .temp-tag button:focus-visible { outline:3px solid #6745a0; outline-offset:2px; }
 .section-head {
   display:flex; justify-content:space-between; align-items:flex-end; gap:10px;
   padding:6px 4px 10px;
@@ -368,6 +376,10 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
 
     <div class="nav-title">Mega 形态导航</div>
     <div class="nav-row"><a class="chip speed-chip" href="#mega-block">Mega区</a></div>
+    <div class="temp-section" id="temp-section" hidden>
+      <div class="nav-title">临时标签 · 刷新后清空</div>
+      <div class="nav-row temp-row" id="temp-row"></div>
+    </div>
   </section>
 
   <section id="regular-block"><div class="section-head"><div><h3>常规及其他形态（314）</h3></div><div class="desc">按基础速度从高到低<br>同速按全国图鉴排序</div></div><div class="cards">
@@ -7179,6 +7191,47 @@ const pokemonCards=[...document.querySelectorAll('.card')].map(card=>({
   mega:card.id.startsWith('mega-'),
   art:card.querySelector('.card-art')?.getAttribute('src')
 }));
+// Keep temporary bookmarks in memory only; reloading creates an empty list.
+const tempSection=document.getElementById('temp-section');
+const tempRow=document.getElementById('temp-row');
+const tempCards=new Map();
+function renderTempTags(){
+  tempRow.replaceChildren();
+  tempSection.hidden=tempCards.size===0;
+  for(const [id,name] of tempCards){
+    const tag=document.createElement('span');tag.className='temp-tag';
+    const link=document.createElement('a');link.href='#'+id;link.textContent=name;
+    link.addEventListener('click',event=>{
+      event.preventDefault();
+      const target=document.getElementById(id);
+      if(!target)return;
+      const top=target.getBoundingClientRect().top+window.scrollY-document.querySelector('.jump').getBoundingClientRect().height-12;
+      window.scrollTo({top:Math.max(0,top),behavior:'smooth'});
+      history.replaceState(null,'','#'+id);
+    });
+    const remove=document.createElement('button');remove.type='button';remove.textContent='×';remove.setAttribute('aria-label','移除'+name+'的临时标签');
+    remove.addEventListener('click',()=>{
+      tempCards.delete(id);
+      const cardButton=document.getElementById(id)?.querySelector('.temp-button');
+      if(cardButton){cardButton.setAttribute('aria-pressed','false');cardButton.textContent='＋临时标签';}
+      renderTempTags();
+    });
+    tag.append(link,remove);tempRow.append(tag);
+  }
+}
+for(const card of pokemonCards){
+  const article=document.getElementById(card.id);
+  const button=document.createElement('button');button.type='button';button.className='temp-button';
+  button.textContent='＋临时标签';button.setAttribute('aria-label','将'+card.name+'加入临时标签');button.setAttribute('aria-pressed','false');
+  button.addEventListener('click',()=>{
+    if(tempCards.has(card.id))tempCards.delete(card.id);
+    else tempCards.set(card.id,card.name);
+    button.setAttribute('aria-pressed',String(tempCards.has(card.id)));
+    button.textContent=tempCards.has(card.id)?'✓ 已加入':'＋临时标签';
+    renderTempTags();
+  });
+  article.querySelector('.name-row > div').append(button);
+}
 const searchAliases={西施:'西狮海壬',大嘴欧:'大嘴鸥',桥龙:'铝钢桥龙',大将:'仆刀将军',多龙:'多龙巴鲁托'};
 const normalizeSearch=value=>value.toLowerCase().replace(/[\s·（）()\-]/g,'');
 function searchScore(name,query) {
