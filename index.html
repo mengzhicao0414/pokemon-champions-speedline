@@ -256,6 +256,11 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
 .moves-source a { color:#245aa3; }
 .moves-status { padding:13px 15px; color:#63738a; font-size:12px; }
 .moves-list { display:grid; gap:7px; padding:3px 15px 18px; }
+.moves-group { display:flex; align-items:center; gap:7px; margin:13px 0 2px;
+  color:#314767; font-size:13px; font-weight:850; }
+.moves-group:first-child { margin-top:0; }
+.moves-group::after { content:''; height:1px; flex:1; background:#dce5f2; }
+.moves-group-count { color:#71819a; font-size:11px; font-weight:650; }
 .moves-entry { border:1px solid #e0e7f2; border-radius:9px; background:white; overflow:hidden; }
 .moves-entry summary { display:flex; align-items:center; gap:7px; padding:9px 10px;
   font-size:13px; font-weight:750; cursor:pointer; list-style:none; }
@@ -7280,6 +7285,8 @@ function appendMoveReference(container,info){
     note.textContent='暂无简体中文资料，显示英文原文。';container.append(note);
   }
 }
+const moveTypeOrder=['一般','火','水','电','草','冰','格斗','毒','地面','飞行','超能力','虫','岩石','幽灵','龙','恶','钢','妖精'];
+const moveCategoryOrder=['物理','特殊','变化'];
 function renderMoves(){
   if(!movesDialog.open || !movesCard || !learnsetsData)return;
   const pool=learnsetsData.pokemon[learnsetsData.cards[movesCard.id]]||[];
@@ -7287,10 +7294,28 @@ function renderMoves(){
   const matched=pool.map(english=>({english,info:detailsData?.moves?.[english]||{}}))
     .filter(({english,info})=>!query || [english,info.name,info.type,info.category,info.description]
       .some(text=>String(text||'').toLocaleLowerCase().includes(query)))
-    .sort((a,b)=>(a.info.name||a.english).localeCompare(b.info.name||b.english,'zh-CN'));
-  movesStatus.textContent=query?`找到 ${matched.length} / ${pool.length} 个技能`:`可学技能 ${pool.length} 个 · 点击名称查看详情`;
+    .sort((a,b)=>{
+      const typeA=moveTypeOrder.indexOf(a.info.type),typeB=moveTypeOrder.indexOf(b.info.type);
+      if(typeA!==typeB)return (typeA<0?moveTypeOrder.length:typeA)-(typeB<0?moveTypeOrder.length:typeB);
+      if(typeA<0 && a.info.type!==b.info.type)return String(a.info.type||'').localeCompare(String(b.info.type||''),'zh-CN');
+      const categoryA=moveCategoryOrder.indexOf(a.info.category),categoryB=moveCategoryOrder.indexOf(b.info.category);
+      if(categoryA!==categoryB)return (categoryA<0?moveCategoryOrder.length:categoryA)-(categoryB<0?moveCategoryOrder.length:categoryB);
+      return (a.info.name||a.english).localeCompare(b.info.name||b.english,'zh-CN');
+    });
+  movesStatus.textContent=query?`找到 ${matched.length} / ${pool.length} 个技能`:`可学技能 ${pool.length} 个 · 按属性、物理／特殊／变化排列`;
   movesList.replaceChildren();
+  const typeCounts=new Map();
+  for(const {info} of matched){const type=info.type||'其他';typeCounts.set(type,(typeCounts.get(type)||0)+1);}
+  let currentType=null;
   for(const {english,info} of matched){
+    const type=info.type||'其他';
+    if(type!==currentType){
+      currentType=type;
+      const heading=document.createElement('h3');heading.className='moves-group';
+      heading.textContent=type+'系';
+      const count=document.createElement('span');count.className='moves-group-count';count.textContent=typeCounts.get(type)+' 个';
+      heading.append(count);movesList.append(heading);
+    }
     const entry=document.createElement('details');entry.className='moves-entry';
     const summary=document.createElement('summary');
     const name=document.createElement('span');name.textContent=info.name||english;
