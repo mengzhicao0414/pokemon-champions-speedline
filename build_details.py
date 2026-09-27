@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the local, offline reference text used by the usage popup.
+"""Build reference text and Champions learnsets for the site.
 
 PokeAPI's Chinese text covers older games. For newer moves we retain its
 English wording instead of inventing a Chinese description.
@@ -14,6 +14,7 @@ import urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parent
 BASE = "https://raw.githubusercontent.com/PokeAPI/pokeapi/master/data/v2/csv/"
+CHAMPIONS = "https://raw.githubusercontent.com/smogon/pokemon-showdown/master/data/mods/champions/"
 
 
 def rows(filename):
@@ -23,6 +24,16 @@ def rows(filename):
 
 def names(filename, key):
     return {row["name"]: row[key] for row in rows(filename) if row["local_language_id"] == "9"}
+
+
+def identifier(name):
+    return re.sub(r"[^a-z0-9]", "", name.lower())
+
+
+def champions_entries(filename):
+    with urllib.request.urlopen(CHAMPIONS + filename, timeout=45) as response:
+        source = response.read().decode("utf-8")
+    return {key: body for key, body in re.findall(r"^\t([a-z0-9]+): \{\n([\s\S]*?)^\t\},", source, re.M)}
 
 
 def flavor(filename, key):
@@ -48,7 +59,28 @@ def description(flavor_text, id_):
 
 def main():
     used = json.loads((ROOT / "usage_names.json").read_text(encoding="utf-8"))
-    move_ids = names("move_names.csv", "move_id")
+    move_name_rows = rows("move_names.csv")
+    move_ids = {row["name"]: row["move_id"] for row in move_name_rows if row["local_language_id"] == "9"}
+    english_by_id = {row["move_id"]: row["name"] for row in move_name_rows if row["local_language_id"] == "9"}
+    chinese_by_id = {row["move_id"]: row["name"] for row in move_name_rows if row["local_language_id"] == "12"}
+    move_by_identifier = {identifier(english): english for english in move_ids}
+    move_by_identifier.update({identifier(english): english for english in used["moves"]})
+    id_by_identifier = {identifier(english): id_ for english, id_ in move_ids.items()}
+    champions_learnsets = champions_entries("learnsets.ts")
+    champions_moves = champions_entries("moves.ts")
+    all_move_identifiers = set()
+    learned = {}
+    for species, body in champions_learnsets.items():
+        pool = re.search(r"\t\tlearnset: \{([\s\S]*?)\t\t\},", body)
+        if not pool:
+            raise ValueError("Missing Champions learnset for " + species)
+        move_keys = re.findall(r"^\t\t\t([a-z0-9]+): \[", pool.group(1), re.M)
+        if not move_keys:
+            raise ValueError("Empty Champions learnset for " + species)
+        all_move_identifiers.update(move_keys)
+        learned[species] = [move_by_identifier.get(key, key) for key in move_keys]
+    if len(learned) < 250 or not all_move_identifiers <= id_by_identifier.keys():
+        raise ValueError("Champions learnset is incomplete or includes unknown moves")
     item_ids = names("item_names.csv", "item_id")
     ability_ids = names("ability_names.csv", "ability_id")
     move_flavor = flavor("move_flavor_text.csv", "move_id")
@@ -65,8 +97,9 @@ def main():
     champions_abilities = {value[0]: value[1].replace("\n", "") for value in ability_data.values()}
 
     result = {"moves": {}, "items": {}, "abilities": {}}
-    for english, chinese in used["moves"].items():
-        id_ = move_ids.get(english)
+    all_english_moves = set(used["moves"]) | {move_by_identifier[key] for key in all_move_identifiers}
+    for english in sorted(all_english_moves):
+        id_ = move_ids.get(english) or id_by_identifier.get(identifier(english))
         if not id_ and english not in {"Forest's Curse", "King's Shield"}:
             continue
         info = move_stats.get(id_, {})
@@ -75,15 +108,38 @@ def main():
             desc, lang = "使对手追加草属性。", "zh"
         elif english == "King's Shield":
             desc, lang = "防住对手的攻击。若防住接触类招式，会降低对手的攻击。", "zh"
+        override = champions_moves.get(identifier(english), "")
+        def changed(field, default):
+            match = re.search(r"^\s*" + field + r":\s*(\d+),", override, re.M)
+            return match.group(1) if match else default
+        new_type = re.search(r'^\s*type:\s*"([^"]+)",', override, re.M)
+        type_name = type_names.get(info.get("type_id"), "")
+        if new_type:
+            known_types = {row["name"].lower():row["type_id"] for row in rows("type_names.csv") if row["local_language_id"] == "9"}
+            chinese_types = {row["type_id"]:row["name"] for row in rows("type_names.csv") if row["local_language_id"] == "12"}
+            type_name = chinese_types.get(known_types.get(new_type.group(1).lower()), type_name)
         result["moves"][english] = {
+            "name": chinese_by_id.get(id_, used["moves"].get(english, english)),
             "description": desc,
             "language": lang,
-            "type": type_names.get(info.get("type_id"), ""),
+            "type": type_name,
             "category": damage_classes.get(info.get("damage_class_id"), ""),
-            "power": info.get("power", ""),
-            "accuracy": info.get("accuracy", ""),
-            "pp": info.get("pp", ""),
+            "power": changed("basePower", info.get("power", "")),
+            "accuracy": changed("accuracy", info.get("accuracy", "")),
+            "pp": changed("pp", info.get("pp", "")),
         }
+    cards = re.findall(r'<article id="([^"]+)" class="card" data-usage-key="([^"]+)"', html)
+    aliases = {"gourgeistsmall":"gourgeist", "gourgeistlarge":"gourgeist", "gourgeistsuper":"gourgeist", "vivillonfancy":"vivillon"}
+    card_pools = {}
+    for card_id, english in cards:
+        key = aliases.get(identifier(english), identifier(english))
+        if key not in learned:
+            raise ValueError("Missing Champions learnset for card " + card_id + ": " + english)
+        card_pools[card_id] = key
+    (ROOT / "learnsets.json").write_text(json.dumps({
+        "source": "https://github.com/smogon/pokemon-showdown/blob/master/data/mods/champions/learnsets.ts",
+        "pokemon": learned, "cards": card_pools
+    }, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
     for english, chinese in used["items"].items():
         id_ = item_ids.get(english)
         desc, lang = description(item_flavor, id_) if id_ else ("", "")

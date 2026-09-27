@@ -233,6 +233,38 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
 .ability-hidden { padding:2px 6px; border-radius:5px; background:#eee8f9;
   color:#67528f; font-size:10px; font-weight:750; }
 .ability-item p { margin:0; white-space:pre-line; font-size:13px; line-height:1.55; }
+.move-button { display:inline-flex; align-items:center; gap:4px; margin:7px 0 0 5px;
+  padding:6px 10px; border:1px solid #b9c9ef; border-radius:8px;
+  background:#eaf1ff; color:#264c88; font:inherit; font-size:11px; font-weight:800;
+  cursor:pointer; position:relative; z-index:1; }
+.move-button:hover { background:#dce9ff; }
+.move-button:focus-visible, #moves-dialog button:focus-visible, #moves-dialog summary:focus-visible,
+#moves-dialog input:focus-visible { outline:3px solid #286fd4; outline-offset:2px; }
+#moves-dialog { width:min(500px,calc(100vw - 20px)); max-height:min(86dvh,850px);
+  padding:0; margin:auto; border:1px solid #d9e3f3; border-radius:16px;
+  background:#f7f9fe; color:#24324b; box-shadow:0 24px 80px #16223977; overflow:auto; }
+#moves-dialog::backdrop { background:#122034ae; }
+.moves-head { position:sticky; top:0; z-index:3; background:#f7f9fef7;
+  padding:14px 15px 11px; border-bottom:1px solid #dce5f2; }
+.moves-head-row { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.moves-head h2 { font-size:18px; }
+.moves-close { border:1px solid #d1daea; background:white; border-radius:999px;
+  color:#314767; padding:7px 10px; font:inherit; font-size:12px; font-weight:800; cursor:pointer; }
+.moves-search { box-sizing:border-box; width:100%; margin-top:10px; padding:9px 11px;
+  border:1px solid #c7d5e8; border-radius:9px; background:white; color:#24324b; font:inherit; font-size:13px; }
+.moves-source { padding:10px 15px 0; color:#63738a; font-size:11px; line-height:1.5; }
+.moves-source a { color:#245aa3; }
+.moves-status { padding:13px 15px; color:#63738a; font-size:12px; }
+.moves-list { display:grid; gap:7px; padding:3px 15px 18px; }
+.moves-entry { border:1px solid #e0e7f2; border-radius:9px; background:white; overflow:hidden; }
+.moves-entry summary { display:flex; align-items:center; gap:7px; padding:9px 10px;
+  font-size:13px; font-weight:750; cursor:pointer; list-style:none; }
+.moves-entry summary::-webkit-details-marker { display:none; }
+.moves-entry summary::after { content:'▾'; margin-left:auto; color:#71819a; }
+.moves-entry[open] summary::after { content:'▴'; }
+.moves-type { border-radius:5px; padding:2px 5px; background:#e5edf9;
+  color:#344b72; font-size:10px; font-weight:750; white-space:nowrap; }
+.moves-entry .usage-detail { margin:0 9px 9px; font-size:12px; }
 .name-row > div { min-width:0; }
 .usage-button { flex:0 0 auto; position:relative; z-index:3; border:1px solid #b9c9ef;
   border-radius:9px; background:#eaf1ff; color:#264c88; padding:7px 10px;
@@ -7062,6 +7094,15 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
   <p class="ability-intro">当前形态可选择的特性 · 说明来自《宝可梦冠军》游戏文本</p>
   <div class="ability-list"></div>
 </dialog>
+<dialog id="moves-dialog" aria-labelledby="moves-title">
+  <div class="moves-head">
+    <div class="moves-head-row"><h2 id="moves-title"></h2><button type="button" class="moves-close" aria-label="关闭可学技能">关闭 ✕</button></div>
+    <input type="search" class="moves-search" aria-label="搜索可学技能" placeholder="搜索技能名称、属性或效果">
+  </div>
+  <div class="moves-source">学习表：<a href="https://github.com/smogon/pokemon-showdown/blob/master/data/mods/champions/learnsets.ts" target="_blank" rel="noopener noreferrer">Showdown 冠军赛制</a>；技能说明参考主系列资料，技能数值优先使用冠军赛制数据。实际请以游戏内为准。</div>
+  <div class="moves-status" role="status">读取技能中…</div>
+  <div class="moves-list"></div>
+</dialog>
 <dialog id="usage-dialog" aria-labelledby="usage-title">
   <div class="usage-head">
     <div class="usage-head-row"><h2 id="usage-title"></h2><button class="usage-close" type="button" aria-label="关闭配置">关闭 ✕</button></div>
@@ -7204,24 +7245,103 @@ document.addEventListener('click',event=>{
 abilityDialog.querySelector('.ability-close').addEventListener('click',()=>abilityDialog.close());
 abilityDialog.addEventListener('click',event=>{if(event.target===abilityDialog)abilityDialog.close();});
 abilityDialog.addEventListener('close',()=>abilityTrigger?.focus({preventScroll:true}));
+const movesDialog=document.getElementById('moves-dialog');
+const movesList=movesDialog.querySelector('.moves-list');
+const movesSearch=movesDialog.querySelector('.moves-search');
+const movesStatus=movesDialog.querySelector('.moves-status');
+let learnsetsData=null,learnsetsRequest=null,movesCard=null,movesTrigger=null;
+for(const abilityButton of document.querySelectorAll('.card .ability-button')){
+  const button=document.createElement('button');button.type='button';button.className='move-button';
+  button.setAttribute('aria-label','查看'+abilityButton.closest('.card').querySelector('h2').textContent+'可学的技能');
+  button.innerHTML='技能 <span aria-hidden="true">↗</span>';
+  abilityButton.after(button);
+}
+function getLearnsetsData(){
+  if(learnsetsData)return Promise.resolve(learnsetsData);
+  if(!learnsetsRequest)learnsetsRequest=fetch('learnsets.json')
+    .then(response=>{if(!response.ok)throw new Error('无法读取技能学习表');return response.json();})
+    .then(data=>{if(!data.pokemon || !data.cards)throw new Error('技能学习表不完整');return learnsetsData=data;})
+    .catch(error=>{learnsetsRequest=null;throw error;});
+  return learnsetsRequest;
+}
+function appendMoveReference(container,info){
+  const meta=document.createElement('div');meta.className='usage-detail-meta';
+  for(const [label,datum] of [['属性',info.type],['分类',info.category],['威力',info.power],['命中',info.accuracy?info.accuracy+'%':''],['PP',info.pp]]){
+    if(!datum)continue;
+    const badge=document.createElement('span');badge.textContent=label+' '+datum;meta.append(badge);
+  }
+  if(meta.childElementCount)container.append(meta);
+  const description=document.createElement('p');
+  description.textContent=info.description||'暂无详细说明，请以游戏内资料为准。';
+  if(info.language==='en')description.lang='en';
+  container.append(description);
+  if(info.language==='en'){
+    const note=document.createElement('div');note.className='usage-detail-source';
+    note.textContent='暂无简体中文资料，显示英文原文。';container.append(note);
+  }
+}
+function renderMoves(){
+  if(!movesDialog.open || !movesCard || !learnsetsData)return;
+  const pool=learnsetsData.pokemon[learnsetsData.cards[movesCard.id]]||[];
+  const query=movesSearch.value.trim().toLocaleLowerCase();
+  const matched=pool.map(english=>({english,info:detailsData?.moves?.[english]||{}}))
+    .filter(({english,info})=>!query || [english,info.name,info.type,info.category,info.description]
+      .some(text=>String(text||'').toLocaleLowerCase().includes(query)))
+    .sort((a,b)=>(a.info.name||a.english).localeCompare(b.info.name||b.english,'zh-CN'));
+  movesStatus.textContent=query?`找到 ${matched.length} / ${pool.length} 个技能`:`可学技能 ${pool.length} 个 · 点击名称查看详情`;
+  movesList.replaceChildren();
+  for(const {english,info} of matched){
+    const entry=document.createElement('details');entry.className='moves-entry';
+    const summary=document.createElement('summary');
+    const name=document.createElement('span');name.textContent=info.name||english;
+    summary.append(name);
+    if(info.type){const type=document.createElement('span');type.className='moves-type';type.textContent=info.type;summary.append(type);}
+    if(info.category){const category=document.createElement('span');category.className='moves-type';category.textContent=info.category;summary.append(category);}
+    const detail=document.createElement('div');detail.className='usage-detail';
+    appendMoveReference(detail,info);
+    entry.append(summary,detail);movesList.append(entry);
+  }
+}
+document.addEventListener('click',event=>{
+  const button=event.target.closest('.move-button');if(!button)return;
+  movesTrigger=button;movesCard=button.closest('.card');
+  movesDialog.querySelector('#moves-title').textContent=movesCard.querySelector('h2').textContent+' · 可学技能';
+  movesSearch.value='';movesList.replaceChildren();movesStatus.textContent='读取技能中…';
+  movesDialog.showModal();
+  Promise.all([getLearnsetsData(),getDetailsData()]).then(renderMoves).catch(()=>{
+    if(movesDialog.open)movesStatus.textContent='读取失败，请关闭后重试。';
+  });
+});
+movesSearch.addEventListener('input',renderMoves);
+movesDialog.querySelector('.moves-close').addEventListener('click',()=>movesDialog.close());
+movesDialog.addEventListener('click',event=>{if(event.target===movesDialog)movesDialog.close();});
+movesDialog.addEventListener('close',()=>movesTrigger?.focus({preventScroll:true}));
 const usageDialog=document.getElementById('usage-dialog');
 const usageList=usageDialog.querySelector('.usage-list');
 const usageStatus=usageDialog.querySelector('.usage-status');
 const usageNote=usageDialog.querySelector('.usage-note');
-let usageData=null,usageRequest=null,detailsData=null,usageCard=null,usageTrigger=null,usageMode='single';
+let usageData=null,usageRequest=null,detailsData=null,detailsRequest=null,usageCard=null,usageTrigger=null,usageMode='single';
 const usageSections=[['moves','技能'],['spreads','加点（HP／攻击／防御／特攻／特防／速度）'],['items','持有物'],['abilities','特性']];
 const pointNames=['HP','攻击','防御','特攻','特防','速度'];
 function getUsageData(){
   if(usageData)return Promise.resolve(usageData);
   if(!usageRequest)usageRequest=Promise.all([
     fetch('usage.json',{cache:'no-cache'}).then(response=>{if(!response.ok)throw new Error('暂时无法读取配置数据');return response.json();}),
-    fetch('details.json').then(response=>response.ok?response.json():{}).catch(()=>({}))
+    getDetailsData().catch(()=>({}))
   ]).then(([data,details])=>{
       if(!data.formats?.single || !data.formats?.double)throw new Error('配置数据不完整');
       detailsData=details;return usageData=data;
     })
     .catch(error=>{usageRequest=null;throw error;});
   return usageRequest;
+}
+function getDetailsData(){
+  if(detailsData)return Promise.resolve(detailsData);
+  if(!detailsRequest)detailsRequest=fetch('details.json')
+    .then(response=>{if(!response.ok)throw new Error('无法读取技能说明');return response.json();})
+    .then(data=>detailsData=data)
+    .catch(error=>{detailsRequest=null;throw error;});
+  return detailsRequest;
 }
 function renderUsage(){
   if(!usageDialog.open || !usageCard || !usageData)return;
@@ -7234,7 +7354,7 @@ function renderUsage(){
   const attribution=document.createElement('a');attribution.href=usageData.url;
   attribution.target='_blank';attribution.rel='noopener noreferrer';attribution.textContent='MunchStats';
   source.append(attribution);
-  source.append('。技能与道具说明、技能参数参考主系列资料，冠军内实际效果请以游戏为准。');
+  source.append('。技能、道具说明参考主系列资料；技能数值优先使用冠军赛制数据，实际以游戏内为准。');
   usageNote.hidden=!mega;
   if(mega)usageNote.textContent='游戏的使用数据按原形态统计；这里显示该宝可梦整体的配置，无法单独区分 Mega 前后的技能和特性。';
   usageStatus.hidden=!!pokemon;
@@ -7276,20 +7396,16 @@ function renderUsage(){
         detail.id='usage-detail-'+key+'-'+index;
         name.setAttribute('aria-controls',detail.id);
         if(key==='moves'){
-          const meta=document.createElement('div');meta.className='usage-detail-meta';
-          for(const [label,datum] of [['属性',info.type],['分类',info.category],['威力',info.power],['命中',info.accuracy?info.accuracy+'%':''],['PP',info.pp]]){
-            if(!datum)continue;
-            const badge=document.createElement('span');badge.textContent=label+' '+datum;meta.append(badge);
+          appendMoveReference(detail,info);
+        }else{
+          const description=document.createElement('p');
+          description.textContent=info.description||'暂无详细说明，请以游戏内资料为准。';
+          if(info.language==='en')description.lang='en';
+          detail.append(description);
+          if(info.description && info.language!=='zh'){
+            const source=document.createElement('div');source.className='usage-detail-source';
+            source.textContent='暂无简体中文资料，显示英文原文。';detail.append(source);
           }
-          if(meta.childElementCount)detail.append(meta);
-        }
-        const description=document.createElement('p');
-        description.textContent=info.description||'暂无详细说明，请以游戏内资料为准。';
-        if(info.language==='en')description.lang='en';
-        detail.append(description);
-        if(info.description && info.language!=='zh'){
-          const source=document.createElement('div');source.className='usage-detail-source';
-          source.textContent='暂无简体中文资料，显示英文原文。';detail.append(source);
         }
         row.append(detail);
       }
