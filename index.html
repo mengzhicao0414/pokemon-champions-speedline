@@ -37,6 +37,16 @@ h1 { font-size:28px; line-height:1.08; letter-spacing:-.03em; margin:0 0 8px; }
 .calc-field { display:grid; gap:4px; min-width:0; color:#53627a; font-size:11px; font-weight:800; }
 .calc-field input, .calc-field select { width:100%; height:38px; padding:0 9px; border:1px solid #cfd9e9; border-radius:9px; background:white; color:#192942; font:inherit; font-size:16px; font-weight:500; outline:none; }
 .calc-field input:focus, .calc-field select:focus { border-color:#648ed1; box-shadow:0 0 0 2px #648ed133; }
+.calc-search-field { position:relative; }
+.calc-search-field:focus-within { z-index:4; }
+.calc-suggestions { position:absolute; top:100%; left:0; width:100%; max-height:min(280px,38dvh); overflow-y:auto; border:1px solid #cbd8eb; border-radius:9px; background:#fff; box-shadow:0 10px 25px #15243b38; }
+.calc-search-field.narrow .calc-suggestions { width:min(310px,calc(100vw - 50px)); }
+.calc-suggestions[hidden] { display:none; }
+.calc-suggestions button, .calc-suggestions .calc-no-match { display:flex; flex-direction:column; gap:2px; width:100%; padding:8px 10px; border:0; border-bottom:1px solid #eef1f6; background:#fff; color:#263954; font:inherit; font-size:13px; font-weight:750; text-align:left; cursor:pointer; }
+.calc-suggestions button:last-child { border-bottom:0; }
+.calc-suggestions button:hover, .calc-suggestions button:focus-visible { background:#edf4ff; outline:0; }
+.calc-suggestions small { color:#687892; font-size:11px; font-weight:500; }
+.calc-suggestions .calc-no-match { color:#7c889a; font-weight:500; cursor:default; }
 .calc-pair { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:9px; }
 .calc-three { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:9px; }
 .calc-hint { margin:0; color:#69778d; font-size:11px; line-height:1.45; }
@@ -7173,7 +7183,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
 <dialog id="calc-dialog" aria-labelledby="calc-title">
   <div class="calc-head"><h2 id="calc-title">快速伤害计算</h2><button type="button" id="calc-close">关闭 ×</button></div>
   <div class="calc-form">
-    <label class="calc-field">招式<input id="calc-move" type="search" list="calc-moves" placeholder="输入招式名称" autocomplete="off"><datalist id="calc-moves"></datalist></label>
+    <div class="calc-field calc-search-field"><label for="calc-move">招式</label><input id="calc-move" type="search" placeholder="输入招式名称" autocomplete="off" aria-controls="calc-move-results" aria-expanded="false"><div class="calc-suggestions" id="calc-move-results" role="listbox" aria-label="匹配招式" hidden></div></div>
     <p class="calc-hint calc-move-info" id="calc-move-info">选择招式后自动填入威力、属性和分类。</p>
     <div class="calc-three">
       <label class="calc-field">威力<input id="calc-power" type="number" min="1" max="1000" inputmode="numeric" placeholder="威力"></label>
@@ -7181,10 +7191,10 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
       <label class="calc-field">分类<select id="calc-category"><option>物理</option><option>特殊</option></select></label>
     </div>
     <div class="calc-pair">
-      <label class="calc-field">我方宝可梦（可选）<input id="calc-attacker" type="search" list="calc-pokemon" placeholder="搜索名称" autocomplete="off"></label>
+      <div class="calc-field calc-search-field narrow"><label for="calc-attacker">我方宝可梦（可选）</label><input id="calc-attacker" type="search" placeholder="搜索名称" autocomplete="off" aria-controls="calc-attacker-results" aria-expanded="false"><div class="calc-suggestions" id="calc-attacker-results" role="listbox" aria-label="匹配我方宝可梦" hidden></div></div>
       <label class="calc-field"><span id="calc-attack-label">我方攻击</span><input id="calc-attack" type="number" min="1" max="9999" inputmode="numeric" placeholder="实际数值"></label>
     </div>
-    <label class="calc-field">对方宝可梦<input id="calc-defender" type="search" list="calc-pokemon" placeholder="搜索名称或从卡片打开" autocomplete="off"><datalist id="calc-pokemon"></datalist></label>
+    <div class="calc-field calc-search-field"><label for="calc-defender">对方宝可梦</label><input id="calc-defender" type="search" placeholder="搜索名称或从卡片打开" autocomplete="off" aria-controls="calc-defender-results" aria-expanded="false"><div class="calc-suggestions" id="calc-defender-results" role="listbox" aria-label="匹配对方宝可梦" hidden></div></div>
     <div class="calc-three">
       <label class="calc-field">对方总 HP<input id="calc-hp" type="number" min="1" max="9999" inputmode="numeric"></label>
       <label class="calc-field"><span id="calc-defense-label">对方防御</span><input id="calc-defense" type="number" min="1" max="9999" inputmode="numeric"></label>
@@ -7614,23 +7624,70 @@ usageDialog.addEventListener('close',()=>usageTrigger?.focus({preventScroll:true
 // Lightweight damage estimate: accepts the in-game stats directly.
 const calcDialog=document.getElementById('calc-dialog');
 const calcFields=Object.fromEntries(['move','move-info','power','type','category','attacker','attack','defender','hp','defense','current','stab','spread','attack-stage','defense-stage','attack-label','defense-label','burn','extra-mult','matchup','damage','summary','note'].map(name=>[name,document.getElementById('calc-'+name)]));
-let calcAttackerCard=null,calcDefenderCard=null,calcMoveInfo=null,calcTrigger=null,calcMoveIndex=new Map();
+let calcAttackerCard=null,calcDefenderCard=null,calcMoveInfo=null,calcTrigger=null,calcMoveIndex=new Map(),calcMoveEntries=[];
 for(const name of matchupTypes){const option=document.createElement('option');option.textContent=name;calcFields.type.append(option);}
 for(const key of ['attack-stage','defense-stage'])for(let stage=-6;stage<=6;stage++){
   const option=document.createElement('option');option.value=String(stage);option.textContent=stage>0?'+'+stage:String(stage);
   if(stage===0)option.selected=true;calcFields[key].append(option);
 }
 for(const card of pokemonCards){
-  const option=document.createElement('option');option.value=card.name;document.getElementById('calc-pokemon').append(option);
   const article=document.getElementById(card.id);
   const button=document.createElement('button');button.type='button';button.className='calc-card-button';button.textContent='计算';
   button.setAttribute('aria-label','以'+card.name+'为对方计算伤害');
   article.querySelector('.usage-button').before(button);
 }
-function calcCardByName(name){
-  const text=name.trim();
-  return text ? pokemonCards.find(card=>card.name===text) || (pokemonCards.filter(card=>normalizeSearch(card.name).includes(normalizeSearch(text))).length===1 ? pokemonCards.find(card=>normalizeSearch(card.name).includes(normalizeSearch(text))) : null) : null;
+const calcSearchKinds=['move','attacker','defender'];
+function closeCalcSuggestions(kind){
+  const list=document.getElementById('calc-'+kind+'-results');
+  list.hidden=true;calcFields[kind].setAttribute('aria-expanded','false');
 }
+function renderCalcSuggestions(kind){
+  const input=calcFields[kind],list=document.getElementById('calc-'+kind+'-results');
+  const query=normalizeSearch(input.value.trim());list.replaceChildren();
+  if(!query){closeCalcSuggestions(kind);return;}
+  let matches=[];
+  if(kind==='move'){
+    matches=calcMoveEntries.map(([english,info])=>({value:info,score:Math.min(searchScore(info.name,query),searchScore(english,query))}))
+      .filter(item=>Number.isFinite(item.score)).sort((a,b)=>a.score-b.score||a.value.name.localeCompare(b.value.name,'zh-CN')).slice(0,8);
+  }else{
+    const alias=searchAliases[query];
+    matches=pokemonCards.map(card=>({value:card,score:Math.min(searchScore(card.search||card.name,query),alias?searchScore(card.name,normalizeSearch(alias)):Infinity)}))
+      .filter(item=>Number.isFinite(item.score)).sort((a,b)=>a.score-b.score||Number(a.value.mega)-Number(b.value.mega)).slice(0,8);
+  }
+  for(const {value} of matches){
+    const option=document.createElement('button');option.type='button';option.setAttribute('role','option');option.setAttribute('aria-selected','false');
+    const name=document.createElement('span');name.textContent=value.name;
+    const hint=document.createElement('small');hint.textContent=kind==='move'?[value.type,value.category,value.power&&value.power+'威力'].filter(Boolean).join(' · '):'基础速度 '+value.speed+(value.mega?' · Mega':'');
+    option.append(name,hint);
+    option.addEventListener('click',()=>{
+      if(kind==='move')calcPickMove(value);
+      else if(kind==='attacker')calcAttacker(value);
+      else calcDefender(value);
+      closeCalcSuggestions(kind);input.blur();
+    });
+    list.append(option);
+  }
+  if(!matches.length){const empty=document.createElement('div');empty.className='calc-no-match';empty.textContent=kind==='move'&&!calcMoveEntries.length?'招式列表加载中…':'没有找到匹配项';list.append(empty);}
+  list.hidden=false;input.setAttribute('aria-expanded','true');
+}
+for(const kind of calcSearchKinds){
+  const input=calcFields[kind],list=document.getElementById('calc-'+kind+'-results');
+  input.addEventListener('input',()=>renderCalcSuggestions(kind));
+  input.addEventListener('focus',()=>renderCalcSuggestions(kind));
+  input.addEventListener('keydown',event=>{
+    if(event.key==='Escape'){closeCalcSuggestions(kind);input.blur();}
+    if(event.key==='ArrowDown'&&!list.hidden){const first=list.querySelector('button');if(first){event.preventDefault();first.focus();}}
+  });
+  list.addEventListener('keydown',event=>{
+    if(event.key==='Escape'){closeCalcSuggestions(kind);input.focus();}
+    if(event.key==='ArrowDown'||event.key==='ArrowUp'){
+      const options=[...list.querySelectorAll('button')],index=options.indexOf(document.activeElement);
+      const next=options[index+(event.key==='ArrowDown'?1:-1)];if(next){event.preventDefault();next.focus();}
+    }
+  });
+  input.parentElement.addEventListener('focusout',()=>setTimeout(()=>{if(!input.parentElement.contains(document.activeElement))closeCalcSuggestions(kind);},0));
+}
+calcDialog.addEventListener('click',event=>{for(const kind of calcSearchKinds)if(!calcFields[kind].parentElement.contains(event.target))closeCalcSuggestions(kind);});
 function calcBaseStat(card,index){return Number(document.getElementById(card.id).querySelectorAll('.stats .stat-top b')[index]?.textContent);}
 function calcDefender(card){
   calcDefenderCard=card;calcFields.defender.value=card.name;
@@ -7698,10 +7755,10 @@ function openCalc(trigger,defender){
   calcDialog.showModal();
   getDetailsData().then(data=>{
     if(calcMoveIndex.size)return;
-    calcMoveIndex=new Map(Object.values(data.moves).filter(move=>move.name&&move.category!=='变化').map(move=>[move.name,move]));
-    const list=document.getElementById('calc-moves');
-    for(const name of [...calcMoveIndex.keys()].sort((a,b)=>a.localeCompare(b,'zh-CN'))){const option=document.createElement('option');option.value=name;list.append(option);}
+    calcMoveEntries=Object.entries(data.moves).filter(([,move])=>move.name&&move.category!=='变化');
+    calcMoveIndex=new Map(calcMoveEntries.map(([,move])=>[move.name,move]));
     const typed=calcMoveIndex.get(calcFields.move.value.trim());if(typed)calcPickMove(typed);
+    if(document.activeElement===calcFields.move)renderCalcSuggestions('move');
   }).catch(()=>{calcFields.note.textContent='招式资料暂时无法读取。仍可手动填写招式名称、威力和属性。';});
 }
 document.getElementById('open-calc').addEventListener('click',event=>openCalc(event.currentTarget));
@@ -7709,19 +7766,17 @@ document.addEventListener('click',event=>{
   const button=event.target.closest('.calc-card-button');if(!button)return;
   openCalc(button,pokemonCards.find(card=>card.id===button.closest('.card').id));
 });
-calcFields.move.addEventListener('input',()=>{const info=calcMoveIndex.get(calcFields.move.value.trim());if(info)calcPickMove(info);else{calcMoveInfo=null;calcFields['move-info'].textContent='未匹配招式；可手动填写威力、属性和分类。';updateCalc();}});
+calcFields.move.addEventListener('input',()=>{const info=calcMoveIndex.get(calcFields.move.value.trim());if(info)calcPickMove(info);else{if(calcMoveInfo)calcFields.power.value='';calcMoveInfo=null;calcFields['move-info'].textContent='从匹配清单选择招式，或手动填写威力和属性。';updateCalc();}});
 calcFields.attacker.addEventListener('input',()=>{
   const card=pokemonCards.find(item=>item.name===calcFields.attacker.value.trim());
   if(card)calcAttacker(card);
-  else if(calcAttackerCard){calcAttackerCard=null;calcFields.stab.checked=false;updateCalc();}
+  else if(calcAttackerCard){calcAttackerCard=null;calcFields.attack.value='';calcFields.stab.checked=false;updateCalc();}
 });
 calcFields.defender.addEventListener('input',()=>{
   const card=pokemonCards.find(item=>item.name===calcFields.defender.value.trim());
   if(card)calcDefender(card);
-  else if(calcDefenderCard){calcDefenderCard=null;updateCalc();}
+  else if(calcDefenderCard){calcDefenderCard=null;calcFields.hp.value='';calcFields.defense.value='';updateCalc();}
 });
-calcFields.attacker.addEventListener('change',()=>{const card=calcCardByName(calcFields.attacker.value);if(card)calcAttacker(card);else{calcAttackerCard=null;calcFields.stab.checked=false;updateCalc();}});
-calcFields.defender.addEventListener('change',()=>{const card=calcCardByName(calcFields.defender.value);if(card)calcDefender(card);else{calcDefenderCard=null;updateCalc();}});
 calcDialog.querySelector('.calc-form').addEventListener('input',event=>{
   if(event.target===calcFields.category){
     calcFields['attack-label'].textContent='我方'+(calcFields.category.value==='物理'?'攻击':'特攻');
