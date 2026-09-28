@@ -7219,10 +7219,13 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
       <label class="calc-field">加点 SP<input id="calc-hp-sp" type="number" min="0" max="32" inputmode="numeric" value="0"></label>
     </div>
     <p class="calc-stat-title" id="calc-defense-label">对方防御</p>
-    <div class="calc-three">
+    <div class="calc-pair">
       <label class="calc-field">基础值<input id="calc-defense" type="number" min="1" max="999" inputmode="numeric" placeholder="种族值"></label>
       <label class="calc-field">加点 SP<input id="calc-defense-sp" type="number" min="0" max="32" inputmode="numeric" value="0"></label>
+    </div>
+    <div class="calc-pair">
       <label class="calc-field">性格修正<select id="calc-defense-nature"><option value="1">无修正</option><option value="1.1">增益 +10%</option><option value="0.9">减益 −10%</option></select></label>
+      <label class="calc-field">防御倍率<select id="calc-defense-mult"><option value="1">1×（无）</option><option value="1.1">1.1×</option><option value="1.2">1.2×</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option><option value="2">2×</option><option value="0.5">0.5×</option></select></label>
     </div>
     <p class="calc-hint" id="calc-stats-preview">50 级实际值：选择宝可梦或填写基础值。</p>
     <div class="calc-toggles"><label><input id="calc-stab" type="checkbox">本系 1.5×</label><label><input id="calc-spread" type="checkbox">双打群攻 0.75×</label></div>
@@ -7237,6 +7240,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
     </details>
     <div class="calc-result" role="status" aria-live="polite"><strong id="calc-damage">选择招式并填写能力值</strong><span id="calc-summary">预计伤害以 HP 区间显示。</span></div>
     <details class="calc-reference"><summary>倍率速查：道具、天气、场地</summary>
+      <p class="calc-hint">右侧统一标注修正项和倍率：威力、伤害、防御或特防。</p>
       <div class="calc-ref-group"><h3>道具</h3>
         <div class="calc-ref-row"><span>对应属性的增幅道具<small>如神秘水滴、木炭；仅对应属性招式</small></span><b>威力 ×1.2</b></div>
         <div class="calc-ref-row"><span>力量头带／博识眼镜<small>分别适用于物理／特殊招式</small></span><b>威力 ×1.1</b></div>
@@ -7246,17 +7250,17 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
         <div class="calc-ref-row"><span>对应属性的抗性树果<small>对方携带，效果绝佳时消耗；填入「其他效果总倍率」</small></span><b>伤害 ×0.5</b></div>
       </div>
       <div class="calc-ref-group"><h3>天气</h3>
-        <div class="calc-ref-row"><span>晴天<small>火招增强，水招减弱；填入「其他效果总倍率」</small></span><b>×1.5／×0.5</b></div>
-        <div class="calc-ref-row"><span>雨天<small>水招增强，火招减弱；填入「其他效果总倍率」</small></span><b>×1.5／×0.5</b></div>
-        <div class="calc-ref-row"><span>沙暴：岩石属性防守方<small>特防提高；需另外折算防御数值</small></span><b>特防 ×1.5</b></div>
-        <div class="calc-ref-row"><span>雪天：冰属性防守方<small>防御提高；需另外折算防御数值</small></span><b>防御 ×1.5</b></div>
+        <div class="calc-ref-row"><span>晴天<small>火招增强／水招减弱；填入「其他效果总倍率」</small></span><b>伤害 ×1.5／×0.5</b></div>
+        <div class="calc-ref-row"><span>雨天<small>水招增强／火招减弱；填入「其他效果总倍率」</small></span><b>伤害 ×1.5／×0.5</b></div>
+        <div class="calc-ref-row"><span>沙暴：岩石属性防守方<small>承受特殊招式时；分类选「特殊」</small></span><b>特防 ×1.5</b></div>
+        <div class="calc-ref-row"><span>雪天：冰属性防守方<small>承受物理招式时；分类选「物理」</small></span><b>防御 ×1.5</b></div>
       </div>
       <div class="calc-ref-group"><h3>场地</h3>
         <div class="calc-ref-row"><span>电气／青草／精神场地<small>使用者接地且招式属性对应</small></span><b>威力 ×1.3</b></div>
         <div class="calc-ref-row"><span>薄雾场地<small>目标接地，龙属性招式</small></span><b>威力 ×0.5</b></div>
         <div class="calc-ref-row"><span>青草场地<small>目标接地，地震／重踏</small></span><b>威力 ×0.5</b></div>
       </div>
-      <p class="calc-hint">「威力」类选上方威力倍率，「伤害」类填其他效果总倍率；不同效果可叠加，但不要重复填写。多项威力修正或防御修正请自行折算，结果仍为估算。</p>
+      <p class="calc-hint">威力→威力倍率；伤害→其他效果总倍率；防御／特防→对方防御倍率。不同效果可叠加，但不要重复填写；多项同类效果需合并估算。</p>
     </details>
     <p class="calc-hint calc-warning" id="calc-note">50 级估算；未包含特性或道具的自动判定。特殊招式请按实际情况修改威力或倍率。</p>
   </div>
@@ -7670,7 +7674,7 @@ usageDialog.addEventListener('close',()=>usageTrigger?.focus({preventScroll:true
 
 // Lightweight level-50 damage estimate from base stats and Champions stat points.
 const calcDialog=document.getElementById('calc-dialog');
-const calcFields=Object.fromEntries(['move','move-info','power','power-mult','type','category','attacker','attack','attack-sp','attack-nature','defender','hp','hp-sp','defense','defense-sp','defense-nature','stats-preview','stab','spread','attack-stage','defense-stage','attack-label','defense-label','burn','extra-mult','matchup','damage','summary','note'].map(name=>[name,document.getElementById('calc-'+name)]));
+const calcFields=Object.fromEntries(['move','move-info','power','power-mult','type','category','attacker','attack','attack-sp','attack-nature','defender','hp','hp-sp','defense','defense-sp','defense-nature','defense-mult','stats-preview','stab','spread','attack-stage','defense-stage','attack-label','defense-label','burn','extra-mult','matchup','damage','summary','note'].map(name=>[name,document.getElementById('calc-'+name)]));
 let calcAttackerCard=null,calcDefenderCard=null,calcMoveInfo=null,calcTrigger=null,calcMoveIndex=new Map(),calcMoveEntries=[];
 for(const name of matchupTypes){const option=document.createElement('option');option.textContent=name;calcFields.type.append(option);}
 for(const key of ['attack-stage','defense-stage'])for(let stage=-6;stage<=6;stage++){
@@ -7809,14 +7813,16 @@ function updateCalc(){
   const powerMult=Number(calcFields['power-mult'].value);
   const attack=calcLevel50Stat(calcFields.attack,calcFields['attack-sp'],20,Number(calcFields['attack-nature'].value));
   const defense=calcLevel50Stat(calcFields.defense,calcFields['defense-sp'],20,Number(calcFields['defense-nature'].value));
+  const defenseMult=Number(calcFields['defense-mult'].value);
+  const adjustedDefense=Number.isFinite(defense)?Math.max(1,Math.round(calcStage(defense,Number(calcFields['defense-stage'].value))*defenseMult)):NaN;
   const hp=calcLevel50Stat(calcFields.hp,calcFields['hp-sp'],75);
   const category=calcFields.category.value==='物理'?['攻击','防御']:['特攻','特防'];
-  calcFields['stats-preview'].textContent='50 级实际值：我方'+category[0]+' '+(Number.isFinite(attack)?attack:'—')+' · 对方 HP '+(Number.isFinite(hp)?hp:'—')+' · '+category[1]+' '+(Number.isFinite(defense)?defense:'—');
-  const valid=[power,powerMult,attack,defense,hp].every(n=>Number.isFinite(n)&&n>0)&&calcFields.move.value.trim();
+  calcFields['stats-preview'].textContent='50 级实际值：我方'+category[0]+' '+(Number.isFinite(attack)?attack:'—')+' · 对方 HP '+(Number.isFinite(hp)?hp:'—')+' · '+category[1]+' '+(Number.isFinite(defense)?defense:'—')+(Number.isFinite(adjustedDefense)&&adjustedDefense!==defense?' → '+adjustedDefense:'');
+  const valid=[power,powerMult,attack,defense,defenseMult,hp].every(n=>Number.isFinite(n)&&n>0)&&calcFields.move.value.trim();
   if(!valid){calcFields.damage.textContent='选择招式并填写能力值';calcFields.summary.textContent='填写种族值与 SP（每项最多 32），并选择招式。';return;}
   if(effectiveness===0){calcFields.damage.textContent='0 HP · 属性无效';calcFields.summary.textContent='按属性相性无法造成伤害；特性等例外尚未自动计算。';return;}
   const a=calcStage(attack,Number(calcFields['attack-stage'].value));
-  const d=calcStage(defense,Number(calcFields['defense-stage'].value));
+  const d=adjustedDefense;
   const effectivePower=Math.max(1,Math.round(power*powerMult));
   const base=Math.floor(Math.floor(22*effectivePower*a/d)/50)+2;
   const other=Number(calcFields['extra-mult'].value);
@@ -7834,7 +7840,7 @@ function updateCalc(){
   calcFields.damage.textContent=(low===high?String(low):low+'–'+high)+' HP · 估算';
   calcFields.summary.textContent=(low/hp*100).toFixed(1)+'%–'+(high/hp*100).toFixed(1)+'% 总 HP ｜ '+(ko===16?'必定击倒':ko===0?'无法一击击倒':'约 '+Math.round(ko/16*100)+'% 概率击倒');
   const special=calcMoveInfo && (/会改变|越.+越|次攻击|连续攻击|固定伤害|对手的力量|防御越高/.test(calcMoveInfo.description)||/两只各/.test(calcMoveInfo.target));
-  calcFields.note.textContent=(special?'该招式有特殊计算条件：请按实际情况修改威力／能力值；多段招式当前仅估算单段。':'50 级伤害估算；提升招式威力的效果选「威力倍率」，天气等伤害效果填「其他效果总倍率」。')+' 结果可能因游戏的逐步取整而相差少量 HP。';
+  calcFields.note.textContent=(special?'该招式有特殊计算条件：请按实际情况修改威力／能力值；多段招式当前仅估算单段。':'50 级伤害估算；威力、伤害、防御修正分别填对应倍率。')+' 结果可能因游戏的逐步取整而相差少量 HP。';
 }
 function openCalc(trigger,defender){
   calcTrigger=trigger;
