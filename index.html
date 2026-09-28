@@ -47,6 +47,9 @@ h1 { font-size:28px; line-height:1.08; letter-spacing:-.03em; margin:0 0 8px; }
 .calc-suggestions button:hover, .calc-suggestions button:focus-visible { background:#edf4ff; outline:0; }
 .calc-suggestions small { color:#687892; font-size:11px; font-weight:500; }
 .calc-suggestions .calc-no-match { color:#7c889a; font-weight:500; cursor:default; }
+.calc-base-stats { display:flex; flex-wrap:wrap; gap:4px; align-items:center; color:#61718a; font-size:10px; font-weight:650; line-height:1.4; }
+.calc-base-stats[hidden] { display:none; }
+.calc-base-stats span { padding:2px 5px; border-radius:5px; background:#edf2fa; white-space:nowrap; }
 .calc-pair { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:9px; }
 .calc-three { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:9px; }
 .calc-hint { margin:0; color:#69778d; font-size:11px; line-height:1.45; }
@@ -7191,10 +7194,10 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
       <label class="calc-field">分类<select id="calc-category"><option>物理</option><option>特殊</option></select></label>
     </div>
     <div class="calc-pair">
-      <div class="calc-field calc-search-field narrow"><label for="calc-attacker">我方宝可梦（可选）</label><input id="calc-attacker" type="search" placeholder="搜索名称" autocomplete="off" aria-controls="calc-attacker-results" aria-expanded="false"><div class="calc-suggestions" id="calc-attacker-results" role="listbox" aria-label="匹配我方宝可梦" hidden></div></div>
+      <div class="calc-field calc-search-field narrow"><label for="calc-attacker">我方宝可梦（可选）</label><input id="calc-attacker" type="search" placeholder="搜索名称" autocomplete="off" aria-controls="calc-attacker-results" aria-expanded="false"><div class="calc-suggestions" id="calc-attacker-results" role="listbox" aria-label="匹配我方宝可梦" hidden></div><div class="calc-base-stats" id="calc-attacker-base" hidden></div></div>
       <label class="calc-field"><span id="calc-attack-label">我方攻击</span><input id="calc-attack" type="number" min="1" max="9999" inputmode="numeric" placeholder="实际数值"></label>
     </div>
-    <div class="calc-field calc-search-field"><label for="calc-defender">对方宝可梦</label><input id="calc-defender" type="search" placeholder="搜索名称或从卡片打开" autocomplete="off" aria-controls="calc-defender-results" aria-expanded="false"><div class="calc-suggestions" id="calc-defender-results" role="listbox" aria-label="匹配对方宝可梦" hidden></div></div>
+    <div class="calc-field calc-search-field"><label for="calc-defender">对方宝可梦</label><input id="calc-defender" type="search" placeholder="搜索名称或从卡片打开" autocomplete="off" aria-controls="calc-defender-results" aria-expanded="false"><div class="calc-suggestions" id="calc-defender-results" role="listbox" aria-label="匹配对方宝可梦" hidden></div><div class="calc-base-stats" id="calc-defender-base" hidden></div></div>
     <div class="calc-three">
       <label class="calc-field">对方总 HP<input id="calc-hp" type="number" min="1" max="9999" inputmode="numeric"></label>
       <label class="calc-field"><span id="calc-defense-label">对方防御</span><input id="calc-defense" type="number" min="1" max="9999" inputmode="numeric"></label>
@@ -7689,14 +7692,26 @@ for(const kind of calcSearchKinds){
 }
 calcDialog.addEventListener('click',event=>{for(const kind of calcSearchKinds)if(!calcFields[kind].parentElement.contains(event.target))closeCalcSuggestions(kind);});
 function calcBaseStat(card,index){return Number(document.getElementById(card.id).querySelectorAll('.stats .stat-top b')[index]?.textContent);}
+function renderCalcBaseStats(kind,card){
+  const container=document.getElementById('calc-'+kind+'-base');
+  if(!card){container.replaceChildren();container.hidden=true;return;}
+  const stats=kind==='attacker'?[['攻击',1],['特攻',3]]:[['HP',0],['攻击',1],['防御',2],['特攻',3],['特防',4]];
+  const title=document.createTextNode('种族值参考：');
+  container.replaceChildren(title,...stats.map(([label,index])=>{
+    const chip=document.createElement('span');chip.textContent=label+' '+calcBaseStat(card,index);return chip;
+  }));
+  container.hidden=false;
+}
 function calcDefender(card){
   calcDefenderCard=card;calcFields.defender.value=card.name;
+  renderCalcBaseStats('defender',card);
   calcFields.hp.value=calcBaseStat(card,0)+75;
   calcFields.defense.value=calcBaseStat(card,calcFields.category.value==='物理'?2:4)+20;
   calcFields.current.value='';updateCalc();
 }
 function calcAttacker(card){
   calcAttackerCard=card;calcFields.attacker.value=card.name;
+  renderCalcBaseStats('attacker',card);
   calcFields.attack.value=calcBaseStat(card,calcFields.category.value==='物理'?1:3)+20;
   calcFields.stab.checked=!!card && [...document.getElementById(card.id).querySelectorAll('.type-badge')].some(b=>b.textContent===calcFields.type.value);
   updateCalc();
@@ -7770,12 +7785,12 @@ calcFields.move.addEventListener('input',()=>{const info=calcMoveIndex.get(calcF
 calcFields.attacker.addEventListener('input',()=>{
   const card=pokemonCards.find(item=>item.name===calcFields.attacker.value.trim());
   if(card)calcAttacker(card);
-  else if(calcAttackerCard){calcAttackerCard=null;calcFields.attack.value='';calcFields.stab.checked=false;updateCalc();}
+  else if(calcAttackerCard){calcAttackerCard=null;renderCalcBaseStats('attacker',null);calcFields.attack.value='';calcFields.stab.checked=false;updateCalc();}
 });
 calcFields.defender.addEventListener('input',()=>{
   const card=pokemonCards.find(item=>item.name===calcFields.defender.value.trim());
   if(card)calcDefender(card);
-  else if(calcDefenderCard){calcDefenderCard=null;calcFields.hp.value='';calcFields.defense.value='';updateCalc();}
+  else if(calcDefenderCard){calcDefenderCard=null;renderCalcBaseStats('defender',null);calcFields.hp.value='';calcFields.defense.value='';updateCalc();}
 });
 calcDialog.querySelector('.calc-form').addEventListener('input',event=>{
   if(event.target===calcFields.category){
