@@ -65,6 +65,13 @@ h1 { font-size:28px; line-height:1.08; letter-spacing:-.03em; margin:0 0 8px; }
 .calc-result { padding:12px; border:1px solid #c9d9ef; border-radius:12px; background:#eef5ff; color:#264567; }
 .calc-result strong { display:block; font-size:20px; color:#193d73; }
 .calc-result span { display:block; margin-top:3px; font-size:12px; line-height:1.5; }
+.calc-reference { border:1px solid #dce5f1; border-radius:10px; padding:9px 10px; background:#fff; }
+.calc-reference summary { color:#365d91; font-size:12px; font-weight:800; cursor:pointer; }
+.calc-ref-group { margin-top:10px; }
+.calc-ref-group h3 { margin:0 0 5px; color:#344c6d; font-size:11px; }
+.calc-ref-row { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:8px; align-items:start; border-top:1px solid #eef1f6; padding:6px 0; font-size:11px; line-height:1.4; }
+.calc-ref-row b { color:#274f83; white-space:nowrap; }
+.calc-ref-row small { display:block; margin-top:1px; color:#69778d; font-size:10px; }
 .calc-warning { color:#886329; }
 .legend {
   display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:14px 0 10px;
@@ -7229,6 +7236,28 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
       </div>
     </details>
     <div class="calc-result" role="status" aria-live="polite"><strong id="calc-damage">选择招式并填写能力值</strong><span id="calc-summary">预计伤害以 HP 区间显示。</span></div>
+    <details class="calc-reference"><summary>倍率速查：道具、天气、场地</summary>
+      <div class="calc-ref-group"><h3>道具</h3>
+        <div class="calc-ref-row"><span>对应属性的增幅道具<small>如神秘水滴、木炭；仅对应属性招式</small></span><b>威力 ×1.2</b></div>
+        <div class="calc-ref-row"><span>力量头带／博识眼镜<small>分别适用于物理／特殊招式</small></span><b>威力 ×1.1</b></div>
+        <div class="calc-ref-row"><span>一般宝石<small>一般属性招式；生效后消耗</small></span><b>威力 ×1.3</b></div>
+        <div class="calc-ref-row"><span>生命宝珠<small>填入「其他效果总倍率」</small></span><b>伤害 ×1.3</b></div>
+        <div class="calc-ref-row"><span>达人带<small>仅效果绝佳；填入「其他效果总倍率」</small></span><b>伤害 ×1.2</b></div>
+        <div class="calc-ref-row"><span>对应属性的抗性树果<small>对方携带，效果绝佳时消耗；填入「其他效果总倍率」</small></span><b>伤害 ×0.5</b></div>
+      </div>
+      <div class="calc-ref-group"><h3>天气</h3>
+        <div class="calc-ref-row"><span>晴天<small>火招增强，水招减弱；填入「其他效果总倍率」</small></span><b>×1.5／×0.5</b></div>
+        <div class="calc-ref-row"><span>雨天<small>水招增强，火招减弱；填入「其他效果总倍率」</small></span><b>×1.5／×0.5</b></div>
+        <div class="calc-ref-row"><span>沙暴：岩石属性防守方<small>特防提高；需另外折算防御数值</small></span><b>特防 ×1.5</b></div>
+        <div class="calc-ref-row"><span>雪天：冰属性防守方<small>防御提高；需另外折算防御数值</small></span><b>防御 ×1.5</b></div>
+      </div>
+      <div class="calc-ref-group"><h3>场地</h3>
+        <div class="calc-ref-row"><span>电气／青草／精神场地<small>使用者接地且招式属性对应</small></span><b>威力 ×1.3</b></div>
+        <div class="calc-ref-row"><span>薄雾场地<small>目标接地，龙属性招式</small></span><b>威力 ×0.5</b></div>
+        <div class="calc-ref-row"><span>青草场地<small>目标接地，地震／重踏</small></span><b>威力 ×0.5</b></div>
+      </div>
+      <p class="calc-hint">「威力」类选上方威力倍率，「伤害」类填其他效果总倍率；不同效果可叠加，但不要重复填写。多项威力修正或防御修正请自行折算，结果仍为估算。</p>
+    </details>
     <p class="calc-hint calc-warning" id="calc-note">50 级估算；未包含特性或道具的自动判定。特殊招式请按实际情况修改威力或倍率。</p>
   </div>
 </dialog>
