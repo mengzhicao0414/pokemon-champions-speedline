@@ -62,6 +62,12 @@ h1 { font-size:28px; line-height:1.08; letter-spacing:-.03em; margin:0 0 8px; }
 .calc-primary-toggles { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:5px; }
 .calc-primary-toggles label { min-width:0; padding:5px; font-size:11px; line-height:1.2; }
 .calc-primary-toggles input { flex:none; }
+.calc-used-stats { padding:8px 10px; border:1px solid #d4e1f2; border-radius:9px; background:#f4f8ff; }
+.calc-used-title { margin:0 0 6px; color:#405e86; font-size:11px; font-weight:800; }
+.calc-used-values { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:5px; }
+.calc-used-values span { display:grid; gap:2px; min-width:0; }
+.calc-used-values small { color:#667892; font-size:10px; font-weight:650; }
+.calc-used-values strong { color:#1d416d; font-size:16px; line-height:1.2; }
 .calc-extra { border-top:1px solid #e4eaf2; padding-top:8px; }
 .calc-extra summary { color:#365d91; font-size:12px; font-weight:800; cursor:pointer; }
 .calc-extra-grid { display:grid; gap:9px; margin-top:9px; }
@@ -7227,7 +7233,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
       <label class="calc-field">加点 SP<input id="calc-defense-sp" type="number" min="0" max="32" inputmode="numeric" value="0"></label>
       <label class="calc-field">性格修正<select id="calc-defense-nature"><option value="1">无修正</option><option value="1.1">增益 +10%</option><option value="0.9">减益 −10%</option></select></label>
     </div>
-    <p class="calc-hint" id="calc-stats-preview">50 级实际值：选择宝可梦或填写基础值。</p>
+    <div class="calc-used-stats" aria-live="polite"><p class="calc-used-title">加点后的实际值 · 50 级</p><div class="calc-used-values"><span><small id="calc-used-attack-label">我方攻击</small><strong id="calc-used-attack">—</strong></span><span><small>对方 HP</small><strong id="calc-used-hp">—</strong></span><span><small id="calc-used-defense-label">对方防御</small><strong id="calc-used-defense">—</strong></span></div></div>
     <div class="calc-toggles calc-primary-toggles"><label><input id="calc-stab" type="checkbox">本系 1.5×</label><label><input id="calc-spread" type="checkbox">双打 0.75×</label><label title="沙暴中岩石系受特殊招式，或雪天中冰系受物理招式"><input id="calc-weather-defense" type="checkbox">沙暴／雪天 1.5×</label></div>
     <p class="calc-hint" id="calc-matchup">选择对方宝可梦后自动计算属性相性。</p>
     <details class="calc-extra"><summary>调整条件：能力变化、灼伤、额外倍率</summary>
@@ -7674,7 +7680,7 @@ usageDialog.addEventListener('close',()=>usageTrigger?.focus({preventScroll:true
 
 // Lightweight level-50 damage estimate from base stats and Champions stat points.
 const calcDialog=document.getElementById('calc-dialog');
-const calcFields=Object.fromEntries(['move','move-info','power','power-mult','type','category','attacker','attack','attack-sp','attack-nature','defender','hp','hp-sp','defense','defense-sp','defense-nature','weather-defense','stats-preview','stab','spread','attack-stage','defense-stage','attack-label','defense-label','burn','extra-mult','matchup','damage','summary','note'].map(name=>[name,document.getElementById('calc-'+name)]));
+const calcFields=Object.fromEntries(['move','move-info','power','power-mult','type','category','attacker','attack','attack-sp','attack-nature','defender','hp','hp-sp','defense','defense-sp','defense-nature','weather-defense','used-attack','used-hp','used-defense','used-attack-label','used-defense-label','stab','spread','attack-stage','defense-stage','attack-label','defense-label','burn','extra-mult','matchup','damage','summary','note'].map(name=>[name,document.getElementById('calc-'+name)]));
 let calcAttackerCard=null,calcDefenderCard=null,calcMoveInfo=null,calcTrigger=null,calcMoveIndex=new Map(),calcMoveEntries=[];
 for(const name of matchupTypes){const option=document.createElement('option');option.textContent=name;calcFields.type.append(option);}
 for(const key of ['attack-stage','defense-stage'])for(let stage=-6;stage<=6;stage++){
@@ -7813,14 +7819,19 @@ function updateCalc(){
   const powerMult=Number(calcFields['power-mult'].value);
   const attack=calcLevel50Stat(calcFields.attack,calcFields['attack-sp'],20,Number(calcFields['attack-nature'].value));
   const defense=calcLevel50Stat(calcFields.defense,calcFields['defense-sp'],20,Number(calcFields['defense-nature'].value));
+  const adjustedAttack=Number.isFinite(attack)?calcStage(attack,Number(calcFields['attack-stage'].value)):NaN;
   const adjustedDefense=Number.isFinite(defense)?Math.max(1,Math.round(calcStage(defense,Number(calcFields['defense-stage'].value))*(calcFields['weather-defense'].checked?1.5:1))):NaN;
   const hp=calcLevel50Stat(calcFields.hp,calcFields['hp-sp'],75);
   const category=calcFields.category.value==='物理'?['攻击','防御']:['特攻','特防'];
-  calcFields['stats-preview'].textContent='50 级实际值：我方'+category[0]+' '+(Number.isFinite(attack)?attack:'—')+' · 对方 HP '+(Number.isFinite(hp)?hp:'—')+' · '+category[1]+' '+(Number.isFinite(defense)?defense:'—')+(Number.isFinite(adjustedDefense)&&adjustedDefense!==defense?' → '+adjustedDefense:'');
+  calcFields['used-attack-label'].textContent='我方'+category[0];
+  calcFields['used-defense-label'].textContent='对方'+category[1];
+  calcFields['used-attack'].textContent=Number.isFinite(attack)?attack:'—';
+  calcFields['used-hp'].textContent=Number.isFinite(hp)?hp:'—';
+  calcFields['used-defense'].textContent=Number.isFinite(defense)?defense:'—';
   const valid=[power,powerMult,attack,defense,hp].every(n=>Number.isFinite(n)&&n>0)&&calcFields.move.value.trim();
   if(!valid){calcFields.damage.textContent='选择招式并填写能力值';calcFields.summary.textContent='填写种族值与 SP（每项最多 32），并选择招式。';return;}
   if(effectiveness===0){calcFields.damage.textContent='0 HP · 属性无效';calcFields.summary.textContent='按属性相性无法造成伤害；特性等例外尚未自动计算。';return;}
-  const a=calcStage(attack,Number(calcFields['attack-stage'].value));
+  const a=adjustedAttack;
   const d=adjustedDefense;
   const effectivePower=Math.max(1,Math.round(power*powerMult));
   const base=Math.floor(Math.floor(22*effectivePower*a/d)/50)+2;
