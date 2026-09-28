@@ -7656,7 +7656,7 @@ function calcPickMove(info){
   if(previous!==calcFields.category.value){
     if(calcAttackerCard)calcAttacker(calcAttackerCard);
     else calcFields.attack.value='';
-    if(calcDefenderCard)calcDefender(calcDefenderCard);
+    if(calcDefenderCard)calcFields.defense.value=calcBaseStat(calcDefenderCard,calcFields.category.value==='物理'?2:4)+20;
     else calcFields.defense.value='';
   }
   if(calcAttackerCard)calcFields.stab.checked=[...document.getElementById(calcAttackerCard.id).querySelectorAll('.type-badge')].some(b=>b.textContent===calcFields.type.value);
@@ -7701,6 +7701,7 @@ function openCalc(trigger,defender){
     calcMoveIndex=new Map(Object.values(data.moves).filter(move=>move.name&&move.category!=='变化').map(move=>[move.name,move]));
     const list=document.getElementById('calc-moves');
     for(const name of [...calcMoveIndex.keys()].sort((a,b)=>a.localeCompare(b,'zh-CN'))){const option=document.createElement('option');option.value=name;list.append(option);}
+    const typed=calcMoveIndex.get(calcFields.move.value.trim());if(typed)calcPickMove(typed);
   }).catch(()=>{calcFields.note.textContent='招式资料暂时无法读取。仍可手动填写招式名称、威力和属性。';});
 }
 document.getElementById('open-calc').addEventListener('click',event=>openCalc(event.currentTarget));
@@ -7726,7 +7727,7 @@ calcDialog.querySelector('.calc-form').addEventListener('input',event=>{
     calcFields['attack-label'].textContent='我方'+(calcFields.category.value==='物理'?'攻击':'特攻');
     calcFields['defense-label'].textContent='对方'+(calcFields.category.value==='物理'?'防御':'特防');
     if(calcAttackerCard)calcAttacker(calcAttackerCard);
-    if(calcDefenderCard)calcDefender(calcDefenderCard);
+    if(calcDefenderCard)calcFields.defense.value=calcBaseStat(calcDefenderCard,calcFields.category.value==='物理'?2:4)+20;
   }
   if(event.target===calcFields.type && calcAttackerCard)calcFields.stab.checked=[...document.getElementById(calcAttackerCard.id).querySelectorAll('.type-badge')].some(b=>b.textContent===calcFields.type.value);
   updateCalc();
