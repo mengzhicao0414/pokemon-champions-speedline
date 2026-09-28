@@ -7195,13 +7195,14 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
     </div>
     <div class="calc-pair">
       <div class="calc-field calc-search-field narrow"><label for="calc-attacker">我方宝可梦（可选）</label><input id="calc-attacker" type="search" placeholder="搜索名称" autocomplete="off" aria-controls="calc-attacker-results" aria-expanded="false"><div class="calc-suggestions" id="calc-attacker-results" role="listbox" aria-label="匹配我方宝可梦" hidden></div><div class="calc-base-stats" id="calc-attacker-base" hidden></div></div>
-      <label class="calc-field"><span id="calc-attack-label">我方攻击</span><input id="calc-attack" type="number" min="1" max="9999" inputmode="numeric" placeholder="实际数值"></label>
+      <div class="calc-field"><label for="calc-attack" id="calc-attack-label">我方攻击</label><input id="calc-attack" type="number" min="1" max="9999" inputmode="numeric" placeholder="性格修正前"><label for="calc-attack-nature">攻击端性格</label><select id="calc-attack-nature"><option value="1">无修正</option><option value="1.1">性格增益 +10%</option><option value="0.9">性格减益 −10%</option></select></div>
     </div>
     <div class="calc-field calc-search-field"><label for="calc-defender">对方宝可梦</label><input id="calc-defender" type="search" placeholder="搜索名称或从卡片打开" autocomplete="off" aria-controls="calc-defender-results" aria-expanded="false"><div class="calc-suggestions" id="calc-defender-results" role="listbox" aria-label="匹配对方宝可梦" hidden></div><div class="calc-base-stats" id="calc-defender-base" hidden></div></div>
     <div class="calc-pair">
       <label class="calc-field">对方总 HP<input id="calc-hp" type="number" min="1" max="9999" inputmode="numeric"></label>
-      <label class="calc-field"><span id="calc-defense-label">对方防御</span><input id="calc-defense" type="number" min="1" max="9999" inputmode="numeric"></label>
+      <div class="calc-field"><label for="calc-defense" id="calc-defense-label">对方防御</label><input id="calc-defense" type="number" min="1" max="9999" inputmode="numeric"><label for="calc-defense-nature">防守端性格</label><select id="calc-defense-nature"><option value="1">无修正</option><option value="1.1">性格增益 +10%</option><option value="0.9">性格减益 −10%</option></select></div>
     </div>
+    <p class="calc-hint">性格修正作用于上方输入的攻防值；如果填写的已是性格修正后的数值，请选「无修正」。</p>
     <div class="calc-toggles"><label><input id="calc-stab" type="checkbox">本系 1.5×</label><label><input id="calc-spread" type="checkbox">双打群攻 0.75×</label></div>
     <p class="calc-hint" id="calc-matchup">选择对方宝可梦后自动计算属性相性。</p>
     <details class="calc-extra"><summary>调整条件：能力变化、灼伤、额外倍率</summary>
@@ -7625,7 +7626,7 @@ usageDialog.addEventListener('close',()=>usageTrigger?.focus({preventScroll:true
 
 // Lightweight damage estimate: accepts the in-game stats directly.
 const calcDialog=document.getElementById('calc-dialog');
-const calcFields=Object.fromEntries(['move','move-info','power','type','category','attacker','attack','defender','hp','defense','stab','spread','attack-stage','defense-stage','attack-label','defense-label','burn','extra-mult','matchup','damage','summary','note'].map(name=>[name,document.getElementById('calc-'+name)]));
+const calcFields=Object.fromEntries(['move','move-info','power','type','category','attacker','attack','attack-nature','defender','hp','defense','defense-nature','stab','spread','attack-stage','defense-stage','attack-label','defense-label','burn','extra-mult','matchup','damage','summary','note'].map(name=>[name,document.getElementById('calc-'+name)]));
 let calcAttackerCard=null,calcDefenderCard=null,calcMoveInfo=null,calcTrigger=null,calcMoveIndex=new Map(),calcMoveEntries=[];
 for(const name of matchupTypes){const option=document.createElement('option');option.textContent=name;calcFields.type.append(option);}
 for(const key of ['attack-stage','defense-stage'])for(let stage=-6;stage<=6;stage++){
@@ -7743,8 +7744,10 @@ function updateCalc(){
   const valid=[power,attack,defense,hp].every(n=>Number.isFinite(n)&&n>0)&&calcFields.move.value.trim();
   if(!valid){calcFields.damage.textContent='选择招式并填写能力值';calcFields.summary.textContent='需填写威力、我方攻击／特攻、对方 HP 和防御／特防。';return;}
   if(effectiveness===0){calcFields.damage.textContent='0 HP · 属性无效';calcFields.summary.textContent='按属性相性无法造成伤害；特性等例外尚未自动计算。';return;}
-  const a=calcStage(attack,Number(calcFields['attack-stage'].value));
-  const d=calcStage(defense,Number(calcFields['defense-stage'].value));
+  const natureAttack=Math.floor(attack*Number(calcFields['attack-nature'].value));
+  const natureDefense=Math.floor(defense*Number(calcFields['defense-nature'].value));
+  const a=calcStage(natureAttack,Number(calcFields['attack-stage'].value));
+  const d=calcStage(natureDefense,Number(calcFields['defense-stage'].value));
   const base=Math.floor(Math.floor(22*power*a/d)/50)+2;
   const other=Number(calcFields['extra-mult'].value);
   if(!Number.isFinite(other)||other<0){calcFields.damage.textContent='请输入有效的额外倍率';calcFields.summary.textContent='倍率应为 0 或正数。';return;}
@@ -7759,7 +7762,7 @@ function updateCalc(){
   const low=Math.min(...damages),high=Math.max(...damages);
   const ko=damages.filter(value=>value>=hp).length;
   calcFields.damage.textContent=(low===high?String(low):low+'–'+high)+' HP · 估算';
-  calcFields.summary.textContent=(low/hp*100).toFixed(1)+'%–'+(high/hp*100).toFixed(1)+'% 总 HP ｜ '+(ko===16?'必定击倒':ko===0?'无法一击击倒':'约 '+Math.round(ko/16*100)+'% 概率击倒');
+  calcFields.summary.textContent=(low/hp*100).toFixed(1)+'%–'+(high/hp*100).toFixed(1)+'% 总 HP ｜ '+(ko===16?'必定击倒':ko===0?'无法一击击倒':'约 '+Math.round(ko/16*100)+'% 概率击倒')+(natureAttack!==attack||natureDefense!==defense?'｜性格修正后：我方'+natureAttack+'，对方'+natureDefense:'');
   const special=calcMoveInfo && (/会改变|越.+越|次攻击|连续攻击|固定伤害|对手的力量|防御越高/.test(calcMoveInfo.description)||/两只各/.test(calcMoveInfo.target));
   calcFields.note.textContent=(special?'该招式有特殊计算条件：请按实际情况修改威力／能力值；多段招式当前仅估算单段。':'50 级伤害估算；道具、特性、天气等按「其他效果总倍率」手动输入。')+' 结果可能因游戏的逐步取整而相差少量 HP。';
 }
