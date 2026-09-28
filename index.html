@@ -49,7 +49,8 @@ h1 { font-size:28px; line-height:1.08; letter-spacing:-.03em; margin:0 0 8px; }
 .calc-suggestions .calc-no-match { color:#7c889a; font-weight:500; cursor:default; }
 .calc-base-stats { display:flex; flex-wrap:wrap; gap:4px; align-items:center; color:#61718a; font-size:10px; font-weight:650; line-height:1.4; }
 .calc-base-stats[hidden] { display:none; }
-.calc-base-stats span { padding:2px 5px; border-radius:5px; background:#edf2fa; white-space:nowrap; }
+.calc-base-stats button { padding:2px 5px; border:1px solid #dce6f4; border-radius:5px; background:#edf2fa; color:#365981; font:inherit; cursor:pointer; white-space:nowrap; }
+.calc-base-stats button:hover, .calc-base-stats button:focus-visible { background:#deebfc; border-color:#799dd0; outline:none; }
 .calc-pair { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:9px; align-items:start; }
 .calc-three { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:9px; }
 .calc-stat-title { margin:0 0 -5px; color:#354968; font-size:12px; font-weight:800; }
@@ -7189,8 +7190,11 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
   <div class="calc-form">
     <div class="calc-field calc-search-field"><label for="calc-move">招式</label><input id="calc-move" type="search" placeholder="输入招式名称" autocomplete="off" aria-controls="calc-move-results" aria-expanded="false"><div class="calc-suggestions" id="calc-move-results" role="listbox" aria-label="匹配招式" hidden></div></div>
     <p class="calc-hint calc-move-info" id="calc-move-info">选择招式后自动填入威力、属性和分类。</p>
-    <div class="calc-three">
+    <div class="calc-pair">
       <label class="calc-field">威力<input id="calc-power" type="number" min="1" max="1000" inputmode="numeric" placeholder="威力"></label>
+      <label class="calc-field">威力倍率<select id="calc-power-mult"><option value="1">1×（无）</option><option value="1.1">1.1×</option><option value="1.2">1.2×（神秘水滴）</option><option value="1.3">1.3×</option><option value="1.5">1.5×</option><option value="2">2×</option><option value="0.5">0.5×</option></select></label>
+    </div>
+    <div class="calc-pair">
       <label class="calc-field">属性<select id="calc-type"></select></label>
       <label class="calc-field">分类<select id="calc-category"><option>物理</option><option>特殊</option></select></label>
     </div>
@@ -7220,8 +7224,8 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
       <div class="calc-extra-grid">
         <div class="calc-pair"><label class="calc-field">我方能力变化<select id="calc-attack-stage"></select></label><label class="calc-field">对方能力变化<select id="calc-defense-stage"></select></label></div>
         <div class="calc-toggles"><label><input id="calc-burn" type="checkbox">物理招式灼伤 0.5×</label></div>
-        <label class="calc-field">其他效果总倍率（道具／特性／天气等）<input id="calc-extra-mult" type="number" min="0" max="100" step="0.05" inputmode="decimal" value="1"></label>
-        <p class="calc-hint">例如帮助为 1.5，雨天水招式为 1.5；有多项效果时填入相乘后的倍率。墙、特性免疫及变动威力需自行调整。</p>
+        <label class="calc-field">其他效果总倍率（天气等伤害修正）<input id="calc-extra-mult" type="number" min="0" max="100" step="0.05" inputmode="decimal" value="1"></label>
+        <p class="calc-hint">神秘水滴在上方「威力倍率」选 1.2×，这里不要重复填写；雨天水招式可在这里填 1.5。其他效果按生效步骤填写，墙和特性免疫需自行判断。</p>
       </div>
     </details>
     <div class="calc-result" role="status" aria-live="polite"><strong id="calc-damage">选择招式并填写能力值</strong><span id="calc-summary">预计伤害以 HP 区间显示。</span></div>
@@ -7637,7 +7641,7 @@ usageDialog.addEventListener('close',()=>usageTrigger?.focus({preventScroll:true
 
 // Lightweight level-50 damage estimate from base stats and Champions stat points.
 const calcDialog=document.getElementById('calc-dialog');
-const calcFields=Object.fromEntries(['move','move-info','power','type','category','attacker','attack','attack-sp','attack-nature','defender','hp','hp-sp','defense','defense-sp','defense-nature','stats-preview','stab','spread','attack-stage','defense-stage','attack-label','defense-label','burn','extra-mult','matchup','damage','summary','note'].map(name=>[name,document.getElementById('calc-'+name)]));
+const calcFields=Object.fromEntries(['move','move-info','power','power-mult','type','category','attacker','attack','attack-sp','attack-nature','defender','hp','hp-sp','defense','defense-sp','defense-nature','stats-preview','stab','spread','attack-stage','defense-stage','attack-label','defense-label','burn','extra-mult','matchup','damage','summary','note'].map(name=>[name,document.getElementById('calc-'+name)]));
 let calcAttackerCard=null,calcDefenderCard=null,calcMoveInfo=null,calcTrigger=null,calcMoveIndex=new Map(),calcMoveEntries=[];
 for(const name of matchupTypes){const option=document.createElement('option');option.textContent=name;calcFields.type.append(option);}
 for(const key of ['attack-stage','defense-stage'])for(let stage=-6;stage<=6;stage++){
@@ -7707,12 +7711,29 @@ function renderCalcBaseStats(kind,card){
   const container=document.getElementById('calc-'+kind+'-base');
   if(!card){container.replaceChildren();container.hidden=true;return;}
   const stats=kind==='attacker'?[['攻击',1],['特攻',3]]:[['HP',0],['防御',2],['特防',4]];
-  const title=document.createTextNode('种族值参考：');
+  const title=document.createTextNode('种族值参考（点击填入）：');
   container.replaceChildren(title,...stats.map(([label,index])=>{
-    const chip=document.createElement('span');chip.textContent=label+' '+calcBaseStat(card,index);return chip;
+    const chip=document.createElement('button');chip.type='button';chip.dataset.statIndex=String(index);
+    chip.textContent=label+' '+calcBaseStat(card,index);
+    chip.setAttribute('aria-label','填入'+label+'种族值 '+calcBaseStat(card,index));
+    return chip;
   }));
   container.hidden=false;
 }
+calcDialog.addEventListener('click',event=>{
+  const chip=event.target.closest('.calc-base-stats button');if(!chip)return;
+  const kind=chip.parentElement.id==='calc-attacker-base'?'attacker':'defender';
+  const card=kind==='attacker'?calcAttackerCard:calcDefenderCard;if(!card)return;
+  const index=Number(chip.dataset.statIndex);
+  if(index===0){calcFields.hp.value=calcBaseStat(card,0);updateCalc();return;}
+  const category=index===1||index===2?'物理':'特殊';
+  if(calcFields.category.value!==category){
+    calcFields.category.value=category;
+    calcFields.category.dispatchEvent(new Event('input',{bubbles:true}));
+  }
+  calcFields[kind==='attacker'?'attack':'defense'].value=calcBaseStat(card,index);
+  updateCalc();
+});
 function calcDefender(card){
   calcDefenderCard=card;calcFields.defender.value=card.name;
   renderCalcBaseStats('defender',card);
@@ -7756,17 +7777,19 @@ function updateCalc(){
   const effectiveness=defenderTypes.reduce((value,type)=>value*attackChart[moveType]?.[type],1);
   calcFields.matchup.textContent=calcDefenderCard?'对 '+calcDefenderCard.name+'：属性 '+effectiveness+'×。':'未选择对方：属性按 1× 估算。';
   const power=Number(calcFields.power.value);
+  const powerMult=Number(calcFields['power-mult'].value);
   const attack=calcLevel50Stat(calcFields.attack,calcFields['attack-sp'],20,Number(calcFields['attack-nature'].value));
   const defense=calcLevel50Stat(calcFields.defense,calcFields['defense-sp'],20,Number(calcFields['defense-nature'].value));
   const hp=calcLevel50Stat(calcFields.hp,calcFields['hp-sp'],75);
   const category=calcFields.category.value==='物理'?['攻击','防御']:['特攻','特防'];
   calcFields['stats-preview'].textContent='50 级实际值：我方'+category[0]+' '+(Number.isFinite(attack)?attack:'—')+' · 对方 HP '+(Number.isFinite(hp)?hp:'—')+' · '+category[1]+' '+(Number.isFinite(defense)?defense:'—');
-  const valid=[power,attack,defense,hp].every(n=>Number.isFinite(n)&&n>0)&&calcFields.move.value.trim();
+  const valid=[power,powerMult,attack,defense,hp].every(n=>Number.isFinite(n)&&n>0)&&calcFields.move.value.trim();
   if(!valid){calcFields.damage.textContent='选择招式并填写能力值';calcFields.summary.textContent='填写种族值与 SP（每项最多 32），并选择招式。';return;}
   if(effectiveness===0){calcFields.damage.textContent='0 HP · 属性无效';calcFields.summary.textContent='按属性相性无法造成伤害；特性等例外尚未自动计算。';return;}
   const a=calcStage(attack,Number(calcFields['attack-stage'].value));
   const d=calcStage(defense,Number(calcFields['defense-stage'].value));
-  const base=Math.floor(Math.floor(22*power*a/d)/50)+2;
+  const effectivePower=Math.max(1,Math.round(power*powerMult));
+  const base=Math.floor(Math.floor(22*effectivePower*a/d)/50)+2;
   const other=Number(calcFields['extra-mult'].value);
   if(!Number.isFinite(other)||other<0){calcFields.damage.textContent='请输入有效的额外倍率';calcFields.summary.textContent='倍率应为 0 或正数。';return;}
   const damages=Array.from({length:16},(_,i)=>{
@@ -7782,7 +7805,7 @@ function updateCalc(){
   calcFields.damage.textContent=(low===high?String(low):low+'–'+high)+' HP · 估算';
   calcFields.summary.textContent=(low/hp*100).toFixed(1)+'%–'+(high/hp*100).toFixed(1)+'% 总 HP ｜ '+(ko===16?'必定击倒':ko===0?'无法一击击倒':'约 '+Math.round(ko/16*100)+'% 概率击倒');
   const special=calcMoveInfo && (/会改变|越.+越|次攻击|连续攻击|固定伤害|对手的力量|防御越高/.test(calcMoveInfo.description)||/两只各/.test(calcMoveInfo.target));
-  calcFields.note.textContent=(special?'该招式有特殊计算条件：请按实际情况修改威力／能力值；多段招式当前仅估算单段。':'50 级伤害估算；道具、特性、天气等按「其他效果总倍率」手动输入。')+' 结果可能因游戏的逐步取整而相差少量 HP。';
+  calcFields.note.textContent=(special?'该招式有特殊计算条件：请按实际情况修改威力／能力值；多段招式当前仅估算单段。':'50 级伤害估算；提升招式威力的效果选「威力倍率」，天气等伤害效果填「其他效果总倍率」。')+' 结果可能因游戏的逐步取整而相差少量 HP。';
 }
 function openCalc(trigger,defender){
   calcTrigger=trigger;
