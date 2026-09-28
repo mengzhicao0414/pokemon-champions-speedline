@@ -7709,6 +7709,16 @@ document.addEventListener('click',event=>{
   openCalc(button,pokemonCards.find(card=>card.id===button.closest('.card').id));
 });
 calcFields.move.addEventListener('input',()=>{const info=calcMoveIndex.get(calcFields.move.value.trim());if(info)calcPickMove(info);else{calcMoveInfo=null;calcFields['move-info'].textContent='未匹配招式；可手动填写威力、属性和分类。';updateCalc();}});
+calcFields.attacker.addEventListener('input',()=>{
+  const card=pokemonCards.find(item=>item.name===calcFields.attacker.value.trim());
+  if(card)calcAttacker(card);
+  else if(calcAttackerCard){calcAttackerCard=null;calcFields.stab.checked=false;updateCalc();}
+});
+calcFields.defender.addEventListener('input',()=>{
+  const card=pokemonCards.find(item=>item.name===calcFields.defender.value.trim());
+  if(card)calcDefender(card);
+  else if(calcDefenderCard){calcDefenderCard=null;updateCalc();}
+});
 calcFields.attacker.addEventListener('change',()=>{const card=calcCardByName(calcFields.attacker.value);if(card)calcAttacker(card);else{calcAttackerCard=null;calcFields.stab.checked=false;updateCalc();}});
 calcFields.defender.addEventListener('change',()=>{const card=calcCardByName(calcFields.defender.value);if(card)calcDefender(card);else{calcDefenderCard=null;updateCalc();}});
 calcDialog.querySelector('.calc-form').addEventListener('input',event=>{
