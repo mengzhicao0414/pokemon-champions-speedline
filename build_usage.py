@@ -65,6 +65,12 @@ def main():
         for name, detail in pack["pokemon"].items():
             sections = {key: top_ten(detail.get(field)) for key, field in CATEGORIES.items()}
             sections["natures"] = top_natures(detail.get("natures_list"))
+            try:
+                rank = int(str(detail.get("rank", "")).lstrip("#"))
+            except (TypeError, ValueError):
+                rank = 0
+            if rank > 0:
+                sections["rank"] = rank
             if any(sections.values()):
                 pokemon[name] = sections
         output["formats"][kind] = {"updated": pack.get("updated", ""), "pokemon": pokemon}

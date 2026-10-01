@@ -142,6 +142,10 @@ h1 { font-size:28px; line-height:1.08; letter-spacing:-.03em; margin:0 0 8px; }
   margin:0; font-size:20px; letter-spacing:-.02em;
 }
 .section-head .desc { color:var(--muted); font-size:12px; line-height:1.45; text-align:right; }
+.dex-sort { display:flex; gap:6px; align-items:center; flex-wrap:wrap; padding:5px 4px 10px; }
+.dex-sort button { flex:1 1 0; min-width:0; min-height:34px; padding:6px 5px; border:1px solid #cbd9eb; border-radius:9px; background:#fff; color:#385474; font:inherit; font-size:12px; font-weight:800; cursor:pointer; }
+.dex-sort button[aria-pressed="true"] { border-color:#356fb5; background:#e8f1ff; color:#204b83; }
+.dex-sort-status { width:100%; color:#687892; font-size:11px; line-height:1.4; }
 .cards { display:flex; flex-direction:column; gap:10px; }
 .card {
   background:var(--panel); border:1px solid var(--line); border-radius:18px;
@@ -199,6 +203,7 @@ h1 { font-size:28px; line-height:1.08; letter-spacing:-.03em; margin:0 0 8px; }
 .speed-num { font-size:30px; line-height:1; font-weight:900; letter-spacing:-.04em; color:#583427; }
 .speed-label { margin-top:5px; font-size:11px; color:#8a746c; }
 .order { margin-top:10px; font-size:11px; color:#99a1af; line-height:1.35; }
+.usage-rank { margin-top:4px; font-size:11px; font-weight:800; color:#345f97; line-height:1.3; }
 .card-main { padding:13px 13px 12px; min-width:0; }
 .name-row { position:relative; display:block; }
 .name-row h2 { padding-right:108px; }
@@ -439,6 +444,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
     <div class="nav-row temp-row" id="temp-row" aria-label="Mega 区与临时标签"><a class="chip speed-chip" href="#mega-block">Mega区</a></div>
   </section>
 
+  <div class="dex-sort" role="group" aria-label="图鉴排序"><button type="button" data-sort="speed" aria-pressed="true">基础速度</button><button type="button" data-sort="single" aria-pressed="false">单打使用排名</button><button type="button" data-sort="double" aria-pressed="false">双打使用排名</button><span class="dex-sort-status" id="dex-sort-status" role="status">按基础速度排序</span></div>
   <section id="regular-block"><div class="section-head"><div><h3>常规及其他形态（314）</h3></div><div class="desc">按基础速度从高到低<br>同速按全国图鉴排序</div></div><div class="cards">
 <article id="reg-1" class="card" data-usage-key="Dragapult" data-search="多龙巴鲁托 多龙巴鲁托 多龙巴鲁托">
       <div class="speed-rail"><div class="speed-num">142</div>
@@ -7553,6 +7559,47 @@ function getUsageData(){
     .catch(error=>{usageRequest=null;throw error;});
   return usageRequest;
 }
+const dexSortButtons=[...document.querySelectorAll('.dex-sort button[data-sort]')];
+const dexSortStatus=document.getElementById('dex-sort-status');
+const dexSections=['regular-block','mega-block'].map(id=>{
+  const section=document.getElementById(id);
+  const container=section.querySelector('.cards');
+  const original=[...container.querySelectorAll(':scope > .card')];
+  return {section,container,original,positions:new Map(original.map((card,index)=>[card,index])),labels:new Map(original.map(card=>[card,card.querySelector('.order')?.textContent||'']))};
+});
+function setDexSort(mode,data){
+  const dataset=mode==='speed'?null:data.formats[mode];
+  const name=mode==='single'?'单打':'双打';
+  for(const {section,container,original,positions,labels} of dexSections){
+    const rank=card=>Number(dataset?.pokemon[card.dataset.usageKey]?.rank)||Infinity;
+    const ordered=dataset?[...original].sort((a,b)=>rank(a)-rank(b)||positions.get(a)-positions.get(b)):original;
+    container.append(...ordered);
+    for(const card of original){
+      const badge=card.querySelector('.order');
+      const rankText=Number.isFinite(rank(card))?name+' #'+rank(card):'未收录';
+      if(badge)badge.textContent=dataset&&section.id==='regular-block'?rankText:labels.get(card);
+      let megaRank=card.querySelector('.usage-rank');
+      if(dataset&&section.id==='mega-block'){
+        if(!megaRank){megaRank=document.createElement('div');megaRank.className='usage-rank';card.querySelector('.speed-rail').append(megaRank);}
+        megaRank.textContent=rankText;
+      }else megaRank?.remove();
+    }
+    section.querySelector('.section-head .desc').innerHTML=dataset?'按'+name+'使用排名排序<br>未收录的排在最后':section.id==='mega-block'?'按进化后基础速度排序<br>点原形态链接返回':'按基础速度从高到低<br>同速按全国图鉴排序';
+  }
+  dexSortButtons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.sort===mode)));
+  dexSortStatus.textContent=dataset?name+'使用排名 · '+(dataset.updated||'采集时间未知')+' · Mega 沿用原形态排名':'按基础速度排序';
+}
+dexSortButtons.forEach(button=>button.addEventListener('click',async()=>{
+  const mode=button.dataset.sort;
+  if(mode==='speed'){setDexSort('speed');return;}
+  dexSortStatus.textContent='正在读取'+(mode==='single'?'单打':'双打')+'排名…';
+  try{
+    const data=await getUsageData();
+    if(!Object.values(data.formats[mode].pokemon).some(pokemon=>Number.isInteger(pokemon.rank)))throw new Error('排名数据暂不可用');
+    setDexSort(mode,data);
+  }catch(error){dexSortStatus.textContent=error.message||'无法读取排名，请稍后重试';}
+}));
+document.querySelectorAll('.jump .nav-row:not(.temp-row) .speed-chip').forEach(link=>link.addEventListener('click',()=>setDexSort('speed')));
 function getDetailsData(){
   if(detailsData)return Promise.resolve(detailsData);
   if(!detailsRequest)detailsRequest=fetch('details.json')
