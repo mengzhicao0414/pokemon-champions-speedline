@@ -146,6 +146,18 @@ h1 { font-size:28px; line-height:1.08; letter-spacing:-.03em; margin:0 0 8px; }
 .dex-sort button { flex:1 1 0; min-width:0; min-height:34px; padding:6px 5px; border:1px solid #cbd9eb; border-radius:9px; background:#fff; color:#385474; font:inherit; font-size:12px; font-weight:800; cursor:pointer; }
 .dex-sort button[aria-pressed="true"] { border-color:#356fb5; background:#e8f1ff; color:#204b83; }
 .dex-sort-status { width:100%; color:#687892; font-size:11px; line-height:1.4; }
+.type-filter { margin:0 4px 12px; border:1px solid #d9e3ef; border-radius:10px; background:#fff; }
+.type-filter summary { padding:9px 11px; color:#26496d; font-size:12px; font-weight:800; cursor:pointer; }
+.type-filter-body { padding:0 10px 10px; }
+.type-filter-hint { margin:0 0 7px; color:#687892; font-size:11px; }
+.type-filter-options { display:flex; flex-wrap:wrap; gap:6px; }
+.type-filter-options button { min-height:32px; min-width:43px; border:1px solid transparent; border-radius:7px; padding:4px 8px; color:white; font:inherit; font-size:11px; font-weight:800; cursor:pointer; }
+.type-filter-options button[aria-pressed="true"] { outline:2px solid #243a59; outline-offset:1px; }
+.type-filter-options button:disabled { opacity:.35; cursor:default; }
+.type-filter-options button:focus-visible { outline:3px solid #243a59; outline-offset:2px; }
+.type-filter-clear { margin-top:10px; border:0; background:transparent; color:#285b96; font:inherit; font-size:12px; font-weight:800; cursor:pointer; }
+.type-filter-empty { margin:3px 0 12px; padding:12px; color:#687892; background:#fff; border:1px solid #e0e6ee; border-radius:10px; font-size:12px; }
+.card[hidden], .type-filter-empty[hidden] { display:none!important; }
 .cards { display:flex; flex-direction:column; gap:10px; }
 .card {
   background:var(--panel); border:1px solid var(--line); border-radius:18px;
@@ -445,6 +457,7 @@ h2 { font-size:18px; line-height:1.15; margin:0; letter-spacing:-.02em; }
   </section>
 
   <div class="dex-sort" role="group" aria-label="图鉴排序"><button type="button" data-sort="speed" aria-pressed="true">基础速度</button><button type="button" data-sort="single" aria-pressed="false">单打使用排名</button><button type="button" data-sort="double" aria-pressed="false">双打使用排名</button><span class="dex-sort-status" id="dex-sort-status" role="status">按基础速度排序</span></div>
+  <details class="type-filter" id="type-filter"><summary id="type-filter-summary">属性筛选 · 全部</summary><div class="type-filter-body"><p class="type-filter-hint">选一种属性，或选两种属性查看同时拥有它们的形态。</p><div class="type-filter-options" id="type-filter-options" role="group" aria-label="筛选宝可梦属性"></div><button type="button" class="type-filter-clear" id="type-filter-clear">清除筛选</button></div></details>
   <section id="regular-block"><div class="section-head"><div><h3>常规及其他形态（314）</h3></div><div class="desc">按基础速度从高到低<br>同速按全国图鉴排序</div></div><div class="cards">
 <article id="reg-1" class="card" data-usage-key="Dragapult" data-search="多龙巴鲁托 多龙巴鲁托 多龙巴鲁托">
       <div class="speed-rail"><div class="speed-num">142</div>
@@ -7567,6 +7580,60 @@ const dexSections=['regular-block','mega-block'].map(id=>{
   const original=[...container.querySelectorAll(':scope > .card')];
   return {section,container,original,positions:new Map(original.map((card,index)=>[card,index])),labels:new Map(original.map(card=>[card,card.querySelector('.order')?.textContent||'']))};
 });
+const selectedDexTypes=new Set();
+const typeFilterOptions=document.getElementById('type-filter-options');
+const typeFilterSummary=document.getElementById('type-filter-summary');
+const typeFilterClear=document.getElementById('type-filter-clear');
+const dexTypeCards=new Map(dexSections.flatMap(({original})=>original.map(card=>[card,new Set([...card.querySelectorAll('.type-row .type-badge')].map(badge=>badge.textContent.trim()))])));
+const dexFilterSections=dexSections.map(({section,container,original})=>{
+  const heading=section.querySelector('h3');
+  const title=heading.textContent.replace(/（.*）$/,'');
+  const empty=document.createElement('p');empty.className='type-filter-empty';empty.hidden=true;
+  empty.textContent='没有符合所选属性的形态。';container.after(empty);
+  return {heading,title,empty,original};
+});
+function applyDexTypeFilter(){
+  let total=0;
+  for(const {heading,title,empty,original} of dexFilterSections){
+    let count=0;
+    for(const card of original){
+      card.hidden=![...selectedDexTypes].every(type=>dexTypeCards.get(card).has(type));
+      if(!card.hidden)count++;
+    }
+    total+=count;empty.hidden=count>0;
+    heading.textContent=title+'（'+(selectedDexTypes.size?count+' / ':'')+original.length+'）';
+  }
+  for(const button of typeFilterOptions.querySelectorAll('button')){
+    const selected=selectedDexTypes.has(button.dataset.type);
+    button.setAttribute('aria-pressed',String(selected));
+    button.textContent=(selected?'✓ ':'')+button.dataset.type;
+    button.disabled=selectedDexTypes.size===2&&!selected;
+  }
+  typeFilterSummary.textContent='属性筛选 · '+(selectedDexTypes.size?[...selectedDexTypes].join('＋')+' · '+total+' 个形态':'全部');
+  typeFilterClear.hidden=selectedDexTypes.size===0;
+}
+function clearDexTypeFilter(){selectedDexTypes.clear();applyDexTypeFilter();}
+for(const type of moveTypeOrder){
+  const index=matchupTypes.indexOf(type);
+  const button=document.createElement('button');button.type='button';button.dataset.type=type;
+  button.style.background=matchupColors[index];
+  if(['电','地面','妖精'].includes(type))button.style.color='#302538';
+  button.setAttribute('aria-label','筛选'+type+'属性');button.setAttribute('aria-pressed','false');
+  button.addEventListener('click',()=>{
+    if(selectedDexTypes.has(type))selectedDexTypes.delete(type);
+    else if(selectedDexTypes.size<2)selectedDexTypes.add(type);
+    applyDexTypeFilter();
+  });
+  typeFilterOptions.append(button);
+}
+typeFilterClear.addEventListener('click',clearDexTypeFilter);
+applyDexTypeFilter();
+// Reveal linked cards before search, bookmarks or form links scroll to them.
+document.addEventListener('click',event=>{
+  const link=event.target.closest('a[href^="#"]');if(!link)return;
+  const target=document.getElementById(link.getAttribute('href').slice(1));
+  if(target?.classList.contains('card')&&target.hidden)clearDexTypeFilter();
+},true);
 function setDexSort(mode,data){
   const dataset=mode==='speed'?null:data.formats[mode];
   const name=mode==='single'?'单打':'双打';
@@ -7599,7 +7666,7 @@ dexSortButtons.forEach(button=>button.addEventListener('click',async()=>{
     setDexSort(mode,data);
   }catch(error){dexSortStatus.textContent=error.message||'无法读取排名，请稍后重试';}
 }));
-document.querySelectorAll('.jump .nav-row:not(.temp-row) .speed-chip').forEach(link=>link.addEventListener('click',()=>setDexSort('speed')));
+document.querySelectorAll('.jump .nav-row:not(.temp-row) .speed-chip').forEach(link=>link.addEventListener('click',()=>{clearDexTypeFilter();setDexSort('speed');}));
 function getDetailsData(){
   if(detailsData)return Promise.resolve(detailsData);
   if(!detailsRequest)detailsRequest=fetch('details.json')
