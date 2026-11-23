@@ -92,7 +92,7 @@ def main():
     entries = index.get("pokemon")
     if not isinstance(entries, list) or len(entries) < 200:
         raise ValueError("Index incomplete; preserving old snapshot")
-    names = previous["names"]
+    names = json.loads((ROOT / "usage_names.json").read_text(encoding="utf-8"))
     output = {"source": "Pokémon Champions Battle Data · in-game Battle Data",
               "url": BASE + "/api_guide", "names": names, "formats": {}}
     for key, fmt in FORMATS.items():
