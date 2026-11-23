@@ -113,13 +113,18 @@ def main():
                 if any(sections.values()):
                     # Match the old MunchStats key convention (Showdown species names).
                     entry = lookup[ident]
-                    pokemon[entry.get("showdownName") or entry.get("name") or ident] = sections
+                    species_name = entry.get("showdownName") or entry.get("name") or ident
+                    if str(species_name).startswith("Maushold-"):
+                        species_name = "Maushold"
+                    pokemon[species_name] = sections
         if len(pokemon) < 200:
             raise ValueError(f"Incomplete usage data for {fmt}: {len(pokemon)}")
         for row in ranked:
             if not isinstance(row, dict):
                 continue
             name = (lookup.get(row.get("showdownId")) or {}).get("showdownName") or row.get("name")
+            if str(name).startswith("Maushold-"):
+                name = "Maushold"
             if name in pokemon:
                 pokemon[name]["rank"] = int(row["position"])
         # Do not claim today's date is the observation date: use the latest dated
