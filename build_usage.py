@@ -1,87 +1,149 @@
 #!/usr/bin/env python3
-"""Refresh the public, in-game Champions usage snapshot for GitHub Pages."""
+"""Build usage.json from Champions Battle Data's public in-game JSON API.
 
-import gzip
+Keep the existing UI schema; never overwrite the last good snapshot on partial
+or stale upstream responses. Run from the repository root.
+"""
+import concurrent.futures
+import datetime as dt
 import json
 import pathlib
+import re
+import time
+import urllib.error
+import urllib.parse
 import urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parent
-BASE = "https://raw.githubusercontent.com/PizzaTimeJoshua/munchstats/mobile-packs/stats/champions/"
-FORMATS = {"single": "championssingles", "double": "championsdoubles"}
-CATEGORIES = {"moves": "moves_list", "spreads": "spreads_list", "items": "items_list", "abilities": "abilities_list"}
+BASE = "https://championsbattledata.com"
+FORMATS = {"single": "Singles", "double": "Doubles"}
+CATEGORIES = {"move": "moves", "item": "items", "ability": "abilities",
+              "spread": "spreads", "nature": "natures"}
+NATURE_MODIFIERS = {
+    "Adamant": "+Attack / -Sp. Atk", "Bold": "+Defense / -Attack",
+    "Brave": "+Attack / -Speed", "Calm": "+Sp. Def / -Attack",
+    "Careful": "+Sp. Def / -Sp. Atk", "Gentle": "+Sp. Def / -Defense",
+    "Hasty": "+Speed / -Defense", "Impish": "+Defense / -Sp. Atk",
+    "Jolly": "+Speed / -Sp. Atk", "Lax": "+Defense / -Sp. Def",
+    "Lonely": "+Attack / -Defense", "Mild": "+Sp. Atk / -Defense",
+    "Modest": "+Sp. Atk / -Attack", "Naive": "+Speed / -Sp. Def",
+    "Naughty": "+Attack / -Sp. Def", "Quiet": "+Sp. Atk / -Speed",
+    "Rash": "+Sp. Atk / -Sp. Def", "Relaxed": "+Defense / -Speed",
+    "Sassy": "+Sp. Def / -Speed", "Timid": "+Speed / -Attack",
+    "Bashful": "Neutral", "Docile": "Neutral", "Hardy": "Neutral",
+    "Quirky": "Neutral", "Serious": "Neutral",
+}
 
-
-def fetch_pack(format_code):
-    request = urllib.request.Request(BASE + format_code + ".json.gz", headers={"User-Agent": "pokemon-champions-speedline/1.0"})
-    with urllib.request.urlopen(request, timeout=45) as response:
-        pack = json.loads(gzip.decompress(response.read()))
-    if pack.get("format") != format_code or pack.get("category") != "in_game" or pack.get("value_kind") != "rank":
-        raise ValueError(f"Unexpected pack: {format_code}")
-    if len(pack.get("pokemon", {})) < 100:
-        raise ValueError(f"Incomplete pack: {format_code}")
-    return pack
-
-
-def top_ten(entries):
-    result = []
-    for entry in entries or []:
-        if not isinstance(entry, list) or len(entry) < 2 or not entry[0]:
-            continue
+def get_json(path):
+    url = BASE + path
+    last_error = None
+    for attempt in range(3):
         try:
-            percentage = float(str(entry[1]).rstrip("%"))
-        except (TypeError, ValueError):
-            continue
-        if not 0 <= percentage <= 100:
-            continue
-        result.append([str(entry[0]), percentage])
-    return sorted(result, key=lambda row: -row[1])[:10]
+            req = urllib.request.Request(url, headers={
+                "User-Agent": "mz-pokemon-champions-usage/2.0 (community stats cache)",
+                "Accept": "application/json"})
+            with urllib.request.urlopen(req, timeout=25) as response:
+                return json.load(response)
+        except (OSError, ValueError, json.JSONDecodeError) as exc:
+            last_error = exc
+            time.sleep(attempt + 1)
+    raise RuntimeError(f"Could not fetch {url}: {last_error}")
 
-
-def top_natures(entries):
-    """Keep the in-game nature modifier next to the ranked percentage."""
-    result = []
-    for entry in entries or []:
-        if not isinstance(entry, list) or len(entry) < 3 or not entry[0]:
+def parse_rows(payload):
+    if not isinstance(payload, dict) or not isinstance(payload.get("rows"), list):
+        raise ValueError("Missing battle rows")
+    sections = {v: [] for v in CATEGORIES.values()}
+    for row in payload["rows"]:
+        if not isinstance(row, dict):
             continue
+        category = CATEGORIES.get(str(row.get("category", "")).strip().lower())
+        if not category:
+            continue
+        name = str(row.get("name") or "").strip()
         try:
-            percentage = float(str(entry[1]).rstrip("%"))
-        except (TypeError, ValueError):
+            pct = float(str(row.get("percentage_value", row.get("percentage", ""))).rstrip("%"))
+        except (ValueError, TypeError):
             continue
-        modifier = str(entry[2])
-        if not 0 <= percentage <= 100 or not (modifier == "Neutral" or (modifier.startswith("+") and " / -" in modifier)):
+        if not name or not 0 <= pct <= 100:
             continue
-        result.append([str(entry[0]), percentage, modifier])
-    return sorted(result, key=lambda row: -row[1])[:5]
+        if category == "natures":
+            sections[category].append([name, pct, NATURE_MODIFIERS.get(name, "Neutral")])
+        else:
+            sections[category].append([name, pct])
+    for key in sections:
+        sections[key] = sorted(sections[key], key=lambda x: -x[1])[:5 if key == "natures" else 10]
+    return sections
 
+def fetch_pokemon(item):
+    fmt, entry = item
+    name = entry["showdownId"]
+    path = "/api/battle/" + fmt + "/" + urllib.parse.quote(name, safe="")
+    return name, parse_rows(get_json(path))
 
 def main():
-    # Fetch both first; an upstream failure must not overwrite yesterday's usable snapshot.
-    packs = {kind: fetch_pack(code) for kind, code in FORMATS.items()}
-    names = json.loads((ROOT / "usage_names.json").read_text(encoding="utf-8"))
-    output = {"source": "MunchStats · Pokémon Champions in-game Battle Data", "url": "https://www.munchstats.com/about/", "names": names, "formats": {}}
-    for kind, pack in packs.items():
+    previous = json.loads((ROOT / "usage.json").read_text(encoding="utf-8"))
+    index = get_json("/api")
+    entries = index.get("pokemon")
+    if not isinstance(entries, list) or len(entries) < 200:
+        raise ValueError("Index incomplete; preserving old snapshot")
+    names = previous["names"]
+    output = {"source": "Pokémon Champions Battle Data · in-game Battle Data",
+              "url": BASE + "/api_guide", "names": names, "formats": {}}
+    for key, fmt in FORMATS.items():
+        ranking = get_json("/api/rankings?format=" + fmt)
+        ranked = ranking.get("rankings")
+        if not isinstance(ranked, list) or len(ranked) < 200:
+            raise ValueError(f"Rankings incomplete: {fmt}")
+        lookup = {x.get("showdownId"): x for x in entries if isinstance(x, dict)}
+        targets = [(fmt, lookup[x["showdownId"]]) for x in ranked
+                   if isinstance(x, dict) and x.get("showdownId") in lookup]
+        if len(targets) < 200:
+            raise ValueError(f"Too few indexed Pokemon: {fmt}")
         pokemon = {}
-        for name, detail in pack["pokemon"].items():
-            sections = {key: top_ten(detail.get(field)) for key, field in CATEGORIES.items()}
-            sections["natures"] = top_natures(detail.get("natures_list"))
+        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
+            futures = {pool.submit(fetch_pokemon, t): t for t in targets}
+            for future in concurrent.futures.as_completed(futures):
+                ident, sections = future.result()
+                if any(sections.values()):
+                    # Match the old MunchStats key convention (Showdown species names).
+                    entry = lookup[ident]
+                    pokemon[entry.get("showdownName") or entry.get("name") or ident] = sections
+        if len(pokemon) < 200:
+            raise ValueError(f"Incomplete usage data for {fmt}: {len(pokemon)}")
+        for row in ranked:
+            if not isinstance(row, dict):
+                continue
+            name = (lookup.get(row.get("showdownId")) or {}).get("showdownName") or row.get("name")
+            if name in pokemon:
+                pokemon[name]["rank"] = int(row["position"])
+        # Do not claim today's date is the observation date: use the latest dated
+        # upstream snapshot when available, otherwise retain a clear unknown label.
+        sample = get_json("/api/battle/" + fmt + "/garchomp?days=1")
+        daily = sample.get("daily", []) if isinstance(sample, dict) else []
+        observed = daily[0].get("date", "") if daily else ""
+        try:
+            observed = dt.datetime.strptime(observed, "%d_%m_%Y").strftime("%B %d, %Y")
+        except ValueError:
+            observed = "Unknown (current upstream snapshot)"
+        output["formats"][key] = {"updated": observed, "pokemon": pokemon}
+    # Fail closed: never replace with a visibly older dated snapshot.
+    for key in FORMATS:
+        old = previous.get("formats", {}).get(key, {}).get("updated", "")
+        new = output["formats"][key]["updated"]
+        def date(s):
             try:
-                rank = int(str(detail.get("rank", "")).lstrip("#"))
-            except (TypeError, ValueError):
-                rank = 0
-            if rank > 0:
-                sections["rank"] = rank
-            if any(sections.values()):
-                pokemon[name] = sections
-        output["formats"][kind] = {"updated": pack.get("updated", ""), "pokemon": pokemon}
+                return dt.datetime.strptime(s.split(" at ")[0], "%B %d, %Y")
+            except ValueError:
+                return None
+        if date(old) and date(new) and date(new) < date(old):
+            raise ValueError(f"Stale source for {key}: {new} < {old}")
     destination = ROOT / "usage.json"
-    new = json.dumps(output, ensure_ascii=False, separators=(",", ":")) + "\n"
-    if not destination.exists() or destination.read_text(encoding="utf-8") != new:
-        destination.write_text(new, encoding="utf-8")
-        print("Updated", destination, "; singles/doubles:", *(len(output["formats"][x]["pokemon"]) for x in FORMATS))
+    serialized = json.dumps(output, ensure_ascii=False, separators=(",", ":")) + "\n"
+    if destination.read_text(encoding="utf-8") != serialized:
+        destination.write_text(serialized, encoding="utf-8")
+        print("Updated usage data:", [(k, len(v["pokemon"]), v["updated"]) for k, v in output["formats"].items()])
     else:
         print("No new battle data")
-
 
 if __name__ == "__main__":
     main()
