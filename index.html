@@ -7747,7 +7747,7 @@ function renderUsage(){
   const source=usageDialog.querySelector('.usage-source');
   source.append('游戏内 Battle Data · '+(dataset.updated||'采集时间未知')+' · 数据整理：');
   const attribution=document.createElement('a');attribution.href=usageData.url;
-  attribution.target='_blank';attribution.rel='noopener noreferrer';attribution.textContent='MunchStats';
+  attribution.target='_blank';attribution.rel='noopener noreferrer';attribution.textContent=usageData.source||'Battle Data';
   source.append(attribution);
   source.append('。技能、道具说明参考主系列资料；技能数值优先使用冠军赛制数据，实际以游戏内为准。');
   usageNote.hidden=!mega;
