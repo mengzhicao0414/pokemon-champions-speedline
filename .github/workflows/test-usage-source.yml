@@ -1,4 +1,4 @@
-name: Validate new Champions usage source
+name: Validate new Champions usage source and names
 on:
   push:
     branches: [fix/champions-usage-source-20261123]
