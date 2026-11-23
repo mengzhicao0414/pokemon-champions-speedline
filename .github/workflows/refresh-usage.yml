@@ -1,6 +1,11 @@
 name: Refresh Champions battle usage
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/refresh-usage.yml'
+      - 'build_usage.py'
   schedule:
     - cron: '40 3 * * *'
   workflow_dispatch:
