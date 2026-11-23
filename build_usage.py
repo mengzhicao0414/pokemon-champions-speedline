@@ -17,8 +17,8 @@ import urllib.request
 ROOT = pathlib.Path(__file__).resolve().parent
 BASE = "https://championsbattledata.com"
 FORMATS = {"single": "Singles", "double": "Doubles"}
-CATEGORIES = {"move": "moves", "item": "items", "ability": "abilities",
-              "spread": "spreads", "nature": "natures"}
+CATEGORIES = {"move": "moves", "held_item": "items", "ability": "abilities",
+              "stat_points": "spreads", "stat_alignment": "natures"}
 NATURE_MODIFIERS = {
     "Adamant": "+Attack / -Sp. Atk", "Bold": "+Defense / -Attack",
     "Brave": "+Attack / -Speed", "Calm": "+Sp. Def / -Attack",
@@ -60,6 +60,12 @@ def parse_rows(payload):
         if not category:
             continue
         name = str(row.get("name") or "").strip()
+        if category == "spreads":
+            keys = ("hp_points", "attack_points", "defense_points", "sp_atk_points", "sp_def_points", "speed_points")
+            try:
+                name = "/".join(str(int(row[k])) for k in keys)
+            except (ValueError, TypeError, KeyError):
+                continue
         try:
             pct = float(str(row.get("percentage_value", row.get("percentage", ""))).rstrip("%"))
         except (ValueError, TypeError):
