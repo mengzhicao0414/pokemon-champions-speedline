@@ -32,4 +32,21 @@ jobs:
                   assert all(rows[k] for k in ("moves","items","abilities","spreads","natures"))
           PY
       - name: Full snapshot generation (no commit)
-        run: python build_usage.py
+        run: |
+          cp usage.json /tmp/previous_usage.json
+          python build_usage.py
+          python - <<'PY'
+          import json
+          old=json.load(open("/tmp/previous_usage.json"))
+          new=json.load(open("usage.json"))
+          for fmt in ("single","double"):
+              a=set(old["formats"][fmt]["pokemon"])
+              b=set(new["formats"][fmt]["pokemon"])
+              print("COMPAT",fmt,"overlap",len(a&b),"old",len(a),"new",len(b),"missing",sorted(a-b)[:30],flush=True)
+              assert len(a&b)>=245, "Species keys changed unexpectedly"
+              assert len(b)>=250
+              for name,details in new["formats"][fmt]["pokemon"].items():
+                  assert all(details.get(k) for k in ("moves","items","abilities","spreads","natures")), (fmt,name)
+          assert new["names"] == json.load(open("usage_names.json"))
+          print("All usage and multilingual name checks passed")
+          PY
