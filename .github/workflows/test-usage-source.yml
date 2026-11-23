@@ -26,7 +26,8 @@ jobs:
               assert len(ranks.get("rankings",[]))>=200
               for name in ("garchomp","rillaboom","pelipper"):
                   data=build_usage.get_json("/api/battle/"+fmt+"/"+name)
-                  print("SCHEMA",fmt,name,repr(data)[:4500],flush=True)\n                  rows=build_usage.parse_rows(data)
+                  print("SCHEMA",fmt,name,repr(data)[:4500],flush=True)
+                  rows=build_usage.parse_rows(data)
                   print("SAMPLE",fmt,name,{k:len(v) for k,v in rows.items()},rows["moves"][:2])
                   assert rows["moves"] and rows["items"]
           PY
